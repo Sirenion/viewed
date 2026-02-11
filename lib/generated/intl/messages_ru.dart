@@ -22,12 +22,37 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "alreadyHaveAcc": MessageLookupByLibrary.simpleMessage("Уже есть аккаут?"),
     "anime": MessageLookupByLibrary.simpleMessage("Аниме"),
     "auth": MessageLookupByLibrary.simpleMessage("Авторизация"),
+    "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "emptyEmail": MessageLookupByLibrary.simpleMessage(
+      "Необходимо ввести email",
+    ),
+    "emptyPassword": MessageLookupByLibrary.simpleMessage(
+      "Необходимо ввести пароль",
+    ),
+    "exampleEmail": MessageLookupByLibrary.simpleMessage("example@mail.com"),
     "home": MessageLookupByLibrary.simpleMessage("Домой"),
+    "incorrectEmail": MessageLookupByLibrary.simpleMessage("Неверный email"),
+    "incorrectPassword": MessageLookupByLibrary.simpleMessage(
+      "Пароль должен состоять как минимум из 8 символов и содержать как минимум одну заглавную букву, одну строчную букву, одну цифру и один специальный символ",
+    ),
+    "login": MessageLookupByLibrary.simpleMessage("Войти"),
+    "loginToContinue": MessageLookupByLibrary.simpleMessage(
+      "Войдите, чтобы продолжить",
+    ),
+    "logout": MessageLookupByLibrary.simpleMessage("Выйти"),
     "movies": MessageLookupByLibrary.simpleMessage("Фильмы"),
+    "noAcc": MessageLookupByLibrary.simpleMessage("Нет аккаунта?"),
+    "password": MessageLookupByLibrary.simpleMessage("Пароль"),
     "profile": MessageLookupByLibrary.simpleMessage("Профиль"),
     "reg": MessageLookupByLibrary.simpleMessage("Регистрация"),
+    "regToStart": MessageLookupByLibrary.simpleMessage(
+      "Создайте аккаунт, чтобы начать работу",
+    ),
+    "register": MessageLookupByLibrary.simpleMessage("Зарегистрироваться"),
+    "registration": MessageLookupByLibrary.simpleMessage("Регистрация"),
     "tvSeries": MessageLookupByLibrary.simpleMessage("Сериалы"),
     "viewed": MessageLookupByLibrary.simpleMessage("Просмотрено"),
   };

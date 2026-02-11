@@ -64,6 +64,56 @@ class S {
     return Intl.message('Авторизация', name: 'auth', desc: '', args: []);
   }
 
+  /// `Войти`
+  String get login {
+    return Intl.message('Войти', name: 'login', desc: '', args: []);
+  }
+
+  /// `Нет аккаунта?`
+  String get noAcc {
+    return Intl.message('Нет аккаунта?', name: 'noAcc', desc: '', args: []);
+  }
+
+  /// `Регистрация`
+  String get registration {
+    return Intl.message(
+      'Регистрация',
+      name: 'registration',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Создайте аккаунт, чтобы начать работу`
+  String get regToStart {
+    return Intl.message(
+      'Создайте аккаунт, чтобы начать работу',
+      name: 'regToStart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Зарегистрироваться`
+  String get register {
+    return Intl.message(
+      'Зарегистрироваться',
+      name: 'register',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Уже есть аккаут?`
+  String get alreadyHaveAcc {
+    return Intl.message(
+      'Уже есть аккаут?',
+      name: 'alreadyHaveAcc',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Регистрация`
   String get reg {
     return Intl.message('Регистрация', name: 'reg', desc: '', args: []);
@@ -92,6 +142,81 @@ class S {
   /// `Профиль`
   String get profile {
     return Intl.message('Профиль', name: 'profile', desc: '', args: []);
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message('Email', name: 'email', desc: '', args: []);
+  }
+
+  /// `Пароль`
+  String get password {
+    return Intl.message('Пароль', name: 'password', desc: '', args: []);
+  }
+
+  /// `example@mail.com`
+  String get exampleEmail {
+    return Intl.message(
+      'example@mail.com',
+      name: 'exampleEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Необходимо ввести email`
+  String get emptyEmail {
+    return Intl.message(
+      'Необходимо ввести email',
+      name: 'emptyEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Неверный email`
+  String get incorrectEmail {
+    return Intl.message(
+      'Неверный email',
+      name: 'incorrectEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Необходимо ввести пароль`
+  String get emptyPassword {
+    return Intl.message(
+      'Необходимо ввести пароль',
+      name: 'emptyPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Пароль должен состоять как минимум из 8 символов и содержать как минимум одну заглавную букву, одну строчную букву, одну цифру и один специальный символ`
+  String get incorrectPassword {
+    return Intl.message(
+      'Пароль должен состоять как минимум из 8 символов и содержать как минимум одну заглавную букву, одну строчную букву, одну цифру и один специальный символ',
+      name: 'incorrectPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Войдите, чтобы продолжить`
+  String get loginToContinue {
+    return Intl.message(
+      'Войдите, чтобы продолжить',
+      name: 'loginToContinue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Выйти`
+  String get logout {
+    return Intl.message('Выйти', name: 'logout', desc: '', args: []);
   }
 }
 

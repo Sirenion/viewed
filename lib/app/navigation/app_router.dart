@@ -1,26 +1,31 @@
-import 'dart:async';
-import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:viewed/app/app_state/auth_cubit.dart';
+import 'package:viewed/app/navigation/go_router_refresh_stream.dart';
 import 'package:viewed/app/navigation/routes/app_routes.dart';
-import 'package:viewed/domain/auth_service.dart';
-import 'package:viewed/presentation/anime/anime_page.dart';
+import 'package:viewed/presentation/auth/controller/login_cubit.dart';
+import 'package:viewed/presentation/auth/controller/register_cubit.dart';
+import 'package:viewed/presentation/lists/anime_page.dart';
 import 'package:viewed/presentation/auth/login_page.dart';
 import 'package:viewed/presentation/auth/register_page.dart';
 import 'package:viewed/presentation/home_page.dart';
 import 'package:viewed/presentation/home_shell.dart';
-import 'package:viewed/presentation/movies/movies_page.dart';
+import 'package:viewed/presentation/lists/movies_page.dart';
 import 'package:viewed/presentation/profile/profile_page.dart';
-import 'package:viewed/presentation/tv_series/tv_page.dart';
+import 'package:viewed/presentation/lists/tv_page.dart';
 
-GoRouter createRouter({required AuthService authService}) {
+GoRouter createRouter(AuthCubit authCubit) {
   final appRoutes = AppRoutes();
 
   return GoRouter(
     initialLocation: appRoutes.login.routePath,
-    refreshListenable: GoRouterRefreshStream(authService.authStateChanged),
+    refreshListenable: GoRouterRefreshStream(authCubit.authStateChanges),
     redirect: (context, state) {
       final fullPath = state.uri.path;
-      final isAuthenticated = authService.isAuthenticated;
+
+      final authState = authCubit.state;
+
+      final isAuthenticated = authState.isAuthenticated;
 
       final isAuthPath = fullPath.startsWith(appRoutes.login.routePath);
 
@@ -36,14 +41,26 @@ GoRouter createRouter({required AuthService authService}) {
         name: appRoutes.login.routeName,
         path: appRoutes.login.relativePath,
         builder: (context, state) {
-          return LoginPage(route: appRoutes.login);
+          return BlocProvider(
+            create: (context) => LoginCubit(
+              loginWithEmailAndPassword: (String email, String password) =>
+                  authCubit.signInWithEmailAndPassword(email, password),
+            ),
+            child: LoginPage(route: appRoutes.login),
+          );
         },
         routes: [
           GoRoute(
             name: appRoutes.login.register.routeName,
             path: appRoutes.login.register.relativePath,
             builder: (context, state) {
-              return const RegisterPage();
+              return BlocProvider(
+                create: (context) => RegisterCubit(
+                  registerWithEmailAndPassword: (String email, String password) =>
+                      authCubit.registerWithEmailAndPassword(email, password),
+                ),
+                child: const RegisterPage(),
+              );
             },
           ),
         ],
@@ -111,18 +128,4 @@ GoRouter createRouter({required AuthService authService}) {
       ),
     ],
   );
-}
-
-class GoRouterRefreshStream extends ChangeNotifier {
-  late final StreamSubscription<dynamic> _subscription;
-
-  GoRouterRefreshStream(Stream<dynamic> stream) {
-    _subscription = stream.listen((_) => notifyListeners());
-  }
-
-  @override
-  void dispose() {
-    _subscription.cancel();
-    super.dispose();
-  }
 }

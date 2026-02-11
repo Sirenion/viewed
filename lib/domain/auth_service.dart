@@ -1,13 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 abstract interface class AuthService {
-  bool get isAuthenticated;
-
   User? get currentUser;
 
   Stream<User?> get userStream;
-
-  Stream<bool> get authStateChanged;
 
   Future<void> signInWithEmailAndPassword(String email, String password);
 
@@ -22,16 +18,10 @@ final class AuthServiceImpl implements AuthService {
   AuthServiceImpl({required FirebaseAuth firebaseAuth}) : _firebaseAuth = firebaseAuth;
 
   @override
-  Stream<User?> get userStream => _firebaseAuth.userChanges();
-
-  @override
-  Stream<bool> get authStateChanged => userStream.map((e) => e != null);
+  Stream<User?> get userStream => _firebaseAuth.authStateChanges();
 
   @override
   User? get currentUser => _firebaseAuth.currentUser;
-
-  @override
-  bool get isAuthenticated => currentUser != null;
 
   @override
   Future<UserCredential> registerWithEmailAndPassword(String email, String password) async {
