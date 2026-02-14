@@ -4,11 +4,12 @@ import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:viewed/app/app_state/state/state.dart';
 import 'package:viewed/domain/auth_service.dart';
+import 'package:viewed/domain/entity/entities.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   final AuthService _authService;
 
-  late final StreamSubscription<User?> _authStateChangesSubscription;
+  late final StreamSubscription<UserEntity?> _authStateChangesSubscription;
 
   Stream<bool> get authStateChanges => stream.map((user) => user.isAuthenticated);
 

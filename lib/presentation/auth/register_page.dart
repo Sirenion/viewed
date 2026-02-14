@@ -25,11 +25,8 @@ class RegisterPage extends StatelessWidget {
       listener: (context, state) {
         final registerState = state.registerState;
         registerState.whenOrNull(
-          error: (error) {
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(error.toString())));
-            });
-          },
+          error: (error) =>
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(error.toString()))),
         );
       },
       child: Scaffold(

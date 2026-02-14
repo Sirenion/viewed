@@ -34,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "exampleEmail": MessageLookupByLibrary.simpleMessage("example@mail.com"),
     "home": MessageLookupByLibrary.simpleMessage("Домой"),
+    "inProcess": MessageLookupByLibrary.simpleMessage("В процессе"),
     "incorrectEmail": MessageLookupByLibrary.simpleMessage("Неверный email"),
     "incorrectPassword": MessageLookupByLibrary.simpleMessage(
       "Пароль должен состоять как минимум из 8 символов и содержать как минимум одну заглавную букву, одну строчную букву, одну цифру и один специальный символ",
@@ -46,6 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "movies": MessageLookupByLibrary.simpleMessage("Фильмы"),
     "noAcc": MessageLookupByLibrary.simpleMessage("Нет аккаунта?"),
     "password": MessageLookupByLibrary.simpleMessage("Пароль"),
+    "planned": MessageLookupByLibrary.simpleMessage("Запланировано"),
     "profile": MessageLookupByLibrary.simpleMessage("Профиль"),
     "reg": MessageLookupByLibrary.simpleMessage("Регистрация"),
     "regToStart": MessageLookupByLibrary.simpleMessage(

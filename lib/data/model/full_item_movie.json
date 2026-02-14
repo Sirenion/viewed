@@ -1,0 +1,1559 @@
+{
+  "fees": {
+    "world": {
+      "value": 736546575,
+      "currency": "$"
+    },
+    "russia": {
+      "value": 26192066,
+      "currency": "$"
+    },
+    "usa": {
+      "value": 192445017,
+      "currency": "$"
+    }
+  },
+  "status": null,
+  "externalId": {
+    "kpHD": "4b6323adfb04e652a9b88f6096d01ae9",
+    "imdb": "tt0816692",
+    "tmdb": 157336
+  },
+  "rating": {
+    "kp": 8.671,
+    "imdb": 8.7,
+    "filmCritics": 7.2,
+    "russianFilmCritics": 80.6452,
+    "await": null
+  },
+  "votes": {
+    "kp": 1122717,
+    "imdb": 2439991,
+    "filmCritics": 374,
+    "russianFilmCritics": 31,
+    "await": 0
+  },
+  "backdrop": {
+    "url": "https://image.tmdb.org/t/p/original/5XNQBqnBwPA9yT0jZ0p3s8bbLh0.jpg",
+    "previewUrl": "https://image.tmdb.org/t/p/w500/5XNQBqnBwPA9yT0jZ0p3s8bbLh0.jpg"
+  },
+  "movieLength": 169,
+  "images": {
+    "postersCount": 67,
+    "backdropsCount": 28,
+    "framesCount": 71
+  },
+  "productionCompanies": [
+    {
+      "name": "Legendary Pictures",
+      "url": "https://www.themoviedb.org/t/p/original/5UQsZrfbfG2dYJbx8DxfoTr2Bvu.png",
+      "previewUrl": "https://www.themoviedb.org/t/p/w500/5UQsZrfbfG2dYJbx8DxfoTr2Bvu.png"
+    },
+    {
+      "name": "Syncopy",
+      "url": "https://www.themoviedb.org/t/p/original/3tvBqYsBhxWeHlu62SIJ1el93O7.png",
+      "previewUrl": "https://www.themoviedb.org/t/p/w500/3tvBqYsBhxWeHlu62SIJ1el93O7.png"
+    },
+    {
+      "name": "Lynda Obst Productions",
+      "url": null,
+      "previewUrl": null
+    }
+  ],
+  "spokenLanguages": [
+    {
+      "name": "English",
+      "nameEn": "English"
+    }
+  ],
+  "id": 258687,
+  "type": "movie",
+  "name": "Интерстеллар",
+  "description": "Когда засуха, пыльные бури и вымирание растений приводят человечество к продовольственному кризису, коллектив исследователей и учёных отправляется сквозь червоточину (которая предположительно соединяет области пространства-времени через большое расстояние) в путешествие, чтобы превзойти прежние ограничения для космических путешествий человека и найти планету с подходящими для человечества условиями.",
+  "distributors": {
+    "distributor": "Каро-Премьер",
+    "distributorRelease": "CP Дистрибуция"
+  },
+  "premiere": {
+    "world": "2014-10-26T00:00:00.000Z",
+    "russia": "2014-11-06T00:00:00.000Z",
+    "bluray": "2015-04-09T00:00:00.000Z",
+    "dvd": "2015-04-09T00:00:00.000Z",
+    "cinema": null,
+    "digital": null
+  },
+  "slogan": "«Следующий шаг человечества станет величайшим»",
+  "year": 2014,
+  "budget": {
+    "value": 165000000,
+    "currency": "$"
+  },
+  "poster": {
+    "url": "https://avatars.mds.yandex.net/get-kinopoisk-image/1600647/430042eb-ee69-4818-aed0-a312400a26bf/600x900",
+    "previewUrl": "https://avatars.mds.yandex.net/get-kinopoisk-image/1600647/430042eb-ee69-4818-aed0-a312400a26bf/300x450"
+  },
+  "facts": [
+    {
+      "value": "<a href=\"/name/22260/\" class=\"all\">Стивен Спилберг</a> был прикреплен к проекту с 2006 года и нанял <a href=\"/name/55539/\" class=\"all\">Джонатана Нолана</a> писать сценарий, но отложил работу и занялся другими фильмами. В 2012, после ухода Спилберга, Джонатан Нолан предложил нанять своего брата <a href=\"/name/41477/\" class=\"all\">Кристофера Нолана</a> в качестве режиссера.",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "Когда <a href=\"/name/22260/\" class=\"all\">Спилберг</a> ещё был прикреплен к проекту в качестве режиссёра, он собирался снимать в главной роли <a href=\"/name/513/\" class=\"all\">Уилла Смита</a>. Позже, после ухода Спилберга с поста режиссёра, роль отошла <a href=\"/name/797/\" class=\"all\">Мэттью Макконахи</a>.",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "Это первый фильм <a href=\"/name/41477/\" class=\"all\">Кристофера Нолана</a>, начиная с фильма &laquo;<a href=\"/film/8350/\" class=\"all\">Преследование</a>&raquo; (1998), снятый без оператора <a href=\"/name/608613/\" class=\"all\">Уолли Пфистера</a>. Вместо Пфистера Нолан нанял оператора <a href=\"/name/758887/\" class=\"all\">Хойте Ван Хойтема</a>.",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "Фильмом изначально занималась студия Paramount. Когда <a href=\"/name/41477/\" class=\"all\">Кристофер Нолан</a> занял место режиссера, студия Warner Bros., которая выпускала его последние фильмы, добилась участия в проекте. В обмен на права по международной дистрибуции, студия Warner Bros. дала студии Paramount права на софинансирование будущих продолжений фильмов &laquo;<a href=\"/film/251790/\" class=\"all\">Пятница 13-е</a>&raquo; (2009) и &laquo;<a href=\"/film/2407/\" class=\"all\">Южный Парк: Большой, длинный, необрезанный</a>&raquo; (1999).",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "<a href=\"/name/74051/\" class=\"all\">Ирфану Кхану</a> была предложена роль в фильме, но он отказался из-за несогласованности расписаний съемок.",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "<a href=\"/name/41477/\" class=\"all\">Кристофер Нолан</a> выбрал на роль Купера <a href=\"/name/797/\" class=\"all\">Мэттью Макконахи</a> после того, как увидел его игру в фильме &laquo;<a href=\"/film/602544/\" class=\"all\">Мад</a>&raquo; (2012).",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "Чтобы предложить <a href=\"/name/1111242/\" class=\"all\">Джессике Честейн</a> роль, <a href=\"/name/41477/\" class=\"all\">Кристофер Нолан</a> послал помощника в Ирландию, где она на тот момент снималась в фильме &laquo;<a href=\"/film/734323/\" class=\"all\">Фрёкен Юлия</a>&raquo; (2014), со сценарием, помеченным водяными знаками с именем актрисы. Честейн не разрешили оставить себе сценарий, после того как она его прочитала.",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "Некоторые &laquo;архивные кадры&raquo;, которые можно увидеть в трейлере, на самом деле были сняты при создании этого фильма, а затем обработаны при помощи визуальных эффектов, чтобы они казались более старыми.",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "Фильм был снят под вымышленным названием &laquo;Письмо Флоры&raquo;. Это название было выбрано в честь дочери <a href=\"/name/41477/\" class=\"all\">Кристофера Нолана</a>, которую зовут Флора.",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "Сценарий основан на научных работах физика-теоретика <a href=\"/name/435723/\" class=\"all\">Кипа Торна</a>.",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "В раннем черновом варианте сценария персонаж Тины был мальчиком по имени Мерф.",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "Пленочная версия фильма демонстрировалась в сети IMAX по всему миру лишь на 50 экранах.",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "Во время съёмок <a href=\"/name/797/\" class=\"all\">Мэттью Макконахи</a> предпочёл не номер в отеле, а трейлер в непосредственной близости от дома, где жил его персонаж.",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "На создание описываемой в фильме апокалиптической обстановки на Земле <a href=\"/name/41477/\" class=\"all\">Кристофера Нолана</a> вдохновила серия катастрофических пыльных бурь, происходивших в США в 1930-е.",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "Во время съемок фильма изображение окружающей среды, созданное заранее, проецировалось на экраны, расположенные вокруг съемочной площадки, чтобы актеры, смотря в окна космического корабля, видели реальную картинку, а не зеленый экран.",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "<a href=\"/name/41477/\" class=\"all\">Кристофер Нолан</a> отметил, что при создании &#171;Интерстеллара&#187; он черпал вдохновение из таких фильмов как: <ul><li>&#171;<a href=\"/film/380/\" class=\"all\">2001 год: Космическая одиссея</a>&#187; (1968),</li> <li>&#171;<a href=\"/film/333/\" class=\"all\">Звездные войны: Эпизод 4 &#8211; Новая надежда</a>&#187; (1977),</li> <li>&#171;<a href=\"/film/552/\" class=\"all\">Близкие контакты третьей степени</a>&#187; (1977),</li> <li>&#171;<a href=\"/film/393/\" class=\"all\">Сокровища Сьерра Мадре</a>&#187; (1947),</li> <li>&#171;<a href=\"/film/503/\" class=\"all\">Парни что надо</a>&#187; (1983),</li> <li>&#171;<a href=\"/film/386/\" class=\"all\">Чужoй</a>&#187; (1979),</li> <li>&#171;<a href=\"/film/403/\" class=\"all\">Бегущий по лезвию</a>&#187; (1982).</li></ul>",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "Перед началом съемок <a href=\"/name/41477/\" class=\"all\">Кристофер Нолан</a> устроил для актеров просмотр фильма &#171;<a href=\"/film/503/\" class=\"all\">Парни что надо</a>&#187; (1983), чтобы помочь им лучше понять свои роли в фильме.",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "Способ перемещения в космосе в этом фильме основан на работах физика <a href=\"/name/435723/\" class=\"all\">Кипа Торна</a>. На этих же работах основывался способ перемещения в космосе в романе <a href=\"/name/75294/\" class=\"all\">Карла Сагана</a> &#171;Контакт&#187; (Contact) и его экранизации &#8211; фильме &#171;<a href=\"/film/1950/\" class=\"all\">Контакт</a>&#187; (1997).",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "Оператор <a href=\"/name/758887/\" class=\"all\">Хойте Ван Хойтема</a> переоборудовал камеру IMAX, чтобы можно было с рук снимать на нее сцены в помещениях.",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "Для создания некоторых космических сцен использовались кадры, которые были сняты на камеру IMAX, установленную на носовой обтекатель самолета Learjet.",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "Начиная с 2014-го года студия Paramount Pictures стала отказываться от выпуска фильмов на традиционной пленке в пользу цифровых форматов. Однако <a href=\"/name/41477/\" class=\"all\">Кристофер Нолан</a>, который является ярым сторонником использования пленки, настоял на том, чтобы &#171;Интерстеллар&#187; (2014) был выпущен также в форматах 15/70мм IMAX, 70мм и 35мм, и демонстрировался в этих форматах целых два дня перед цифровым релизом.",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "Для создания пространственно-временного туннеля и черной дыры доктор <a href=\"/name/435723/\" class=\"all\">Кип Торн</a> работал вместе с супервайзером визуальных эффектов <a href=\"/name/2396535/\" class=\"all\">Полом Дж. Франклином</a> и его командой в Double Negative. Торн предоставил теоретические материалы команде, которая затем создала по ним новые компьютерные программы, точно моделирующие эти явления. На обработку некоторых отдельных кадров уходило по 100 часов. Весь объем данных программы по компьютерной графике составил 800 терабайт. Результат проделанной работы дал Торну новый взгляд на эффект гравитационного линзирования и аккреционные диски черной дыры. Это подтолкнуло его к написанию двух научных работ: одной — в области астрофизики, а другой — в области компьютерной графики. Также Торн открыл для себя новые особенности поведения света вблизи горизонта событий черной дыры.",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "Облака пыли были созданы при помощи больших вентиляторов, раздувающих в воздухе синтетическую пыль на основе целлюлозы.",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "Часто цитируемые в фильме строки, которые начинаются с &#171;Не уходи смиренно в сумрак вечной тьмы&#187; (Do not go gentle into that good night), взяты из стихотворения <a href=\"/name/153440/\" class=\"all\">Дилана Томаса</a>.",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "Чтобы получить вдохновение для реального космического путешествия <a href=\"/name/41477/\" class=\"all\">Кристофер Нолан</a> пригласил на съемочную площадку бывшего астронавта <a href=\"/name/490268/\" class=\"all\">Маршу Айвинс</a>.",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "При проектировании зданий в фильме создатели вдохновлялись работами архитектора-модерниста <a href=\"/name/2214214/\" class=\"all\">Людвига Миса ван дер Роэ</a>.",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "Сцена с объяснением с помощью листа бумаги принципа перемещения в пространстве является копией сцены из фильма &laquo;<a href=\"/film/3728/\" class=\"all\">Сквозь горизонт</a>&raquo; (1997).",
+      "type": "FACT",
+      "spoiler": false
+    },
+    {
+      "value": "В одной из сцен <a href=\"/name/38703/\" class=\"all\">Энн Хэтэуэй</a> должна была погрузиться в ледяную воду (съёмки проходили в Исландии). Её скафандр дал течь, и после нескольких часов съёмок Энн не была уверена, что чувствует пальцы ног.",
+      "type": "FACT",
+      "spoiler": true
+    },
+    {
+      "value": "В начале фильма герой МакКонахи бросает монету на самый конец пыльной дорожки, в следующем кадре монета находится на ее середине.",
+      "type": "BLOOPER",
+      "spoiler": true
+    },
+    {
+      "value": "Когда Купер успокаивает дочь, цепочка на её шее меняет положение: она то под майкой, то на ней, в зависимости от ракурса.",
+      "type": "BLOOPER",
+      "spoiler": true
+    },
+    {
+      "value": "В одной из сцен фильма, перед тем как главный герой дарит дочери наручные часы, он обнимает её рукой, на которой эти часы надеты, и видно расположение стрелок на циферблате. В следующем кадре, когда происходит вручение этих же часов, стрелки уже совсем в другом месте, хотя промежуток времени прошёл совсем незначительный.",
+      "type": "BLOOPER",
+      "spoiler": true
+    },
+    {
+      "value": "На ледяной планете Манн сталкивает Купера с обрыва, но в следующих сценах их драки, местность просто холмистая, никакого обрыва нет.",
+      "type": "BLOOPER",
+      "spoiler": true
+    },
+    {
+      "value": "В сцене, где доктор Манн, состыковавшись с &laquo;Endurance&raquo;, пытается проникнуть внутрь корабля, он находится в стыковочном шлюзе, соединяющем два модуля. Учитывая конструкцию корабля, Манн должен был пытаться открыть дверь ведущую вправо или влево. Однако, вместо этого он открывал дверь прямо перед собой, которая, видимо, вела в открытый космос.",
+      "type": "BLOOPER",
+      "spoiler": true
+    },
+    {
+      "value": "Схема посадки на водяную планету, нарисованная Купом, к концу эпизода выглядит по-другому (круг шире).",
+      "type": "BLOOPER",
+      "spoiler": true
+    }
+  ],
+  "genres": [
+    {
+      "name": "фантастика"
+    },
+    {
+      "name": "драма"
+    },
+    {
+      "name": "приключения"
+    }
+  ],
+  "countries": [
+    {
+      "name": "США"
+    },
+    {
+      "name": "Великобритания"
+    },
+    {
+      "name": "Канада"
+    }
+  ],
+  "seasonsInfo": [],
+  "persons": [
+    {
+      "id": 797,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_797.jpg",
+      "name": "Мэттью Макконахи",
+      "enName": "Matthew McConaughey",
+      "description": "Cooper",
+      "profession": "актеры",
+      "enProfession": "actor"
+    },
+    {
+      "id": 38703,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_38703.jpg",
+      "name": "Энн Хэтэуэй",
+      "enName": "Anne Hathaway",
+      "description": "Brand",
+      "profession": "актеры",
+      "enProfession": "actor"
+    },
+    {
+      "id": 1111242,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_1111242.jpg",
+      "name": "Джессика Честейн",
+      "enName": "Jessica Chastain",
+      "description": "Murph",
+      "profession": "актеры",
+      "enProfession": "actor"
+    },
+    {
+      "id": 2007922,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_2007922.jpg",
+      "name": "Маккензи Фой",
+      "enName": "Mackenzie Foy",
+      "description": "Murph (10 Yrs.)",
+      "profession": "актеры",
+      "enProfession": "actor"
+    },
+    {
+      "id": 3711,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_3711.jpg",
+      "name": "Майкл Кейн",
+      "enName": "Michael Caine",
+      "description": "Professor Brand",
+      "profession": "актеры",
+      "enProfession": "actor"
+    },
+    {
+      "id": 34831,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_34831.jpg",
+      "name": "Дэвид Джеси",
+      "enName": "David Gyasi",
+      "description": "Romilly",
+      "profession": "актеры",
+      "enProfession": "actor"
+    },
+    {
+      "id": 3,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_3.jpg",
+      "name": "Уэс Бентли",
+      "enName": "Wes Bentley",
+      "description": "Doyle",
+      "profession": "актеры",
+      "enProfession": "actor"
+    },
+    {
+      "id": 4,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_4.jpg",
+      "name": "Кейси Аффлек",
+      "enName": "Casey Affleck",
+      "description": "Tom",
+      "profession": "актеры",
+      "enProfession": "actor"
+    },
+    {
+      "id": 8837,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_8837.jpg",
+      "name": "Джон Литгоу",
+      "enName": "John Lithgow",
+      "description": "Donald",
+      "profession": "актеры",
+      "enProfession": "actor"
+    },
+    {
+      "id": 6458,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_6458.jpg",
+      "name": "Мэтт Дэймон",
+      "enName": "Matt Damon",
+      "description": "Mann",
+      "profession": "актеры",
+      "enProfession": "actor"
+    },
+    {
+      "id": 50590,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_50590.jpg",
+      "name": "Ханс Циммер",
+      "enName": "Hans Zimmer",
+      "description": null,
+      "profession": "композиторы",
+      "enProfession": "composer"
+    },
+    {
+      "id": 1642584,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_1642584.jpg",
+      "name": "Нэйтан Краули",
+      "enName": "Nathan Crowley",
+      "description": null,
+      "profession": "художники",
+      "enProfession": "designer"
+    },
+    {
+      "id": 1987056,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_1987056.jpg",
+      "name": "Кенделл Эллиотт",
+      "enName": "Kendelle Elliott",
+      "description": null,
+      "profession": "художники",
+      "enProfession": "designer"
+    },
+    {
+      "id": 1623430,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_1623430.jpg",
+      "name": "Эггерт Кетилссон",
+      "enName": "Eggert Ketilsson",
+      "description": null,
+      "profession": "художники",
+      "enProfession": "designer"
+    },
+    {
+      "id": 1986604,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_1986604.jpg",
+      "name": "Дэвид Ф. Классен",
+      "enName": "David F. Klassen",
+      "description": null,
+      "profession": "художники",
+      "enProfession": "designer"
+    },
+    {
+      "id": 3490096,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_3490096.jpg",
+      "name": "Джош Ласби",
+      "enName": "Josh Lusby",
+      "description": null,
+      "profession": "художники",
+      "enProfession": "designer"
+    },
+    {
+      "id": 3671623,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_3671623.jpg",
+      "name": null,
+      "enName": "Agata Maliauka",
+      "description": null,
+      "profession": "художники",
+      "enProfession": "designer"
+    },
+    {
+      "id": 2010855,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_2010855.jpg",
+      "name": "Эрик Сандаль",
+      "enName": "Eric Sundahl",
+      "description": null,
+      "profession": "художники",
+      "enProfession": "designer"
+    },
+    {
+      "id": 1986015,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_1986015.jpg",
+      "name": "Дин Уолкотт",
+      "enName": "Dean Wolcott",
+      "description": null,
+      "profession": "художники",
+      "enProfession": "designer"
+    },
+    {
+      "id": 1529219,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_1529219.jpg",
+      "name": "Мэри Зофрис",
+      "enName": "Mary Zophres",
+      "description": null,
+      "profession": "художники",
+      "enProfession": "designer"
+    },
+    {
+      "id": 1986331,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_1986331.jpg",
+      "name": "Гари Феттис",
+      "enName": "Gary Fettis",
+      "description": null,
+      "profession": "художники",
+      "enProfession": "designer"
+    },
+    {
+      "id": 3470765,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_3470765.jpg",
+      "name": null,
+      "enName": "Helen Kozora",
+      "description": null,
+      "profession": "художники",
+      "enProfession": "designer"
+    },
+    {
+      "id": 41477,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_41477.jpg",
+      "name": "Кристофер Нолан",
+      "enName": "Christopher Nolan",
+      "description": null,
+      "profession": "режиссеры",
+      "enProfession": "director"
+    },
+    {
+      "id": 2354627,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_2354627.jpg",
+      "name": "Ли Смит",
+      "enName": "Lee Smith",
+      "description": null,
+      "profession": "монтажеры",
+      "enProfession": "editor"
+    },
+    {
+      "id": 758887,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_758887.jpg",
+      "name": "Хойте Ван Хойтема",
+      "enName": "Hoyte van Hoytema",
+      "description": null,
+      "profession": "операторы",
+      "enProfession": "operator"
+    },
+    {
+      "id": 41477,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_41477.jpg",
+      "name": "Кристофер Нолан",
+      "enName": "Christopher Nolan",
+      "description": null,
+      "profession": "продюсеры",
+      "enProfession": "producer"
+    },
+    {
+      "id": 31741,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_31741.jpg",
+      "name": "Линда Обст",
+      "enName": "Lynda Obst",
+      "description": null,
+      "profession": "продюсеры",
+      "enProfession": "producer"
+    },
+    {
+      "id": 41489,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_41489.jpg",
+      "name": "Эмма Томас",
+      "enName": "Emma Thomas",
+      "description": null,
+      "profession": "продюсеры",
+      "enProfession": "producer"
+    },
+    {
+      "id": 2262935,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_2262935.jpg",
+      "name": "Каари Отри",
+      "enName": "Kaari Autry",
+      "description": null,
+      "profession": "продюсеры",
+      "enProfession": "producer"
+    },
+    {
+      "id": 1078858,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_1078858.jpg",
+      "name": "Василий Дахненко",
+      "enName": null,
+      "description": null,
+      "profession": "актеры дубляжа",
+      "enProfession": "voice_actor"
+    },
+    {
+      "id": 1663494,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_1663494.jpg",
+      "name": "Марьяна Спивак",
+      "enName": null,
+      "description": null,
+      "profession": "актеры дубляжа",
+      "enProfession": "voice_actor"
+    },
+    {
+      "id": 1824212,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_1824212.jpg",
+      "name": "Наталья Грачёва",
+      "enName": null,
+      "description": null,
+      "profession": "актеры дубляжа",
+      "enProfession": "voice_actor"
+    },
+    {
+      "id": 2531039,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_2531039.jpg",
+      "name": "Анна Драгилева",
+      "enName": null,
+      "description": null,
+      "profession": "актеры дубляжа",
+      "enProfession": "voice_actor"
+    },
+    {
+      "id": 193823,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_193823.jpg",
+      "name": "Борис Быстров",
+      "enName": null,
+      "description": null,
+      "profession": "актеры дубляжа",
+      "enProfession": "voice_actor"
+    },
+    {
+      "id": 55539,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_55539.jpg",
+      "name": "Джонатан Нолан",
+      "enName": "Jonathan Nolan",
+      "description": null,
+      "profession": "сценаристы",
+      "enProfession": "writer"
+    },
+    {
+      "id": 41477,
+      "photo": "https://st.kp.yandex.net/images/actor_iphone/iphone360_41477.jpg",
+      "name": "Кристофер Нолан",
+      "enName": "Christopher Nolan",
+      "description": null,
+      "profession": "сценаристы",
+      "enProfession": "writer"
+    },
+    {
+      "id": 1826829,
+      "name": null,
+      "enName": "Антон Морозов",
+      "profession": "актеры дубляжа",
+      "enProfession": "voice_actor"
+    },
+    {
+      "id": 313331,
+      "name": null,
+      "enName": "Александр Воеводин",
+      "profession": "актеры дубляжа",
+      "enProfession": "voice_actor"
+    },
+    {
+      "id": 3023832,
+      "name": null,
+      "enName": "Иван Калинин",
+      "profession": "актеры дубляжа",
+      "enProfession": "voice_actor"
+    },
+    {
+      "enProfession": "voice_actor",
+      "id": 290301,
+      "name": null,
+      "enName": "Александра Назарова",
+      "profession": "актеры дубляжа"
+    },
+    {
+      "enName": "Алексей Рязанцев",
+      "profession": "актеры дубляжа",
+      "enProfession": "voice_actor",
+      "id": 1616606,
+      "name": null
+    },
+    {
+      "id": 1921569,
+      "name": null,
+      "enName": "Иван Жарков",
+      "profession": "актеры дубляжа",
+      "enProfession": "voice_actor"
+    },
+    {
+      "name": null,
+      "enName": "Мария Фортунатова",
+      "id": 2909785,
+      "profession": "актеры дубляжа",
+      "enProfession": "voice_actor"
+    },
+    {
+      "id": 1203447,
+      "name": null,
+      "enName": "Андрей Вальц",
+      "profession": "актеры дубляжа",
+      "enProfession": "voice_actor"
+    },
+    {
+      "id": 1079073,
+      "name": null,
+      "enName": "Андрей Бархударов",
+      "profession": "актеры дубляжа",
+      "enProfession": "voice_actor"
+    },
+    {
+      "id": 2460344,
+      "name": null,
+      "enName": "Фёдор Дахненко",
+      "profession": "актеры дубляжа",
+      "enProfession": "voice_actor"
+    },
+    {
+      "enProfession": "voice_actor",
+      "id": 1079237,
+      "name": null,
+      "enName": "Юрий Сазонов",
+      "profession": "актеры дубляжа"
+    },
+    {
+      "name": null,
+      "enName": "Максим Шишков",
+      "profession": "актеры дубляжа",
+      "enProfession": "voice_actor",
+      "id": 1621697
+    },
+    {
+      "enProfession": "voice_actor",
+      "id": 1657902,
+      "name": null,
+      "enName": "Кирилл Продолятченко",
+      "profession": "актеры дубляжа"
+    },
+    {
+      "enProfession": "voice_actor",
+      "id": 325814,
+      "name": null,
+      "enName": "Рудольф Панков",
+      "profession": "актеры дубляжа"
+    },
+    {
+      "id": 590562,
+      "name": null,
+      "enName": "Олег Форостенко",
+      "profession": "актеры дубляжа",
+      "enProfession": "voice_actor"
+    },
+    {
+      "enProfession": "voice_actor",
+      "id": 1348569,
+      "name": null,
+      "enName": "Александр Хотченков",
+      "profession": "актеры дубляжа"
+    },
+    {
+      "id": 1787640,
+      "name": null,
+      "enName": "Александр Хошабаев",
+      "profession": "актеры дубляжа",
+      "enProfession": "voice_actor"
+    },
+    {
+      "enName": "Сергей Быстрицкий",
+      "profession": "актеры дубляжа",
+      "enProfession": "voice_actor",
+      "id": 128002,
+      "name": null
+    },
+    {
+      "name": null,
+      "enName": "Всеволод Кузнецов",
+      "id": 1616407,
+      "profession": "актеры дубляжа",
+      "enProfession": "voice_actor"
+    },
+    {
+      "profession": "актеры дубляжа",
+      "enProfession": "voice_actor",
+      "name": null,
+      "enName": "Пётр Тобилевич",
+      "id": 1663547
+    },
+    {
+      "enProfession": "actor",
+      "id": 2679483,
+      "name": "Кристиан Ван дер Хейден",
+      "enName": "Kristian Van der Heyden",
+      "profession": "актеры"
+    },
+    {
+      "enName": "William Devane",
+      "id": 11971,
+      "name": "Уильям Дивэйн",
+      "profession": "актеры",
+      "enProfession": "actor"
+    },
+    {
+      "enProfession": "actor",
+      "id": 2948115,
+      "name": "Лиам Дикинсон",
+      "enName": "Liam Dickinson",
+      "profession": "актеры"
+    },
+    {
+      "enProfession": "actor",
+      "id": 3726500,
+      "name": "Кики Леа Кэмпбелл",
+      "enName": "Cici Leah Campbell",
+      "profession": "актеры"
+    },
+    {
+      "id": 6242072,
+      "name": null,
+      "enName": "Belle Doyle",
+      "profession": "актеры",
+      "enProfession": "actor"
+    },
+    {
+      "profession": "актеры",
+      "enProfession": "actor",
+      "id": 2998553,
+      "name": "Александр Майкл Хелисек",
+      "enName": "Alexander Michael Helisek"
+    },
+    {
+      "profession": "актеры",
+      "enProfession": "actor",
+      "id": 2908355,
+      "name": "Райан Ирвинг",
+      "enName": "Ryan Irving"
+    },
+    {
+      "id": 2657241,
+      "name": "Дерек Макинтайр",
+      "enName": "Derek McEntire",
+      "profession": "актеры",
+      "enProfession": "actor"
+    },
+    {
+      "id": 3730668,
+      "name": "Флора Нолан",
+      "enName": "Flora Nolan",
+      "profession": "актеры",
+      "enProfession": "actor"
+    },
+    {
+      "profession": "актеры",
+      "enProfession": "actor",
+      "id": 2497048,
+      "name": "Уильям Патрик Браун",
+      "enName": "William Patrick Brown"
+    },
+    {
+      "profession": "актеры",
+      "enProfession": "actor",
+      "id": 3324459,
+      "name": "Джозеф Оливейра",
+      "enName": "Joseph Oliveira"
+    },
+    {
+      "enProfession": "actor",
+      "id": 3890662,
+      "name": "Кеван Вебер",
+      "enName": "Kevan Weber",
+      "profession": "актеры"
+    },
+    {
+      "id": 3730669,
+      "name": "Гриффен Фрейзер",
+      "enName": "Griffen Fraser",
+      "profession": "актеры",
+      "enProfession": "actor"
+    },
+    {
+      "id": 4683478,
+      "name": null,
+      "enName": "Benjamin Pitz",
+      "profession": "актеры",
+      "enProfession": "actor"
+    },
+    {
+      "name": "Тофер Грейс",
+      "enName": "Topher Grace",
+      "id": 30099,
+      "profession": "актеры",
+      "enProfession": "actor"
+    },
+    {
+      "id": 1665224,
+      "profession": "актеры",
+      "enProfession": "actor",
+      "name": "Тимоти Шаламе",
+      "enName": "Timothée Chalamet"
+    },
+    {
+      "enName": "Josh Stewart",
+      "profession": "актеры",
+      "enProfession": "actor",
+      "id": 546863,
+      "name": "Джош Стюарт"
+    },
+    {
+      "id": 5635,
+      "name": "Эндрю Борба",
+      "enName": "Andrew Borba",
+      "profession": "актеры",
+      "enProfession": "actor"
+    },
+    {
+      "enProfession": "actor",
+      "enName": "Lena Georgas",
+      "id": 742470,
+      "name": "Лена Георгас",
+      "profession": "актеры"
+    },
+    {
+      "id": 47179,
+      "name": "Расс Фега",
+      "enName": "Russ Fega",
+      "profession": "актеры",
+      "enProfession": "actor"
+    },
+    {
+      "id": 1076719,
+      "name": "Элиес Габел",
+      "enName": "Elyes Gabel",
+      "profession": "актеры",
+      "enProfession": "actor"
+    },
+    {
+      "enName": "Leah Cairns",
+      "id": 547568,
+      "name": "Леа Кейрнс",
+      "profession": "актеры",
+      "enProfession": "actor"
+    },
+    {
+      "enProfession": "actor",
+      "enName": "Brooke Smith",
+      "id": 22535,
+      "name": "Брук Смит",
+      "profession": "актеры"
+    },
+    {
+      "name": null,
+      "enName": "Troy Fyhn",
+      "profession": "актеры",
+      "enProfession": "actor",
+      "id": 2906273
+    },
+    {
+      "enProfession": "actor",
+      "id": 3729930,
+      "name": "Марлон Сандерс",
+      "enName": "Marlon Sanders",
+      "profession": "актеры"
+    },
+    {
+      "id": 6965,
+      "name": "Эллен Бёрстин",
+      "enName": "Ellen Burstyn",
+      "profession": "актеры",
+      "enProfession": "actor"
+    },
+    {
+      "profession": "актеры",
+      "enProfession": "actor",
+      "id": 5300,
+      "name": "Дэвид Ойелоуо",
+      "enName": "David Oyelowo"
+    },
+    {
+      "name": "Коллетт Вульф",
+      "profession": "актеры",
+      "enProfession": "actor",
+      "enName": "Collette Wolfe",
+      "id": 1094609
+    },
+    {
+      "enName": "Francis X. McCarthy",
+      "profession": "актеры",
+      "enProfession": "actor",
+      "id": 26791,
+      "name": "Фрэнсис З. МакКарти"
+    },
+    {
+      "name": "Билл Ирвин",
+      "enName": "Bill Irwin",
+      "profession": "актеры",
+      "enProfession": "actor",
+      "id": 8925
+    },
+    {
+      "enName": "Jeff Hephner",
+      "profession": "актеры",
+      "enProfession": "actor",
+      "id": 40459,
+      "name": "Джефф Хефнер"
+    },
+    {
+      "enName": "Alexander Lu",
+      "profession": "актеры",
+      "enProfession": "actor",
+      "id": 4236522,
+      "name": null
+    },
+    {
+      "enName": "Benjamin Hardy",
+      "profession": "актеры",
+      "enProfession": "actor",
+      "id": 3316010,
+      "name": "Бенжамин Харди"
+    },
+    {
+      "enName": "Bryan Stamp",
+      "id": 4324837,
+      "name": "Брайан Стэмп",
+      "profession": "актеры",
+      "enProfession": "actor"
+    }
+  ],
+  "lists": [
+    "year2010-2019",
+    "top-250-2020",
+    "top250",
+    "top500",
+    "popular-films",
+    "100_greatest_movies_XXI",
+    "theme_space",
+    "hd-blockbusters",
+    "box-usa-all-time",
+    "box-russia-dollar",
+    "box-world-not-usa",
+    "box-total",
+    "oscar-visual-effects",
+    "saturn-best-sci-fi-fantasy-horror",
+    "popular"
+  ],
+  "typeNumber": 1,
+  "alternativeName": "Interstellar",
+  "enName": null,
+  "names": [
+    {
+      "name": "Интерстеллар"
+    },
+    {
+      "name": "Interstellar"
+    },
+    {
+      "name": "星际穿越",
+      "language": "CN",
+      "type": null
+    },
+    {
+      "name": "Xing Ji Chuan Yue",
+      "language": "CN",
+      "type": "romanization"
+    },
+    {
+      "name": "Bein kokhavim",
+      "language": "IL",
+      "type": "romanization"
+    },
+    {
+      "name": "ইন্টারস্টেলার",
+      "language": "BD",
+      "type": "Bengali"
+    },
+    {
+      "name": "星際啟示錄",
+      "language": "HK",
+      "type": null
+    },
+    {
+      "name": "Interestelar",
+      "language": "BR",
+      "type": "Modern title"
+    },
+    {
+      "name": "Starp zvaigznēm",
+      "language": "LV",
+      "type": null
+    },
+    {
+      "name": "Csillagok Között",
+      "language": "HU",
+      "type": null
+    },
+    {
+      "name": "インターステラー",
+      "language": "JP",
+      "type": null
+    },
+    {
+      "name": "ინტერსტელარი",
+      "language": "GE",
+      "type": null
+    },
+    {
+      "name": "インターステラー：2014",
+      "language": "JP",
+      "type": null
+    },
+    {
+      "name": "Hố Đen Tử Thần",
+      "language": "VN",
+      "type": null
+    },
+    {
+      "name": "Ulduzlararası",
+      "language": "AZ",
+      "type": null
+    },
+    {
+      "name": "Interstellaire",
+      "language": "CA",
+      "type": null
+    },
+    {
+      "name": "Интерстелар",
+      "language": "MK",
+      "type": null
+    },
+    {
+      "name": "بين النجوم",
+      "language": "SA",
+      "type": null
+    },
+    {
+      "name": "اولدوزلار آراسی",
+      "language": "AZ",
+      "type": null
+    },
+    {
+      "name": "Інтэрстэлар",
+      "language": "BY",
+      "type": null
+    },
+    {
+      "name": "میان‌ستاره‌ای",
+      "language": "IR",
+      "type": null
+    },
+    {
+      "name": "इंटरस्टेलर",
+      "language": "IN",
+      "type": null
+    },
+    {
+      "name": "ਇੰਟਰਸਟੈਲਰ",
+      "language": "PK",
+      "type": null
+    },
+    {
+      "name": "Интерстелар",
+      "language": "BG",
+      "type": null
+    },
+    {
+      "name": "Tähtedevaheline",
+      "language": "EE",
+      "type": null
+    },
+    {
+      "name": "Միջաստղային ճամփորդություն",
+      "language": "AM",
+      "type": null
+    },
+    {
+      "name": "בין כוכבים",
+      "language": "IL",
+      "type": null
+    },
+    {
+      "name": "ვარსკვლავთშორისი",
+      "language": "GE",
+      "type": null
+    },
+    {
+      "name": "Tarp žvaigždžių",
+      "language": "LT",
+      "type": null
+    },
+    {
+      "name": "ഇന്റർസ്റ്റെല്ലാർ",
+      "language": "IN",
+      "type": null
+    },
+    {
+      "name": "قائم بين النجوم",
+      "language": "EG",
+      "type": null
+    },
+    {
+      "name": "اینتر استلار",
+      "language": "IR",
+      "type": null
+    },
+    {
+      "name": "Одод хооронд",
+      "language": "MN",
+      "type": null
+    },
+    {
+      "name": "इन्टरस्टेलर",
+      "language": "NP",
+      "type": null
+    },
+    {
+      "name": "Interstellar: Călătorind Prin Univers",
+      "language": "RO",
+      "type": null
+    },
+    {
+      "name": "Medzvezdje",
+      "language": "SI",
+      "type": null
+    },
+    {
+      "name": "இன்டர்‌ஸ்டெலர்",
+      "language": "LK",
+      "type": null
+    },
+    {
+      "name": "Інтерстеллар",
+      "language": "UA",
+      "type": null
+    },
+    {
+      "name": "انٹرسٹیلر",
+      "language": "PK",
+      "type": null
+    },
+    {
+      "name": "Međuzvjezdani",
+      "language": "BA",
+      "type": null
+    },
+    {
+      "name": "Yıldızlararası",
+      "language": "TR",
+      "type": null
+    },
+    {
+      "name": "Интерстеллэр",
+      "language": "RU",
+      "type": null
+    },
+    {
+      "name": "Међузвездани",
+      "language": "RS",
+      "type": null
+    },
+    {
+      "name": "ఇంటర్ స్టెల్లర్",
+      "language": "IN",
+      "type": null
+    },
+    {
+      "name": "อินเตอร์สเตลลาร์ ทะยานดาวกู้โลก",
+      "language": "TH",
+      "type": null
+    },
+    {
+      "name": "ကြယ်တာရာကြားဝယ်",
+      "language": "MM",
+      "type": null
+    },
+    {
+      "name": "인터스텔라",
+      "language": "KR",
+      "type": null
+    },
+    {
+      "name": "星際效應",
+      "language": "TW",
+      "type": null
+    },
+    {
+      "name": "Ինտերստելեր",
+      "language": "AM",
+      "type": null
+    },
+    {
+      "name": "میان‌ ستاره‌ ای",
+      "language": "IR",
+      "type": "فارسی"
+    },
+    {
+      "name": "در میان ستارگان",
+      "language": "IR",
+      "type": "فارسی"
+    }
+  ],
+  "updatedAt": "2026-02-11T06:03:57.539Z",
+  "imagesInfo": {
+    "framesCount": 0
+  },
+  "similarMovies": [
+    {
+      "id": 468466,
+      "name": "Гравитация",
+      "alternativeName": "Gravity",
+      "type": "movie",
+      "poster": {
+        "url": "https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/17f0480e-220c-4ff5-a7a6-1003ffbf18dd/orig",
+        "previewUrl": "https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/17f0480e-220c-4ff5-a7a6-1003ffbf18dd/x1000"
+      },
+      "rating": {
+        "kp": 7.449,
+        "imdb": 7.7,
+        "filmCritics": 9,
+        "russianFilmCritics": 78.9474,
+        "await": null
+      },
+      "year": 2013
+    },
+    {
+      "id": 380,
+      "name": "2001 год: Космическая одиссея",
+      "alternativeName": "2001: A Space Odyssey",
+      "type": "movie",
+      "poster": {
+        "url": "https://avatars.mds.yandex.net/get-kinopoisk-image/1704946/4fb869bc-9e2f-46cc-a72d-df67ead77fff/orig",
+        "previewUrl": "https://avatars.mds.yandex.net/get-kinopoisk-image/1704946/4fb869bc-9e2f-46cc-a72d-df67ead77fff/x1000"
+      },
+      "rating": {
+        "kp": 7.894,
+        "imdb": 8.3,
+        "filmCritics": 9.2,
+        "russianFilmCritics": 100,
+        "await": null
+      },
+      "year": 1968
+    },
+    {
+      "id": 447301,
+      "name": "Начало",
+      "alternativeName": "Inception",
+      "type": "movie",
+      "poster": {
+        "url": "https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/8ab9a119-dd74-44f0-baec-0629797483d7/orig",
+        "previewUrl": "https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/8ab9a119-dd74-44f0-baec-0629797483d7/x1000"
+      },
+      "rating": {
+        "kp": 8.67,
+        "imdb": 8.8,
+        "filmCritics": 8.2,
+        "russianFilmCritics": 80.9524,
+        "await": null
+      },
+      "year": 2010
+    },
+    {
+      "id": 841700,
+      "name": "Марсианин",
+      "alternativeName": "The Martian",
+      "type": "movie",
+      "poster": {
+        "url": "https://avatars.mds.yandex.net/get-kinopoisk-image/1900788/6f631486-e947-487d-94d6-41c2b5a8f5a0/orig",
+        "previewUrl": "https://avatars.mds.yandex.net/get-kinopoisk-image/1900788/6f631486-e947-487d-94d6-41c2b5a8f5a0/x1000"
+      },
+      "rating": {
+        "kp": 7.769,
+        "imdb": 8,
+        "filmCritics": 7.9,
+        "russianFilmCritics": 95.2381,
+        "await": null
+      },
+      "year": 2015
+    },
+    {
+      "id": 102245,
+      "name": "Пекло",
+      "alternativeName": "Sunshine",
+      "type": "movie",
+      "poster": {
+        "url": "https://avatars.mds.yandex.net/get-kinopoisk-image/1704946/9d027324-f963-4ab5-a89e-89a20a882515/orig",
+        "previewUrl": "https://avatars.mds.yandex.net/get-kinopoisk-image/1704946/9d027324-f963-4ab5-a89e-89a20a882515/x1000"
+      },
+      "rating": {
+        "kp": 7.268,
+        "imdb": 7.2,
+        "filmCritics": 6.8,
+        "russianFilmCritics": 0,
+        "await": null
+      },
+      "year": 2007
+    },
+    {
+      "id": 1950,
+      "name": "Контакт",
+      "alternativeName": "Contact",
+      "type": "movie",
+      "poster": {
+        "url": "https://avatars.mds.yandex.net/get-kinopoisk-image/1900788/1a1d9d4e-59da-4b7c-9492-134a5db0aa49/orig",
+        "previewUrl": "https://avatars.mds.yandex.net/get-kinopoisk-image/1900788/1a1d9d4e-59da-4b7c-9492-134a5db0aa49/x1000"
+      },
+      "rating": {
+        "kp": 7.927,
+        "imdb": 7.5,
+        "filmCritics": 6.9,
+        "russianFilmCritics": 0,
+        "await": null
+      },
+      "year": 1997
+    },
+    {
+      "id": 467099,
+      "name": "Прометей",
+      "alternativeName": "Prometheus",
+      "type": "movie",
+      "poster": {
+        "url": "https://avatars.mds.yandex.net/get-kinopoisk-image/1946459/b4410674-5bfd-4a22-8e6f-92ec2395df96/orig",
+        "previewUrl": "https://avatars.mds.yandex.net/get-kinopoisk-image/1946459/b4410674-5bfd-4a22-8e6f-92ec2395df96/x1000"
+      },
+      "rating": {
+        "kp": 7.021,
+        "imdb": 7,
+        "filmCritics": 7,
+        "russianFilmCritics": 38.0952,
+        "await": null
+      },
+      "year": 2012
+    },
+    {
+      "id": 406671,
+      "name": "Луна 2112",
+      "alternativeName": "Moon",
+      "type": "movie",
+      "poster": {
+        "url": "https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/2211e643-9030-4a3f-9d40-87283a516a97/orig",
+        "previewUrl": "https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/2211e643-9030-4a3f-9d40-87283a516a97/x1000"
+      },
+      "rating": {
+        "kp": 7.56,
+        "imdb": 7.8,
+        "filmCritics": 7.5,
+        "russianFilmCritics": 92.3077,
+        "await": null
+      },
+      "year": 2009
+    },
+    {
+      "id": 718811,
+      "name": "Прибытие",
+      "alternativeName": "Arrival",
+      "type": "movie",
+      "poster": {
+        "url": "https://avatars.mds.yandex.net/get-kinopoisk-image/1900788/bb6366bb-5120-401c-80da-7be1ba6b25a1/orig",
+        "previewUrl": "https://avatars.mds.yandex.net/get-kinopoisk-image/1900788/bb6366bb-5120-401c-80da-7be1ba6b25a1/x1000"
+      },
+      "rating": {
+        "kp": 7.643,
+        "imdb": 7.9,
+        "filmCritics": 8.4,
+        "russianFilmCritics": 95.2381,
+        "await": null
+      },
+      "year": 2016
+    },
+    {
+      "id": 2941,
+      "name": "Армагеддон",
+      "alternativeName": "Armageddon",
+      "type": "movie",
+      "poster": {
+        "url": "https://avatars.mds.yandex.net/get-kinopoisk-image/1898899/58b7f693-722d-4d66-beb3-de8455646e98/orig",
+        "previewUrl": "https://avatars.mds.yandex.net/get-kinopoisk-image/1898899/58b7f693-722d-4d66-beb3-de8455646e98/x1000"
+      },
+      "rating": {
+        "kp": 7.78,
+        "imdb": 6.7,
+        "filmCritics": 5.3,
+        "russianFilmCritics": 0,
+        "await": null
+      },
+      "year": 1998
+    }
+  ],
+  "ratingMpaa": "pg13",
+  "shortDescription": "Фантастический эпос про задыхающуюся Землю, космические полеты и парадоксы времени. «Оскар» за спецэффекты",
+  "technology": {
+    "hasImax": true,
+    "has3D": false
+  },
+  "ticketsOnSale": false,
+  "sequelsAndPrequels": [],
+  "ageRating": 18,
+  "logo": {
+    "url": "https://image.tmdb.org/t/p/original/8YGHe69tPNbSaMbUwSo3AHkELKJ.png",
+    "previewUrl": "https://image.tmdb.org/t/p/w500/8YGHe69tPNbSaMbUwSo3AHkELKJ.png"
+  },
+  "top10": null,
+  "top250": 2,
+  "audience": [
+    {
+      "count": 4429617,
+      "country": "Россия"
+    },
+    {
+      "count": 1603625,
+      "country": "Италия"
+    },
+    {
+      "count": 423193,
+      "country": "Нидерланды"
+    }
+  ],
+  "deletedAt": null,
+  "isSeries": false,
+  "seriesLength": null,
+  "totalSeriesLength": null,
+  "networks": null,
+  "videos": {
+    "trailers": [
+      {
+        "url": "https://www.youtube.com/embed/qcPfI0y7wRU",
+        "name": "Интерстеллар (Interstellar) -- дублированный трейлер",
+        "site": "youtube",
+        "type": "TRAILER"
+      },
+      {
+        "url": "https://www.youtube.com/embed/LY19rHKAaAg",
+        "name": "Trailer 4",
+        "site": "youtube",
+        "type": "TRAILER"
+      },
+      {
+        "url": "https://www.youtube.com/embed/R8teZZ-loaI",
+        "name": ":60 International Trailer",
+        "site": "youtube",
+        "type": "TRAILER"
+      },
+      {
+        "url": "https://www.youtube.com/embed/ePbKGoIGAXY",
+        "name": "Trailer 3",
+        "site": "youtube",
+        "type": "TRAILER"
+      },
+      {
+        "url": "https://www.youtube.com/embed/zSWdZVtXT7E",
+        "name": "Trailer",
+        "site": "youtube",
+        "type": "TRAILER"
+      },
+      {
+        "url": "https://www.youtube.com/embed/827FNDpQWrQ",
+        "name": "Teaser Trailer",
+        "site": "youtube",
+        "type": "TRAILER"
+      },
+      {
+        "url": "https://www.youtube.com/embed/0vxOhd4qlnA",
+        "name": "Interstellar Movie - Official Trailer 3",
+        "site": "youtube",
+        "type": "TRAILER"
+      },
+      {
+        "url": "https://www.youtube.com/embed/Rt2LHkSwdPQ",
+        "name": "Interstellar Movie - Official Trailer 2",
+        "site": "youtube",
+        "type": "TRAILER"
+      },
+      {
+        "url": "https://www.youtube.com/embed/2LqzF5WauAw",
+        "name": "Interstellar Movie - Official Trailer",
+        "site": "youtube",
+        "type": "TRAILER"
+      },
+      {
+        "url": "https://www.youtube.com/embed/nyc6RJEEe0U",
+        "name": "Interstellar Movie - Official Teaser",
+        "site": "youtube",
+        "type": "TRAILER"
+      }
+    ]
+  },
+  "isTmdbChecked": true,
+  "watchability": {
+    "items": []
+  },
+  "userRatingsParsed": true,
+  "keywordsParsed": true,
+  "studioParsed": true,
+  "lastUpdateAttempt": "2026-01-05T02:00:00.232Z"
+}

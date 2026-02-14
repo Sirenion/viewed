@@ -1,0 +1,54 @@
+{
+  "dateAdded": "2026-01-05T02:00:00.232Z",
+  "dateViewed": "2026-01-05T02:00:00.232Z",
+  "dateLastReviewed": "2026-01-05T02:00:00.232Z",
+  "amountOfReviews": 2,
+  "currentWatching": {
+    "seasonNumber": 1,
+    "viewedEpisodes": 10,
+    "episodesCount": 13,
+    "dateLastEpisodeViewed": "2026-01-05T02:00:00.232Z"
+  },
+  "status": null,
+  "rating": {
+    "kp": 8.671,
+    "imdb": 8.7,
+    "filmCritics": 7.2,
+    "russianFilmCritics": 80.6452,
+    "await": null
+  },
+  "movieLength": 169,
+  "id": 258687,
+  "type": "movie",
+  "name": "Интерстеллар",
+  "year": 2014,
+  "description": "Когда засуха, пыльные бури и вымирание растений приводят человечество к продовольственному кризису, коллектив исследователей и учёных отправляется сквозь червоточину (которая предположительно соединяет области пространства-времени через большое расстояние) в путешествие, чтобы превзойти прежние ограничения для космических путешествий человека и найти планету с подходящими для человечества условиями.",
+  "genres": [
+    {
+      "name": "фантастика"
+    },
+    {
+      "name": "драма"
+    },
+    {
+      "name": "приключения"
+    }
+  ],
+  "countries": [
+    {
+      "name": "США"
+    },
+    {
+      "name": "Великобритания"
+    },
+    {
+      "name": "Канада"
+    }
+  ],
+  "seasonsInfo": [],
+  "alternativeName": "Interstellar",
+  "enName": null,
+  "isSeries": false,
+  "seriesLength": null,
+  "totalSeriesLength": null
+}

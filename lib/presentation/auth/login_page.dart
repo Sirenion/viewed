@@ -28,11 +28,8 @@ class LoginPage extends StatelessWidget {
       listener: (context, state) {
         final loginState = state.loginState;
         loginState.whenOrNull(
-          error: (error) {
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(error.toString())));
-            });
-          },
+          error: (error) =>
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(error.toString()))),
         );
       },
       child: Scaffold(

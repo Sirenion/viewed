@@ -218,6 +218,16 @@ class S {
   String get logout {
     return Intl.message('Выйти', name: 'logout', desc: '', args: []);
   }
+
+  /// `Запланировано`
+  String get planned {
+    return Intl.message('Запланировано', name: 'planned', desc: '', args: []);
+  }
+
+  /// `В процессе`
+  String get inProcess {
+    return Intl.message('В процессе', name: 'inProcess', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

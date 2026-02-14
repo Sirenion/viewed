@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:viewed/data/mappers/auth_mapper.dart';
+import 'package:viewed/domain/entity/entities.dart';
 
 abstract interface class AuthService {
-  User? get currentUser;
-
-  Stream<User?> get userStream;
+  Stream<UserEntity?> get userStream;
 
   Future<void> signInWithEmailAndPassword(String email, String password);
 
@@ -14,14 +14,21 @@ abstract interface class AuthService {
 
 final class AuthServiceImpl implements AuthService {
   final FirebaseAuth _firebaseAuth;
+  final AuthMapper _authMapper;
 
-  AuthServiceImpl({required FirebaseAuth firebaseAuth}) : _firebaseAuth = firebaseAuth;
+  AuthServiceImpl({required FirebaseAuth firebaseAuth, required AuthMapper authMapper})
+    : _firebaseAuth = firebaseAuth,
+      _authMapper = authMapper;
 
   @override
-  Stream<User?> get userStream => _firebaseAuth.authStateChanges();
-
-  @override
-  User? get currentUser => _firebaseAuth.currentUser;
+  Stream<UserEntity?> get userStream {
+    return _firebaseAuth.authStateChanges().map((user) {
+      return switch (user) {
+        User() => _authMapper.toUserEntity(user),
+        null => null,
+      };
+    });
+  }
 
   @override
   Future<UserCredential> registerWithEmailAndPassword(String email, String password) async {
