@@ -1,19 +1,18 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:viewed/app/app_state/state/state.dart';
-import 'package:viewed/domain/auth_service.dart';
+import 'package:viewed/domain/auth_repository.dart';
 import 'package:viewed/domain/entity/entities.dart';
 
 class AuthCubit extends Cubit<AuthState> {
-  final AuthService _authService;
+  final AuthRepository _authService;
 
   late final StreamSubscription<UserEntity?> _authStateChangesSubscription;
 
   Stream<bool> get authStateChanges => stream.map((user) => user.isAuthenticated);
 
-  AuthCubit({required AuthService authService})
+  AuthCubit({required AuthRepository authService})
     : _authService = authService,
       super(AuthState.initial()) {
     _authStateChangesSubscription = _authService.userStream.listen((user) {

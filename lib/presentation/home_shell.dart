@@ -4,17 +4,11 @@ import 'package:viewed/app/navigation/routes/app_routes.dart';
 import 'package:viewed/generated/l10n.dart';
 
 class HomeShell extends StatelessWidget {
+  final StatefulNavigationShell navigationShell;
+
   final AppRoutes route;
-  final Widget child;
 
-  final int currentIndex;
-
-  const HomeShell({
-    required this.route,
-    required this.child,
-    required this.currentIndex,
-    super.key,
-  });
+  const HomeShell({required this.navigationShell, required this.route, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,18 +19,21 @@ class HomeShell extends StatelessWidget {
       S.of(context).anime,
       S.of(context).profile,
     ];
+
+    final currentIndex = navigationShell.currentIndex;
+
     return Scaffold(
       appBar: switch (currentIndex != 0) {
         true => AppBar(title: Text(titleList[currentIndex]), centerTitle: true),
         false => null,
       },
-      body: child,
+      body: navigationShell,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         showUnselectedLabels: true,
         selectedItemColor: Colors.blueAccent,
         unselectedItemColor: Colors.grey,
-        onTap: (value) => onTap(value, context),
+        onTap: (index) => _onTap(index),
         items: [
           BottomNavigationBarItem(label: titleList[0], icon: const Icon(Icons.home)),
           BottomNavigationBarItem(label: titleList[1], icon: const Icon(Icons.movie_outlined)),
@@ -46,32 +43,18 @@ class HomeShell extends StatelessWidget {
         ],
       ),
       floatingActionButton: switch (currentIndex != 4) {
-        true => FloatingActionButton(onPressed: () {}, child: const Icon(Icons.add)),
+        true => FloatingActionButton(
+          onPressed: () {
+            context.push(route.search.routePath);
+          },
+          child: const Icon(Icons.add),
+        ),
         false => null,
       },
     );
   }
 
-  void onTap(int value, BuildContext context) {
-    switch (value) {
-      case 0:
-        context.go(route.home.routePath);
-        break;
-      case 1:
-        context.go(route.movies.routePath);
-        break;
-      case 2:
-        context.go(route.tv.routePath);
-        break;
-      case 3:
-        context.go(route.anime.routePath);
-        break;
-      case 4:
-        context.go(route.profile.routePath);
-        break;
-      default:
-        context.go(route.home.routePath);
-        break;
-    }
+  void _onTap(int index) {
+    navigationShell.goBranch(index, initialLocation: index == navigationShell.currentIndex);
   }
 }

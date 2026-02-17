@@ -24,6 +24,9 @@ class SubmitButton extends StatelessWidget {
           true => callback,
           false => null,
         },
+        style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+        ),
         child: switch (isLoading) {
           true => Transform.scale(scale: 0.75, child: const CircularProgressIndicator()),
           false => Text(label),

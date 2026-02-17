@@ -22,9 +22,17 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "add_something": MessageLookupByLibrary.simpleMessage(
+      "Посмотрите что-нибудь и пополните список",
+    ),
     "alreadyHaveAcc": MessageLookupByLibrary.simpleMessage("Уже есть аккаут?"),
+    "animated_series": MessageLookupByLibrary.simpleMessage(
+      "Анимационный сериал",
+    ),
     "anime": MessageLookupByLibrary.simpleMessage("Аниме"),
     "auth": MessageLookupByLibrary.simpleMessage("Авторизация"),
+    "cartoon": MessageLookupByLibrary.simpleMessage("Мультфильм"),
+    "cast": MessageLookupByLibrary.simpleMessage("В ролях"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "emptyEmail": MessageLookupByLibrary.simpleMessage(
       "Необходимо ввести email",
@@ -32,7 +40,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "emptyPassword": MessageLookupByLibrary.simpleMessage(
       "Необходимо ввести пароль",
     ),
+    "empty_field": MessageLookupByLibrary.simpleMessage(
+      "Поле не может быть пустым",
+    ),
+    "empty_list": MessageLookupByLibrary.simpleMessage("Ничего не найдено"),
     "exampleEmail": MessageLookupByLibrary.simpleMessage("example@mail.com"),
+    "find": MessageLookupByLibrary.simpleMessage("Найти"),
     "home": MessageLookupByLibrary.simpleMessage("Домой"),
     "inProcess": MessageLookupByLibrary.simpleMessage("В процессе"),
     "incorrectEmail": MessageLookupByLibrary.simpleMessage("Неверный email"),
@@ -44,6 +57,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "Войдите, чтобы продолжить",
     ),
     "logout": MessageLookupByLibrary.simpleMessage("Выйти"),
+    "min": MessageLookupByLibrary.simpleMessage("мин"),
+    "movie": MessageLookupByLibrary.simpleMessage("Фильм"),
     "movies": MessageLookupByLibrary.simpleMessage("Фильмы"),
     "noAcc": MessageLookupByLibrary.simpleMessage("Нет аккаунта?"),
     "password": MessageLookupByLibrary.simpleMessage("Пароль"),
@@ -55,7 +70,14 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "register": MessageLookupByLibrary.simpleMessage("Зарегистрироваться"),
     "registration": MessageLookupByLibrary.simpleMessage("Регистрация"),
+    "search": MessageLookupByLibrary.simpleMessage("Поиск"),
+    "similar_movies": MessageLookupByLibrary.simpleMessage("Похожие фильмы"),
+    "something_went_wrong": MessageLookupByLibrary.simpleMessage(
+      "Что-то пошло не так",
+    ),
+    "tv": MessageLookupByLibrary.simpleMessage("Сериал"),
     "tvSeries": MessageLookupByLibrary.simpleMessage("Сериалы"),
+    "unknown_type": MessageLookupByLibrary.simpleMessage("Неизвестный формат"),
     "viewed": MessageLookupByLibrary.simpleMessage("Просмотрено"),
   };
 }

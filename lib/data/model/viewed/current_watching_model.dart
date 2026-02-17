@@ -9,5 +9,6 @@ abstract class CurrentWatchingModel with _$CurrentWatchingModel {
     required String dateLastEpisodeViewed,
   }) = _CurrentWatching;
 
-  factory CurrentWatchingModel.fromJson(Map<String, dynamic> json) => _$CurrentWatchingModelFromJson(json);
+  factory CurrentWatchingModel.fromJson(Map<String, dynamic> json) =>
+      _$CurrentWatchingModelFromJson(json);
 }

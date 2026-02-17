@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:viewed/data/mappers/auth_mapper.dart';
 import 'package:viewed/domain/entity/entities.dart';
 
-abstract interface class AuthService {
+abstract interface class AuthRepository {
   Stream<UserEntity?> get userStream;
 
   Future<void> signInWithEmailAndPassword(String email, String password);
@@ -12,11 +12,11 @@ abstract interface class AuthService {
   Future<void> signOut();
 }
 
-final class AuthServiceImpl implements AuthService {
+final class AuthRepositoryImpl implements AuthRepository {
   final FirebaseAuth _firebaseAuth;
   final AuthMapper _authMapper;
 
-  AuthServiceImpl({required FirebaseAuth firebaseAuth, required AuthMapper authMapper})
+  AuthRepositoryImpl({required FirebaseAuth firebaseAuth, required AuthMapper authMapper})
     : _firebaseAuth = firebaseAuth,
       _authMapper = authMapper;
 

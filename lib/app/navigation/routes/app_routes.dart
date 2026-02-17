@@ -3,6 +3,8 @@ import 'package:viewed/app/navigation/routes/home_route.dart';
 import 'package:viewed/app/navigation/routes/login_route.dart';
 import 'package:viewed/app/navigation/routes/movies_route.dart';
 import 'package:viewed/app/navigation/routes/profile_route.dart';
+import 'package:viewed/app/navigation/routes/search_details_route.dart';
+import 'package:viewed/app/navigation/routes/search_route.dart';
 import 'package:viewed/app/navigation/routes/tv_route.dart';
 
 class AppRoutes {
@@ -12,4 +14,6 @@ class AppRoutes {
   final tv = TvRoute();
   final anime = AnimeRoute();
   final profile = ProfileRoute();
+  final search = SearchRoute();
+  final searchDetails = SearchDetailsRoute();
 }

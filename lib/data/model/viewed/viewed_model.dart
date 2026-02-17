@@ -3,8 +3,8 @@ part of '../models.dart';
 @freezed
 abstract class ViewedModel with _$ViewedModel {
   const factory ViewedModel({
-    required int id,
-    required String dateAdded,
+    required String id,
+    required String? dateAdded,
     required String? dateViewed,
     required String? dateLastReviewed,
     required int amountOfReviews,
@@ -12,6 +12,7 @@ abstract class ViewedModel with _$ViewedModel {
     required String? status,
     required RatingModel? rating,
     required int? movieLength,
+    required ImageObjectModel? poster,
     required String? type,
     required String? name,
     required int? year,

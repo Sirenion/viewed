@@ -1,14 +1,24 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:viewed/app/app_state/auth_cubit.dart';
 import 'package:viewed/app/navigation/app_router.dart';
+import 'package:viewed/data/impl/network_data_source_impl.dart';
+import 'package:viewed/data/impl/storage_data_source_impl.dart';
 import 'package:viewed/data/mappers/auth_mapper.dart';
-import 'package:viewed/domain/auth_service.dart';
+import 'package:viewed/data/mappers/network_mapper.dart';
+import 'package:viewed/data/mappers/viewed_mapper.dart';
+import 'package:viewed/data/network_data_source.dart';
+import 'package:viewed/data/storage_data_source.dart';
+import 'package:viewed/domain/auth_repository.dart';
+import 'package:viewed/domain/network_repository.dart';
+import 'package:viewed/domain/storage_repository.dart';
 import 'package:viewed/generated/l10n.dart';
 
 class Viewed extends StatelessWidget {
@@ -28,22 +38,73 @@ class Viewed extends StatelessWidget {
             return FirebaseFirestore.instance;
           },
         ),
+        Provider<Dio>(
+          create: (context) {
+            final options = BaseOptions(
+              connectTimeout: const Duration(seconds: 10),
+              receiveTimeout: const Duration(seconds: 10),
+              baseUrl: 'https://api.poiskkino.dev',
+              headers: {'X-API-KEY': dotenv.env['KINOPOISK_API_KEY']},
+              validateStatus: (_) => true,
+              contentType: Headers.jsonContentType,
+              responseType: ResponseType.json,
+            );
+            return Dio(options);
+          },
+        ),
         Provider<AuthMapper>(
           create: (context) {
             return AuthMapperImpl();
           },
         ),
-        RepositoryProvider<AuthService>(
+        Provider<ViewedMapper>(
           create: (context) {
-            return AuthServiceImpl(
+            return ViewedMapperImpl();
+          },
+        ),
+        Provider<NetworkMapper>(
+          create: (context) {
+            return NetworkMapperImpl();
+          },
+        ),
+        Provider<StorageDataSource>(
+          create: (context) {
+            return StorageDataSourceImpl(firebaseFirestore: context.read<FirebaseFirestore>());
+          },
+        ),
+        Provider<NetworkDataSource>(
+          create: (context) {
+            return NetworkDataSourceImpl(dio: context.read<Dio>());
+          },
+        ),
+        RepositoryProvider<AuthRepository>(
+          create: (context) {
+            return AuthRepositoryImpl(
               firebaseAuth: context.read<FirebaseAuth>(),
               authMapper: context.read<AuthMapper>(),
             );
           },
         ),
+        RepositoryProvider<StorageRepository>(
+          create: (context) {
+            return StorageRepositoryImpl(
+              firebaseAuth: context.read<FirebaseAuth>(),
+              storageDataSource: context.read<StorageDataSource>(),
+              viewedMapper: context.read<ViewedMapper>(),
+            );
+          },
+        ),
+        RepositoryProvider<NetworkRepository>(
+          create: (context) {
+            return NetworkRepositoryImpl(
+              networkDataSource: context.read<NetworkDataSource>(),
+              networkMapper: context.read<NetworkMapper>(),
+            );
+          },
+        ),
         BlocProvider<AuthCubit>(
           create: (context) {
-            return AuthCubit(authService: context.read<AuthService>());
+            return AuthCubit(authService: context.read<AuthRepository>());
           },
         ),
         Provider<GoRouter>(

@@ -19,7 +19,7 @@ dependencies:
   formz: ^0.8.0
   flutter_dotenv: ^6.0.0
   dio: ^5.9.1
-  build_runner: ^2.11.0
+  build_runner: ^2.11.1
 
   firebase_core: ^4.4.0
   firebase_auth: ^6.1.4

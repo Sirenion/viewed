@@ -4,7 +4,6 @@ class _MoviesExpansionTile extends StatelessWidget {
   final String name;
   final String description;
   final DateTime dateAdded;
-  final DateTime dateViewed;
 
   final VoidCallback? onRemove;
   final VoidCallback? onReplace;
@@ -14,7 +13,6 @@ class _MoviesExpansionTile extends StatelessWidget {
     required this.name,
     required this.description,
     required this.dateAdded,
-    required this.dateViewed,
     this.onRemove,
     this.onReplace,
     this.onGoToOriginal,

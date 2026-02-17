@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:viewed/core/presentation/validators/email_validator.dart';
 import 'package:viewed/core/presentation/validators/password_validator.dart';
+import 'package:viewed/core/presentation/validators/search_validator.dart';
 import 'package:viewed/generated/l10n.dart';
 
 class TextFieldValidator {
@@ -31,6 +32,15 @@ class TextFieldValidator {
       }
     }
 
+    return null;
+  }
+
+  static String? validateSearch(BuildContext context, SearchValidator search) {
+    final displayError = search.displayError;
+
+    if (displayError != null) {
+      return S.of(context).empty_field;
+    }
     return null;
   }
 }

@@ -1,0 +1,56 @@
+part of '../models.dart';
+
+@freezed
+abstract class SearchItemDetailsModel with _$SearchItemDetailsModel {
+  const factory SearchItemDetailsModel({
+    required int id,
+    ExternalIdModel? externalId,
+    String? name,
+    String? alternativeName,
+    String? enName,
+    @Default([]) List<NameItemModel> names,
+    String? type,
+    int? typeNumber,
+    int? year,
+    String? description,
+    String? shortDescription,
+    String? slogan,
+    String? status,
+    @Default([]) List<FactModel> facts,
+    RatingModel? rating,
+    VotesModel? votes,
+    int? movieLength,
+    String? ratingMpaa,
+    int? ageRating,
+    ImageObjectModel? logo,
+    ImageObjectModel? poster,
+    ImageObjectModel? backdrop,
+    VideosModel? videos,
+    @Default([]) List<GenreModel> genres,
+    @Default([]) List<CountryModel> countries,
+    @Default([]) List<PersonModel> persons,
+    ReviewInfoModel? reviewInfo,
+    @Default([]) List<SeasonsModel> seasonsInfo,
+    BudgetModel? budget,
+    FeesModel? fees,
+    PremiereModel? premiere,
+    @Default(null) List<SimilarMovieModel>? similarMovies,
+    @Default(null) List<SimilarMovieModel>? sequelsAndPrequels,
+    WatchabilityModel? watchability,
+    @Default(null) List<ReleaseYearModel>? releaseYears,
+    int? top10,
+    int? top250,
+    bool? ticketsOnSale,
+    int? totalSeriesLength,
+    int? seriesLength,
+    bool? isSeries,
+    @Default(null) List<AudienceModel>? audience,
+    @Default(null) List<String>? lists,
+    NetworksModel? networks,
+    DateTime? updatedAt,
+    DateTime? createdAt,
+  }) = _SearchItemDetailsModel;
+
+  factory SearchItemDetailsModel.fromJson(Map<String, dynamic> json) =>
+      _$SearchItemDetailsModelFromJson(json);
+}

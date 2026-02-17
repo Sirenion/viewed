@@ -129,6 +129,31 @@ class S {
     return Intl.message('Фильмы', name: 'movies', desc: '', args: []);
   }
 
+  /// `Фильм`
+  String get movie {
+    return Intl.message('Фильм', name: 'movie', desc: '', args: []);
+  }
+
+  /// `Сериал`
+  String get tv {
+    return Intl.message('Сериал', name: 'tv', desc: '', args: []);
+  }
+
+  /// `Мультфильм`
+  String get cartoon {
+    return Intl.message('Мультфильм', name: 'cartoon', desc: '', args: []);
+  }
+
+  /// `Анимационный сериал`
+  String get animated_series {
+    return Intl.message(
+      'Анимационный сериал',
+      name: 'animated_series',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Сериалы`
   String get tvSeries {
     return Intl.message('Сериалы', name: 'tvSeries', desc: '', args: []);
@@ -137,6 +162,16 @@ class S {
   /// `Аниме`
   String get anime {
     return Intl.message('Аниме', name: 'anime', desc: '', args: []);
+  }
+
+  /// `Неизвестный формат`
+  String get unknown_type {
+    return Intl.message(
+      'Неизвестный формат',
+      name: 'unknown_type',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Профиль`
@@ -227,6 +262,76 @@ class S {
   /// `В процессе`
   String get inProcess {
     return Intl.message('В процессе', name: 'inProcess', desc: '', args: []);
+  }
+
+  /// `Ничего не найдено`
+  String get empty_list {
+    return Intl.message(
+      'Ничего не найдено',
+      name: 'empty_list',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Посмотрите что-нибудь и пополните список`
+  String get add_something {
+    return Intl.message(
+      'Посмотрите что-нибудь и пополните список',
+      name: 'add_something',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Что-то пошло не так`
+  String get something_went_wrong {
+    return Intl.message(
+      'Что-то пошло не так',
+      name: 'something_went_wrong',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Поиск`
+  String get search {
+    return Intl.message('Поиск', name: 'search', desc: '', args: []);
+  }
+
+  /// `Поле не может быть пустым`
+  String get empty_field {
+    return Intl.message(
+      'Поле не может быть пустым',
+      name: 'empty_field',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Найти`
+  String get find {
+    return Intl.message('Найти', name: 'find', desc: '', args: []);
+  }
+
+  /// `Похожие фильмы`
+  String get similar_movies {
+    return Intl.message(
+      'Похожие фильмы',
+      name: 'similar_movies',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `мин`
+  String get min {
+    return Intl.message('мин', name: 'min', desc: '', args: []);
+  }
+
+  /// `В ролях`
+  String get cast {
+    return Intl.message('В ролях', name: 'cast', desc: '', args: []);
   }
 }
 
