@@ -2,76 +2,14 @@ import 'package:viewed/data/model/models.dart';
 import 'package:viewed/domain/entity/entities.dart';
 
 abstract interface class ViewedMapper {
-  MoviesListEntity toMoviesListEntity(MoviesListModel model);
-
-  MoviesListModel toMoviesListModel(MoviesListEntity entity);
-
-  TvListEntity toTvListEntity(TvListModel model);
-
-  TvListModel toTvListModel(TvListEntity entity);
-
-  AnimeListEntity toAnimeListEntity(AnimeListModel model);
-
-  AnimeListModel toAnimeListModel(AnimeListEntity entity);
-
   ViewedEntity toViewedEntity(ViewedModel model);
 
-  ViewedModel toViewedModel(ViewedEntity entity);
+  ViewedModel viewedEntityToViewedModel(ViewedEntity entity);
+
+  ViewedModel searchDetailsToViewedModel(SearchItemDetailsEntity entity);
 }
 
 final class ViewedMapperImpl implements ViewedMapper {
-  @override
-  MoviesListEntity toMoviesListEntity(MoviesListModel model) {
-    return MoviesListEntity(
-      planned: List<ViewedEntity>.from(model.planned.map((elem) => toViewedEntity(elem))),
-      viewed: List<ViewedEntity>.from(model.viewed.map((elem) => toViewedEntity(elem))),
-    );
-  }
-
-  @override
-  MoviesListModel toMoviesListModel(MoviesListEntity entity) {
-    return MoviesListModel(
-      planned: List<ViewedModel>.from(entity.planned.map((elem) => toViewedModel(elem))),
-      viewed: List<ViewedModel>.from(entity.viewed.map((elem) => toViewedModel(elem))),
-    );
-  }
-
-  @override
-  TvListEntity toTvListEntity(TvListModel model) {
-    return TvListEntity(
-      planned: List<ViewedEntity>.from(model.planned.map((elem) => toViewedEntity(elem))),
-      inProgress: List<ViewedEntity>.from(model.inProgress.map((elem) => toViewedEntity(elem))),
-      viewed: List<ViewedEntity>.from(model.viewed.map((elem) => toViewedEntity(elem))),
-    );
-  }
-
-  @override
-  TvListModel toTvListModel(TvListEntity entity) {
-    return TvListModel(
-      planned: List<ViewedModel>.from(entity.planned.map((elem) => toViewedModel(elem))),
-      inProgress: List<ViewedModel>.from(entity.inProgress.map((elem) => toViewedModel(elem))),
-      viewed: List<ViewedModel>.from(entity.viewed.map((elem) => toViewedModel(elem))),
-    );
-  }
-
-  @override
-  AnimeListEntity toAnimeListEntity(AnimeListModel model) {
-    return AnimeListEntity(
-      planned: List<ViewedEntity>.from(model.planned.map((elem) => toViewedEntity(elem))),
-      inProgress: List<ViewedEntity>.from(model.inProgress.map((elem) => toViewedEntity(elem))),
-      viewed: List<ViewedEntity>.from(model.viewed.map((elem) => toViewedEntity(elem))),
-    );
-  }
-
-  @override
-  AnimeListModel toAnimeListModel(AnimeListEntity entity) {
-    return AnimeListModel(
-      planned: List<ViewedModel>.from(entity.planned.map((elem) => toViewedModel(elem))),
-      inProgress: List<ViewedModel>.from(entity.inProgress.map((elem) => toViewedModel(elem))),
-      viewed: List<ViewedModel>.from(entity.viewed.map((elem) => toViewedModel(elem))),
-    );
-  }
-
   @override
   ViewedEntity toViewedEntity(ViewedModel model) {
     return ViewedEntity(
@@ -80,6 +18,7 @@ final class ViewedMapperImpl implements ViewedMapper {
       dateViewed: model.dateViewed,
       dateLastReviewed: model.dateLastReviewed,
       amountOfReviews: model.amountOfReviews,
+      currentStatus: model.currentStatus,
       currentWatching: switch (model.currentWatching != null) {
         true => CurrentWatchingEntity(
           seasonNumber: model.currentWatching!.seasonNumber,
@@ -94,8 +33,10 @@ final class ViewedMapperImpl implements ViewedMapper {
         true => RatingEntity(
           kp: model.rating?.kp,
           imdb: model.rating?.imdb,
+          tmdb: model.rating?.tmdb,
           filmCritics: model.rating?.filmCritics,
           russianFilmCritics: model.rating?.russianFilmCritics,
+          awaitCritics: model.rating?.awaitCritics,
         ),
         false => null,
       },
@@ -132,13 +73,14 @@ final class ViewedMapperImpl implements ViewedMapper {
   }
 
   @override
-  ViewedModel toViewedModel(ViewedEntity entity) {
+  ViewedModel viewedEntityToViewedModel(ViewedEntity entity) {
     return ViewedModel(
       id: entity.id,
-      dateAdded: entity.dateAdded ?? DateTime.now().toString(),
+      dateAdded: entity.dateAdded,
       dateViewed: entity.dateViewed,
       dateLastReviewed: entity.dateLastReviewed,
       amountOfReviews: entity.amountOfReviews,
+      currentStatus: entity.currentStatus,
       currentWatching: switch (entity.currentWatching != null) {
         true => CurrentWatchingModel(
           seasonNumber: entity.currentWatching!.seasonNumber,
@@ -153,8 +95,10 @@ final class ViewedMapperImpl implements ViewedMapper {
         true => RatingModel(
           kp: entity.rating?.kp,
           imdb: entity.rating?.imdb,
+          tmdb: entity.rating?.tmdb,
           filmCritics: entity.rating?.filmCritics,
           russianFilmCritics: entity.rating?.russianFilmCritics,
+          awaitCritics: entity.rating?.awaitCritics,
         ),
         false => null,
       },
@@ -185,6 +129,60 @@ final class ViewedMapperImpl implements ViewedMapper {
       alternativeName: entity.alternativeName,
       enName: entity.enName,
       isSeries: entity.isSeries,
+      seriesLength: entity.seriesLength,
+      totalSeriesLength: entity.totalSeriesLength,
+    );
+  }
+
+  @override
+  ViewedModel searchDetailsToViewedModel(SearchItemDetailsEntity entity) {
+    return ViewedModel(
+      id: entity.id.toString(),
+      dateAdded: null,
+      dateViewed: null,
+      dateLastReviewed: null,
+      amountOfReviews: 0,
+      currentStatus: null,
+      currentWatching: null,
+      status: entity.status,
+      rating: switch (entity.rating != null) {
+        true => RatingModel(
+          kp: entity.rating?.kp,
+          imdb: entity.rating?.imdb,
+          tmdb: entity.rating?.tmdb,
+          filmCritics: entity.rating?.filmCritics,
+          russianFilmCritics: entity.rating?.russianFilmCritics,
+          awaitCritics: entity.rating?.awaitCritics,
+        ),
+        false => null,
+      },
+      movieLength: entity.movieLength,
+      poster: ImageObjectModel(url: entity.poster?.url, previewUrl: entity.poster?.previewUrl),
+      type: entity.type,
+      name: entity.name,
+      year: entity.year,
+      description: entity.description,
+      genres: switch (entity.genres.isNotEmpty) {
+        true => List<GenreModel>.from(entity.genres.map((elem) => GenreModel(name: elem.name))),
+        false => null,
+      },
+      countries: switch (entity.countries.isNotEmpty) {
+        true => List<CountryModel>.from(
+          entity.countries.map((elem) => CountryModel(name: elem.name)),
+        ),
+        false => null,
+      },
+      seasonsInfo: switch (entity.seasonsInfo.isNotEmpty) {
+        true => List<SeasonsModel>.from(
+          entity.seasonsInfo.map(
+            (elem) => SeasonsModel(number: elem.number, episodesCount: elem.episodesCount),
+          ),
+        ),
+        false => null,
+      },
+      alternativeName: entity.alternativeName,
+      enName: entity.enName,
+      isSeries: entity.isSeries ?? false,
       seriesLength: entity.seriesLength,
       totalSeriesLength: entity.totalSeriesLength,
     );

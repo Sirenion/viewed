@@ -214,6 +214,7 @@ final class NetworkMapperImpl implements NetworkMapper {
       dateViewed: null,
       dateLastReviewed: null,
       amountOfReviews: 0,
+      currentStatus: null,
       currentWatching: null,
       status: model.status,
       rating: RatingEntity(

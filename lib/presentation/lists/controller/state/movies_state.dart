@@ -6,6 +6,7 @@ abstract class MoviesState with _$MoviesState {
 
   const factory MoviesState({
     @Default(true) bool isLoading,
+    @Default(false) bool isLocalLoading,
     @Default([]) List<ViewedEntity> planned,
     @Default([]) List<ViewedEntity> viewed,
     @Default(null) Object? error,

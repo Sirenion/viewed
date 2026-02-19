@@ -4,13 +4,13 @@ import 'package:viewed/data/storage_data_source.dart';
 import 'package:viewed/domain/entity/entities.dart';
 
 abstract interface class StorageRepository {
-  Future<void> addViewed({required ViewedEntity entity});
+  Future<void> addViewed({required SearchItemDetailsEntity entity});
 
-  Stream<MoviesListEntity> watchMovies();
+  Future<void> setAsViewed({required ViewedEntity entity});
 
-  Stream<TvListEntity> watchTv();
+  Future<void> removeViewed({required ViewedEntity entity});
 
-  Stream<AnimeListEntity> watchAnime();
+  Stream<List<ViewedEntity>> watchViewed(String type);
 }
 
 final class StorageRepositoryImpl implements StorageRepository {
@@ -27,21 +27,40 @@ final class StorageRepositoryImpl implements StorageRepository {
        _viewedMapper = viewedMapper;
 
   @override
-  Future<void> addViewed({required ViewedEntity entity}) {
+  Future<void> addViewed({required SearchItemDetailsEntity entity}) {
     final userId = _firebaseAuth.currentUser?.uid;
 
     if (userId == null) {
       throw Exception('User must be authorized');
     }
 
-    return _storageDataSource.addViewed(
-      userId: userId,
-      viewed: _viewedMapper.toViewedModel(entity),
-    );
+    return _storageDataSource.addViewed(userId, _viewedMapper.searchDetailsToViewedModel(entity));
   }
 
   @override
-  Stream<MoviesListEntity> watchMovies() {
+  Future<void> setAsViewed({required ViewedEntity entity}) {
+    final userId = _firebaseAuth.currentUser?.uid;
+
+    if (userId == null) {
+      throw Exception('User must be authorized');
+    }
+
+    return _storageDataSource.setAsViewed(userId, _viewedMapper.viewedEntityToViewedModel(entity));
+  }
+
+  @override
+  Future<void> removeViewed({required ViewedEntity entity}) {
+    final userId = _firebaseAuth.currentUser?.uid;
+
+    if (userId == null) {
+      throw Exception('User must be authorized');
+    }
+
+    return _storageDataSource.removeViewed(userId, entity.id, entity.type ?? '');
+  }
+
+  @override
+  Stream<List<ViewedEntity>> watchViewed(String type) {
     final userId = _firebaseAuth.currentUser?.uid;
 
     if (userId == null) {
@@ -49,31 +68,7 @@ final class StorageRepositoryImpl implements StorageRepository {
     }
 
     return _storageDataSource
-        .watchMovies(userId)
-        .map((elem) => _viewedMapper.toMoviesListEntity(elem));
-  }
-
-  @override
-  Stream<TvListEntity> watchTv() {
-    final userId = _firebaseAuth.currentUser?.uid;
-
-    if (userId == null) {
-      throw Exception('User must be authorized');
-    }
-
-    return _storageDataSource.watchTv(userId).map((elem) => _viewedMapper.toTvListEntity(elem));
-  }
-
-  @override
-  Stream<AnimeListEntity> watchAnime() {
-    final userId = _firebaseAuth.currentUser?.uid;
-
-    if (userId == null) {
-      throw Exception('User must be authorized');
-    }
-
-    return _storageDataSource
-        .watchAnime(userId)
-        .map((elem) => _viewedMapper.toAnimeListEntity(elem));
+        .watchViewed(userId, type)
+        .map((elem) => elem.map(_viewedMapper.toViewedEntity).toList());
   }
 }

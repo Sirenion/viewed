@@ -80,6 +80,7 @@ _ViewedModel _$ViewedModelFromJson(Map<String, dynamic> json) => _ViewedModel(
   dateViewed: json['dateViewed'] as String?,
   dateLastReviewed: json['dateLastReviewed'] as String?,
   amountOfReviews: (json['amountOfReviews'] as num).toInt(),
+  currentStatus: json['currentStatus'] as String?,
   currentWatching: json['currentWatching'] == null
       ? null
       : CurrentWatchingModel.fromJson(
@@ -120,75 +121,24 @@ Map<String, dynamic> _$ViewedModelToJson(_ViewedModel instance) =>
       'dateViewed': instance.dateViewed,
       'dateLastReviewed': instance.dateLastReviewed,
       'amountOfReviews': instance.amountOfReviews,
-      'currentWatching': instance.currentWatching,
+      'currentStatus': instance.currentStatus,
+      'currentWatching': instance.currentWatching?.toJson(),
       'status': instance.status,
-      'rating': instance.rating,
+      'rating': instance.rating?.toJson(),
       'movieLength': instance.movieLength,
-      'poster': instance.poster,
+      'poster': instance.poster?.toJson(),
       'type': instance.type,
       'name': instance.name,
       'year': instance.year,
       'description': instance.description,
-      'genres': instance.genres,
-      'countries': instance.countries,
-      'seasonsInfo': instance.seasonsInfo,
+      'genres': instance.genres?.map((e) => e.toJson()).toList(),
+      'countries': instance.countries?.map((e) => e.toJson()).toList(),
+      'seasonsInfo': instance.seasonsInfo?.map((e) => e.toJson()).toList(),
       'alternativeName': instance.alternativeName,
       'enName': instance.enName,
       'isSeries': instance.isSeries,
       'seriesLength': instance.seriesLength,
       'totalSeriesLength': instance.totalSeriesLength,
-    };
-
-_MoviesListModel _$MoviesListModelFromJson(Map<String, dynamic> json) =>
-    _MoviesListModel(
-      planned: (json['planned'] as List<dynamic>)
-          .map((e) => ViewedModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      viewed: (json['viewed'] as List<dynamic>)
-          .map((e) => ViewedModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
-
-Map<String, dynamic> _$MoviesListModelToJson(_MoviesListModel instance) =>
-    <String, dynamic>{'planned': instance.planned, 'viewed': instance.viewed};
-
-_TvListModel _$TvListModelFromJson(Map<String, dynamic> json) => _TvListModel(
-  planned: (json['planned'] as List<dynamic>)
-      .map((e) => ViewedModel.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  inProgress: (json['inProgress'] as List<dynamic>)
-      .map((e) => ViewedModel.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  viewed: (json['viewed'] as List<dynamic>)
-      .map((e) => ViewedModel.fromJson(e as Map<String, dynamic>))
-      .toList(),
-);
-
-Map<String, dynamic> _$TvListModelToJson(_TvListModel instance) =>
-    <String, dynamic>{
-      'planned': instance.planned,
-      'inProgress': instance.inProgress,
-      'viewed': instance.viewed,
-    };
-
-_AnimeListModel _$AnimeListModelFromJson(Map<String, dynamic> json) =>
-    _AnimeListModel(
-      planned: (json['planned'] as List<dynamic>)
-          .map((e) => ViewedModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      inProgress: (json['inProgress'] as List<dynamic>)
-          .map((e) => ViewedModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      viewed: (json['viewed'] as List<dynamic>)
-          .map((e) => ViewedModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
-
-Map<String, dynamic> _$AnimeListModelToJson(_AnimeListModel instance) =>
-    <String, dynamic>{
-      'planned': instance.planned,
-      'inProgress': instance.inProgress,
-      'viewed': instance.viewed,
     };
 
 _BudgetModel _$BudgetModelFromJson(Map<String, dynamic> json) => _BudgetModel(
@@ -240,9 +190,9 @@ _FeesModel _$FeesModelFromJson(Map<String, dynamic> json) => _FeesModel(
 
 Map<String, dynamic> _$FeesModelToJson(_FeesModel instance) =>
     <String, dynamic>{
-      'world': instance.world,
-      'russia': instance.russia,
-      'usa': instance.usa,
+      'world': instance.world?.toJson(),
+      'russia': instance.russia?.toJson(),
+      'usa': instance.usa?.toJson(),
     };
 
 _ImageObjectModel _$ImageObjectModelFromJson(Map<String, dynamic> json) =>
@@ -277,7 +227,7 @@ _NetworkItemModel _$NetworkItemModelFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$NetworkItemModelToJson(_NetworkItemModel instance) =>
-    <String, dynamic>{'name': instance.name, 'logo': instance.logo};
+    <String, dynamic>{'name': instance.name, 'logo': instance.logo?.toJson()};
 
 _NetworksModel _$NetworksModelFromJson(Map<String, dynamic> json) =>
     _NetworksModel(
@@ -289,7 +239,7 @@ _NetworksModel _$NetworksModelFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$NetworksModelToJson(_NetworksModel instance) =>
-    <String, dynamic>{'items': instance.items};
+    <String, dynamic>{'items': instance.items?.map((e) => e.toJson()).toList()};
 
 _ReleaseYearModel _$ReleaseYearModelFromJson(Map<String, dynamic> json) =>
     _ReleaseYearModel(
@@ -390,8 +340,8 @@ Map<String, dynamic> _$SimilarMovieModelToJson(_SimilarMovieModel instance) =>
       'enName': instance.enName,
       'alternativeName': instance.alternativeName,
       'type': instance.type,
-      'poster': instance.poster,
-      'rating': instance.rating,
+      'poster': instance.poster?.toJson(),
+      'rating': instance.rating?.toJson(),
       'year': instance.year,
     };
 
@@ -422,7 +372,9 @@ _VideosModel _$VideosModelFromJson(Map<String, dynamic> json) => _VideosModel(
 );
 
 Map<String, dynamic> _$VideosModelToJson(_VideosModel instance) =>
-    <String, dynamic>{'trailers': instance.trailers};
+    <String, dynamic>{
+      'trailers': instance.trailers?.map((e) => e.toJson()).toList(),
+    };
 
 _VotesModel _$VotesModelFromJson(Map<String, dynamic> json) => _VotesModel(
   kp: (json['kp'] as num?)?.toInt(),
@@ -455,7 +407,7 @@ _WatchItemModel _$WatchItemModelFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$WatchItemModelToJson(_WatchItemModel instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'logo': instance.logo,
+      'logo': instance.logo?.toJson(),
       'url': instance.url,
     };
 
@@ -469,7 +421,7 @@ _WatchabilityModel _$WatchabilityModelFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$WatchabilityModelToJson(_WatchabilityModel instance) =>
-    <String, dynamic>{'items': instance.items};
+    <String, dynamic>{'items': instance.items.map((e) => e.toJson()).toList()};
 
 _SearchItemModel _$SearchItemModelFromJson(Map<String, dynamic> json) =>
     _SearchItemModel(
@@ -545,16 +497,16 @@ Map<String, dynamic> _$SearchItemModelToJson(_SearchItemModel instance) =>
       'description': instance.description,
       'shortDescription': instance.shortDescription,
       'movieLength': instance.movieLength,
-      'names': instance.names,
-      'externalId': instance.externalId,
-      'logo': instance.logo,
-      'poster': instance.poster,
-      'backdrop': instance.backdrop,
-      'rating': instance.rating,
-      'votes': instance.votes,
-      'genres': instance.genres,
-      'countries': instance.countries,
-      'releaseYears': instance.releaseYears,
+      'names': instance.names.map((e) => e.toJson()).toList(),
+      'externalId': instance.externalId?.toJson(),
+      'logo': instance.logo?.toJson(),
+      'poster': instance.poster?.toJson(),
+      'backdrop': instance.backdrop?.toJson(),
+      'rating': instance.rating?.toJson(),
+      'votes': instance.votes?.toJson(),
+      'genres': instance.genres.map((e) => e.toJson()).toList(),
+      'countries': instance.countries.map((e) => e.toJson()).toList(),
+      'releaseYears': instance.releaseYears.map((e) => e.toJson()).toList(),
       'isSeries': instance.isSeries,
       'ticketsOnSale': instance.ticketsOnSale,
       'totalSeriesLength': instance.totalSeriesLength,
@@ -580,7 +532,7 @@ _SearchListModel _$SearchListModelFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$SearchListModelToJson(_SearchListModel instance) =>
     <String, dynamic>{
-      'docs': instance.docs,
+      'docs': instance.docs.map((e) => e.toJson()).toList(),
       'total': instance.total,
       'limit': instance.limit,
       'page': instance.page,
@@ -716,11 +668,11 @@ Map<String, dynamic> _$SearchItemDetailsModelToJson(
   _SearchItemDetailsModel instance,
 ) => <String, dynamic>{
   'id': instance.id,
-  'externalId': instance.externalId,
+  'externalId': instance.externalId?.toJson(),
   'name': instance.name,
   'alternativeName': instance.alternativeName,
   'enName': instance.enName,
-  'names': instance.names,
+  'names': instance.names.map((e) => e.toJson()).toList(),
   'type': instance.type,
   'typeNumber': instance.typeNumber,
   'year': instance.year,
@@ -728,37 +680,39 @@ Map<String, dynamic> _$SearchItemDetailsModelToJson(
   'shortDescription': instance.shortDescription,
   'slogan': instance.slogan,
   'status': instance.status,
-  'facts': instance.facts,
-  'rating': instance.rating,
-  'votes': instance.votes,
+  'facts': instance.facts.map((e) => e.toJson()).toList(),
+  'rating': instance.rating?.toJson(),
+  'votes': instance.votes?.toJson(),
   'movieLength': instance.movieLength,
   'ratingMpaa': instance.ratingMpaa,
   'ageRating': instance.ageRating,
-  'logo': instance.logo,
-  'poster': instance.poster,
-  'backdrop': instance.backdrop,
-  'videos': instance.videos,
-  'genres': instance.genres,
-  'countries': instance.countries,
-  'persons': instance.persons,
-  'reviewInfo': instance.reviewInfo,
-  'seasonsInfo': instance.seasonsInfo,
-  'budget': instance.budget,
-  'fees': instance.fees,
-  'premiere': instance.premiere,
-  'similarMovies': instance.similarMovies,
-  'sequelsAndPrequels': instance.sequelsAndPrequels,
-  'watchability': instance.watchability,
-  'releaseYears': instance.releaseYears,
+  'logo': instance.logo?.toJson(),
+  'poster': instance.poster?.toJson(),
+  'backdrop': instance.backdrop?.toJson(),
+  'videos': instance.videos?.toJson(),
+  'genres': instance.genres.map((e) => e.toJson()).toList(),
+  'countries': instance.countries.map((e) => e.toJson()).toList(),
+  'persons': instance.persons.map((e) => e.toJson()).toList(),
+  'reviewInfo': instance.reviewInfo?.toJson(),
+  'seasonsInfo': instance.seasonsInfo.map((e) => e.toJson()).toList(),
+  'budget': instance.budget?.toJson(),
+  'fees': instance.fees?.toJson(),
+  'premiere': instance.premiere?.toJson(),
+  'similarMovies': instance.similarMovies?.map((e) => e.toJson()).toList(),
+  'sequelsAndPrequels': instance.sequelsAndPrequels
+      ?.map((e) => e.toJson())
+      .toList(),
+  'watchability': instance.watchability?.toJson(),
+  'releaseYears': instance.releaseYears?.map((e) => e.toJson()).toList(),
   'top10': instance.top10,
   'top250': instance.top250,
   'ticketsOnSale': instance.ticketsOnSale,
   'totalSeriesLength': instance.totalSeriesLength,
   'seriesLength': instance.seriesLength,
   'isSeries': instance.isSeries,
-  'audience': instance.audience,
+  'audience': instance.audience?.map((e) => e.toJson()).toList(),
   'lists': instance.lists,
-  'networks': instance.networks,
+  'networks': instance.networks?.toJson(),
   'updatedAt': instance.updatedAt?.toIso8601String(),
   'createdAt': instance.createdAt?.toIso8601String(),
 };

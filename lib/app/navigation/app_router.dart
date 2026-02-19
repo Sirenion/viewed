@@ -97,7 +97,7 @@ GoRouter createRouter(AuthCubit authCubit) {
                   return BlocProvider(
                     create: (context) =>
                         MoviesCubit(storageRepository: context.read<StorageRepository>()),
-                    child: const MoviesPage(),
+                    child: MoviesPage(route: appRoutes),
                   );
                 },
               ),
@@ -109,7 +109,7 @@ GoRouter createRouter(AuthCubit authCubit) {
                 name: appRoutes.tv.routeName,
                 path: appRoutes.tv.relativePath,
                 builder: (context, state) {
-                  return const TvPage();
+                  return TvPage(route: appRoutes);
                 },
               ),
             ],
@@ -120,7 +120,7 @@ GoRouter createRouter(AuthCubit authCubit) {
                 name: appRoutes.anime.routeName,
                 path: appRoutes.anime.relativePath,
                 builder: (context, state) {
-                  return const AnimePage();
+                  return AnimePage(route: appRoutes);
                 },
               ),
             ],
@@ -158,6 +158,7 @@ GoRouter createRouter(AuthCubit authCubit) {
           return BlocProvider(
             create: (context) => SearchDetailsCubit(
               networkRepository: context.read<NetworkRepository>(),
+              storageRepository: context.read<StorageRepository>(),
               id: arguments.id,
             ),
             child: SearchDetailsPage(route: appRoutes),

@@ -9,21 +9,16 @@ final class StorageDataSourceImpl implements StorageDataSource {
     : _firebaseFirestore = firebaseFirestore;
 
   @override
-  Future<void> addViewed({required String userId, required ViewedModel viewed}) async {
-    final String? ref = switch (viewed.type) {
-      'movie' => 'users/$userId/movies/planned',
-      'cartoon' => 'users/$userId/movies/planned',
-      'tv-series' => 'users/$userId/tv/planned',
-      'animated-series' => 'users/$userId/tv/planned',
-      'anime' => 'users/$userId/anime/planned',
-      null => null,
-      _ => null,
-    };
+  Future<void> addViewed(String userId, ViewedModel viewed) async {
+    final ref = _getPath(viewed.type, userId);
 
-    if (ref == null) return;
+    if (ref.isEmpty) return;
 
-    final colRef = _firebaseFirestore.collection(ref);
-    await colRef.add(viewed.toJson());
+    final item = viewed.copyWith(dateAdded: DateTime.now().toString(), currentStatus: 'planned');
+
+    final docRef = _firebaseFirestore.doc('$ref/${viewed.id}');
+
+    await docRef.set(item.toJson());
   }
 
   @override
@@ -33,9 +28,27 @@ final class StorageDataSourceImpl implements StorageDataSource {
   }
 
   @override
-  Future<void> removeViewed(String userId, String viewedId) {
-    // TODO: implement removeViewed
-    throw UnimplementedError();
+  Future<void> setAsViewed(String userId, ViewedModel viewed) async {
+    final ref = _getPath(viewed.type, userId);
+
+    if (ref.isEmpty) return;
+
+    final item = viewed.copyWith(dateViewed: DateTime.now().toString(), currentStatus: 'viewed');
+
+    final docRef = _firebaseFirestore.doc('$ref/${item.id}');
+
+    await docRef.set(item.toJson());
+  }
+
+  @override
+  Future<void> removeViewed(String userId, String viewedId, String viewedType) async {
+    final colPath = _getPath(viewedType, userId);
+
+    if (colPath.isEmpty) return;
+
+    final docRef = _firebaseFirestore.doc('$colPath/$viewedId');
+
+    await docRef.delete();
   }
 
   @override
@@ -45,38 +58,20 @@ final class StorageDataSourceImpl implements StorageDataSource {
   }
 
   @override
-  Stream<MoviesListModel> watchMovies(String userId) {
-    return _queryMovies(userId).snapshots().map((e) {
-      final docs = e.docs;
-      final moviesLists = docs.map((e) => e.data()).nonNulls.first;
+  Stream<List<ViewedModel>> watchViewed(String userId, String type) {
+    final path = _getPath(type, userId);
 
-      return moviesLists;
+    return _queryViewed(path).snapshots().map((e) {
+      final docs = e.docs;
+      final list = docs.map((e) => e.data()).nonNulls.toList();
+
+      return list;
     });
   }
 
-  @override
-  Stream<TvListModel> watchTv(String userId) {
-    return _queryTv(userId).snapshots().map((e) {
-      final docs = e.docs;
-      final tvLists = docs.map((e) => e.data()).nonNulls.first;
-
-      return tvLists;
-    });
-  }
-
-  @override
-  Stream<AnimeListModel> watchAnime(String userId) {
-    return _queryAnime(userId).snapshots().map((e) {
-      final docs = e.docs;
-      final animeLists = docs.map((e) => e.data()).nonNulls.first;
-
-      return animeLists;
-    });
-  }
-
-  Query<MoviesListModel?> _queryMovies(String userId) {
+  Query<ViewedModel?> _queryViewed(String path) {
     return _firebaseFirestore
-        .collection('users/$userId/movies')
+        .collection(path)
         .withConverter(
           fromFirestore: (e, _) {
             final data = e.data();
@@ -85,7 +80,7 @@ final class StorageDataSourceImpl implements StorageDataSource {
               return null;
             }
 
-            return MoviesListModel.fromJson(data);
+            return ViewedModel.fromJson(data);
           },
           toFirestore: (e, _) {
             return e?.toJson() ?? {};
@@ -93,41 +88,14 @@ final class StorageDataSourceImpl implements StorageDataSource {
         );
   }
 
-  Query<TvListModel?> _queryTv(String userId) {
-    return _firebaseFirestore
-        .collection('users/$userId/tv')
-        .withConverter(
-          fromFirestore: (e, _) {
-            final data = e.data();
-
-            if (data == null) {
-              return null;
-            }
-
-            return TvListModel.fromJson(data);
-          },
-          toFirestore: (e, _) {
-            return e?.toJson() ?? {};
-          },
-        );
-  }
-
-  Query<AnimeListModel?> _queryAnime(String userId) {
-    return _firebaseFirestore
-        .collection('users/$userId/anime')
-        .withConverter(
-          fromFirestore: (e, _) {
-            final data = e.data();
-
-            if (data == null) {
-              return null;
-            }
-
-            return AnimeListModel.fromJson(data);
-          },
-          toFirestore: (e, _) {
-            return e?.toJson() ?? {};
-          },
-        );
+  String _getPath(String? type, String userId) {
+    return switch (type) {
+      'movie' => 'users/$userId/movies',
+      'cartoon' => 'users/$userId/movies',
+      'tv-series' => 'users/$userId/tv',
+      'animated-series' => 'users/$userId/tv',
+      'anime' => 'users/$userId/anime',
+      _ => '',
+    };
   }
 }

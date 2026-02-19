@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:viewed/app/navigation/routes/app_routes.dart';
+import 'package:viewed/core/presentation/widgets/button.dart';
 import 'package:viewed/core/presentation/widgets/list_empty_widget.dart';
 import 'package:viewed/core/presentation/widgets/list_error_widget.dart';
 import 'package:viewed/domain/entity/entities.dart';
@@ -14,6 +15,8 @@ part 'widgets/backdrop_app_bar.dart';
 part 'widgets/title_section.dart';
 
 part 'widgets/genre_widget.dart';
+
+part 'widgets/add_button.dart';
 
 part 'widgets/description.dart';
 
@@ -60,6 +63,8 @@ class SearchDetailsPage extends StatelessWidget {
                         _TitleSection(searchItemDetailsEntity: state.searchItemDetails!),
                         const SizedBox(height: 16),
                         _GenreWidget(searchItemDetailsEntity: state.searchItemDetails!),
+                        const SizedBox(height: 16),
+                        const _AddButton(),
                         const SizedBox(height: 16),
                         _DescriptionWidget(searchItemDetailsEntity: state.searchItemDetails!),
                         const SizedBox(height: 24),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:viewed/app/navigation/routes/app_routes.dart';
 import 'package:viewed/generated/l10n.dart';
 import 'package:viewed/presentation/lists/controller/movies_cubit.dart';
 import 'package:viewed/presentation/lists/controller/state/state.dart';
@@ -11,11 +13,18 @@ part 'widgets/movies_expansion_tile.dart';
 part 'widgets/viewed_movies_expansion_tile.dart';
 
 class MoviesPage extends StatelessWidget {
-  const MoviesPage({super.key});
+  const MoviesPage({required this.route, super.key});
+
+  final AppRoutes route;
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<MoviesCubit, MoviesState>(
+      buildWhen: (previous, current) =>
+          previous.isLoading != current.isLoading ||
+          previous.planned != current.planned ||
+          previous.viewed != current.viewed ||
+          previous.error != current.error,
       builder: (context, state) {
         if (state.isLoading) {
           return const Center(child: CircularProgressIndicator());
@@ -54,6 +63,21 @@ class MoviesPage extends StatelessWidget {
                                 name: item.name ?? '',
                                 description: item.description ?? '',
                                 dateAdded: DateTime.parse(item.dateAdded!),
+                                onReplace: () => switch (state.isLocalLoading) {
+                                  false => context.read<MoviesCubit>().setAsViewed(item),
+                                  true => null,
+                                },
+                                onRemove: () => switch (state.isLocalLoading) {
+                                  false => context.read<MoviesCubit>().removeItem(item),
+                                  true => null,
+                                },
+                                onGoToOriginal: () => switch (state.isLocalLoading) {
+                                  false => route.searchDetails.push(
+                                    context.read<GoRouter>(),
+                                    id: item.id,
+                                  ),
+                                  true => null,
+                                },
                               );
                             },
                           ),
@@ -69,6 +93,17 @@ class MoviesPage extends StatelessWidget {
                                 description: item.description ?? '',
                                 dateAdded: DateTime.parse(item.dateAdded!),
                                 dateViewed: DateTime.parse(item.dateViewed!),
+                                onRemove: () => switch (state.isLocalLoading) {
+                                  false => context.read<MoviesCubit>().removeItem(item),
+                                  true => null,
+                                },
+                                onGoToOriginal: () => switch (state.isLocalLoading) {
+                                  false => route.searchDetails.push(
+                                    context.read<GoRouter>(),
+                                    id: item.id,
+                                  ),
+                                  true => null,
+                                },
                               );
                             },
                           ),

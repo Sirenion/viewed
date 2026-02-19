@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:viewed/app/navigation/routes/app_routes.dart';
 import 'package:viewed/generated/l10n.dart';
 
 class TvPage extends StatelessWidget {
-  const TvPage({super.key});
+  const TvPage({required this.route, super.key});
+
+  final AppRoutes route;
 
   @override
   Widget build(BuildContext context) {

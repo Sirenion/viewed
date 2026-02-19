@@ -8,6 +8,7 @@ abstract class ViewedModel with _$ViewedModel {
     required String? dateViewed,
     required String? dateLastReviewed,
     required int amountOfReviews,
+    required String? currentStatus,
     required CurrentWatchingModel? currentWatching,
     required String? status,
     required RatingModel? rating,

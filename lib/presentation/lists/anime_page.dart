@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:viewed/app/navigation/routes/app_routes.dart';
 import 'package:viewed/generated/l10n.dart';
 
 class AnimePage extends StatelessWidget {
-  const AnimePage({super.key});
+  const AnimePage({required this.route, super.key});
+
+  final AppRoutes route;
 
   @override
   Widget build(BuildContext context) {

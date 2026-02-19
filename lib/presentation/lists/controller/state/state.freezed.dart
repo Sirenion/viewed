@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$MoviesState {
 
- bool get isLoading; List<ViewedEntity> get planned; List<ViewedEntity> get viewed; Object? get error;
+ bool get isLoading; bool get isLocalLoading; List<ViewedEntity> get planned; List<ViewedEntity> get viewed; Object? get error;
 /// Create a copy of MoviesState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $MoviesStateCopyWith<MoviesState> get copyWith => _$MoviesStateCopyWithImpl<Movi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MoviesState&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&const DeepCollectionEquality().equals(other.planned, planned)&&const DeepCollectionEquality().equals(other.viewed, viewed)&&const DeepCollectionEquality().equals(other.error, error));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MoviesState&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.isLocalLoading, isLocalLoading) || other.isLocalLoading == isLocalLoading)&&const DeepCollectionEquality().equals(other.planned, planned)&&const DeepCollectionEquality().equals(other.viewed, viewed)&&const DeepCollectionEquality().equals(other.error, error));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,isLoading,const DeepCollectionEquality().hash(planned),const DeepCollectionEquality().hash(viewed),const DeepCollectionEquality().hash(error));
+int get hashCode => Object.hash(runtimeType,isLoading,isLocalLoading,const DeepCollectionEquality().hash(planned),const DeepCollectionEquality().hash(viewed),const DeepCollectionEquality().hash(error));
 
 @override
 String toString() {
-  return 'MoviesState(isLoading: $isLoading, planned: $planned, viewed: $viewed, error: $error)';
+  return 'MoviesState(isLoading: $isLoading, isLocalLoading: $isLocalLoading, planned: $planned, viewed: $viewed, error: $error)';
 }
 
 
@@ -45,7 +45,7 @@ abstract mixin class $MoviesStateCopyWith<$Res>  {
   factory $MoviesStateCopyWith(MoviesState value, $Res Function(MoviesState) _then) = _$MoviesStateCopyWithImpl;
 @useResult
 $Res call({
- bool isLoading, List<ViewedEntity> planned, List<ViewedEntity> viewed, Object? error
+ bool isLoading, bool isLocalLoading, List<ViewedEntity> planned, List<ViewedEntity> viewed, Object? error
 });
 
 
@@ -62,9 +62,10 @@ class _$MoviesStateCopyWithImpl<$Res>
 
 /// Create a copy of MoviesState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? isLoading = null,Object? planned = null,Object? viewed = null,Object? error = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? isLoading = null,Object? isLocalLoading = null,Object? planned = null,Object? viewed = null,Object? error = freezed,}) {
   return _then(_self.copyWith(
 isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
+as bool,isLocalLoading: null == isLocalLoading ? _self.isLocalLoading : isLocalLoading // ignore: cast_nullable_to_non_nullable
 as bool,planned: null == planned ? _self.planned : planned // ignore: cast_nullable_to_non_nullable
 as List<ViewedEntity>,viewed: null == viewed ? _self.viewed : viewed // ignore: cast_nullable_to_non_nullable
 as List<ViewedEntity>,error: freezed == error ? _self.error : error ,
@@ -152,10 +153,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool isLoading,  List<ViewedEntity> planned,  List<ViewedEntity> viewed,  Object? error)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool isLoading,  bool isLocalLoading,  List<ViewedEntity> planned,  List<ViewedEntity> viewed,  Object? error)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _MoviesState() when $default != null:
-return $default(_that.isLoading,_that.planned,_that.viewed,_that.error);case _:
+return $default(_that.isLoading,_that.isLocalLoading,_that.planned,_that.viewed,_that.error);case _:
   return orElse();
 
 }
@@ -173,10 +174,10 @@ return $default(_that.isLoading,_that.planned,_that.viewed,_that.error);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool isLoading,  List<ViewedEntity> planned,  List<ViewedEntity> viewed,  Object? error)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool isLoading,  bool isLocalLoading,  List<ViewedEntity> planned,  List<ViewedEntity> viewed,  Object? error)  $default,) {final _that = this;
 switch (_that) {
 case _MoviesState():
-return $default(_that.isLoading,_that.planned,_that.viewed,_that.error);case _:
+return $default(_that.isLoading,_that.isLocalLoading,_that.planned,_that.viewed,_that.error);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -193,10 +194,10 @@ return $default(_that.isLoading,_that.planned,_that.viewed,_that.error);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool isLoading,  List<ViewedEntity> planned,  List<ViewedEntity> viewed,  Object? error)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool isLoading,  bool isLocalLoading,  List<ViewedEntity> planned,  List<ViewedEntity> viewed,  Object? error)?  $default,) {final _that = this;
 switch (_that) {
 case _MoviesState() when $default != null:
-return $default(_that.isLoading,_that.planned,_that.viewed,_that.error);case _:
+return $default(_that.isLoading,_that.isLocalLoading,_that.planned,_that.viewed,_that.error);case _:
   return null;
 
 }
@@ -208,10 +209,11 @@ return $default(_that.isLoading,_that.planned,_that.viewed,_that.error);case _:
 
 
 class _MoviesState extends MoviesState {
-  const _MoviesState({this.isLoading = true, final  List<ViewedEntity> planned = const [], final  List<ViewedEntity> viewed = const [], this.error = null}): _planned = planned,_viewed = viewed,super._();
+  const _MoviesState({this.isLoading = true, this.isLocalLoading = false, final  List<ViewedEntity> planned = const [], final  List<ViewedEntity> viewed = const [], this.error = null}): _planned = planned,_viewed = viewed,super._();
   
 
 @override@JsonKey() final  bool isLoading;
+@override@JsonKey() final  bool isLocalLoading;
  final  List<ViewedEntity> _planned;
 @override@JsonKey() List<ViewedEntity> get planned {
   if (_planned is EqualUnmodifiableListView) return _planned;
@@ -238,16 +240,16 @@ _$MoviesStateCopyWith<_MoviesState> get copyWith => __$MoviesStateCopyWithImpl<_
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MoviesState&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&const DeepCollectionEquality().equals(other._planned, _planned)&&const DeepCollectionEquality().equals(other._viewed, _viewed)&&const DeepCollectionEquality().equals(other.error, error));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MoviesState&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.isLocalLoading, isLocalLoading) || other.isLocalLoading == isLocalLoading)&&const DeepCollectionEquality().equals(other._planned, _planned)&&const DeepCollectionEquality().equals(other._viewed, _viewed)&&const DeepCollectionEquality().equals(other.error, error));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,isLoading,const DeepCollectionEquality().hash(_planned),const DeepCollectionEquality().hash(_viewed),const DeepCollectionEquality().hash(error));
+int get hashCode => Object.hash(runtimeType,isLoading,isLocalLoading,const DeepCollectionEquality().hash(_planned),const DeepCollectionEquality().hash(_viewed),const DeepCollectionEquality().hash(error));
 
 @override
 String toString() {
-  return 'MoviesState(isLoading: $isLoading, planned: $planned, viewed: $viewed, error: $error)';
+  return 'MoviesState(isLoading: $isLoading, isLocalLoading: $isLocalLoading, planned: $planned, viewed: $viewed, error: $error)';
 }
 
 
@@ -258,7 +260,7 @@ abstract mixin class _$MoviesStateCopyWith<$Res> implements $MoviesStateCopyWith
   factory _$MoviesStateCopyWith(_MoviesState value, $Res Function(_MoviesState) _then) = __$MoviesStateCopyWithImpl;
 @override @useResult
 $Res call({
- bool isLoading, List<ViewedEntity> planned, List<ViewedEntity> viewed, Object? error
+ bool isLoading, bool isLocalLoading, List<ViewedEntity> planned, List<ViewedEntity> viewed, Object? error
 });
 
 
@@ -275,9 +277,10 @@ class __$MoviesStateCopyWithImpl<$Res>
 
 /// Create a copy of MoviesState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? isLoading = null,Object? planned = null,Object? viewed = null,Object? error = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? isLoading = null,Object? isLocalLoading = null,Object? planned = null,Object? viewed = null,Object? error = freezed,}) {
   return _then(_MoviesState(
 isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
+as bool,isLocalLoading: null == isLocalLoading ? _self.isLocalLoading : isLocalLoading // ignore: cast_nullable_to_non_nullable
 as bool,planned: null == planned ? _self._planned : planned // ignore: cast_nullable_to_non_nullable
 as List<ViewedEntity>,viewed: null == viewed ? _self._viewed : viewed // ignore: cast_nullable_to_non_nullable
 as List<ViewedEntity>,error: freezed == error ? _self.error : error ,

@@ -333,6 +333,11 @@ class S {
   String get cast {
     return Intl.message('В ролях', name: 'cast', desc: '', args: []);
   }
+
+  /// `Добавить`
+  String get add {
+    return Intl.message('Добавить', name: 'add', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

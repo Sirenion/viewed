@@ -1592,7 +1592,7 @@ as double?,
 /// @nodoc
 mixin _$ViewedEntity {
 
- String get id; String? get dateAdded; String? get dateViewed; String? get dateLastReviewed; int get amountOfReviews; CurrentWatchingEntity? get currentWatching; String? get status; RatingEntity? get rating; int? get movieLength; ImageObjectEntity? get poster; String? get type; String? get name; int? get year; String? get description; List<GenreEntity>? get genres; List<CountryEntity>? get countries; List<SeasonsEntity>? get seasonsInfo; String? get alternativeName; String? get enName; bool get isSeries; int? get seriesLength; int? get totalSeriesLength;
+ String get id; String? get dateAdded; String? get dateViewed; String? get dateLastReviewed; int get amountOfReviews; String? get currentStatus; CurrentWatchingEntity? get currentWatching; String? get status; RatingEntity? get rating; int? get movieLength; ImageObjectEntity? get poster; String? get type; String? get name; int? get year; String? get description; List<GenreEntity>? get genres; List<CountryEntity>? get countries; List<SeasonsEntity>? get seasonsInfo; String? get alternativeName; String? get enName; bool get isSeries; int? get seriesLength; int? get totalSeriesLength;
 /// Create a copy of ViewedEntity
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1603,16 +1603,16 @@ $ViewedEntityCopyWith<ViewedEntity> get copyWith => _$ViewedEntityCopyWithImpl<V
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ViewedEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.dateAdded, dateAdded) || other.dateAdded == dateAdded)&&(identical(other.dateViewed, dateViewed) || other.dateViewed == dateViewed)&&(identical(other.dateLastReviewed, dateLastReviewed) || other.dateLastReviewed == dateLastReviewed)&&(identical(other.amountOfReviews, amountOfReviews) || other.amountOfReviews == amountOfReviews)&&(identical(other.currentWatching, currentWatching) || other.currentWatching == currentWatching)&&(identical(other.status, status) || other.status == status)&&(identical(other.rating, rating) || other.rating == rating)&&(identical(other.movieLength, movieLength) || other.movieLength == movieLength)&&(identical(other.poster, poster) || other.poster == poster)&&(identical(other.type, type) || other.type == type)&&(identical(other.name, name) || other.name == name)&&(identical(other.year, year) || other.year == year)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.genres, genres)&&const DeepCollectionEquality().equals(other.countries, countries)&&const DeepCollectionEquality().equals(other.seasonsInfo, seasonsInfo)&&(identical(other.alternativeName, alternativeName) || other.alternativeName == alternativeName)&&(identical(other.enName, enName) || other.enName == enName)&&(identical(other.isSeries, isSeries) || other.isSeries == isSeries)&&(identical(other.seriesLength, seriesLength) || other.seriesLength == seriesLength)&&(identical(other.totalSeriesLength, totalSeriesLength) || other.totalSeriesLength == totalSeriesLength));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ViewedEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.dateAdded, dateAdded) || other.dateAdded == dateAdded)&&(identical(other.dateViewed, dateViewed) || other.dateViewed == dateViewed)&&(identical(other.dateLastReviewed, dateLastReviewed) || other.dateLastReviewed == dateLastReviewed)&&(identical(other.amountOfReviews, amountOfReviews) || other.amountOfReviews == amountOfReviews)&&(identical(other.currentStatus, currentStatus) || other.currentStatus == currentStatus)&&(identical(other.currentWatching, currentWatching) || other.currentWatching == currentWatching)&&(identical(other.status, status) || other.status == status)&&(identical(other.rating, rating) || other.rating == rating)&&(identical(other.movieLength, movieLength) || other.movieLength == movieLength)&&(identical(other.poster, poster) || other.poster == poster)&&(identical(other.type, type) || other.type == type)&&(identical(other.name, name) || other.name == name)&&(identical(other.year, year) || other.year == year)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.genres, genres)&&const DeepCollectionEquality().equals(other.countries, countries)&&const DeepCollectionEquality().equals(other.seasonsInfo, seasonsInfo)&&(identical(other.alternativeName, alternativeName) || other.alternativeName == alternativeName)&&(identical(other.enName, enName) || other.enName == enName)&&(identical(other.isSeries, isSeries) || other.isSeries == isSeries)&&(identical(other.seriesLength, seriesLength) || other.seriesLength == seriesLength)&&(identical(other.totalSeriesLength, totalSeriesLength) || other.totalSeriesLength == totalSeriesLength));
 }
 
 
 @override
-int get hashCode => Object.hashAll([runtimeType,id,dateAdded,dateViewed,dateLastReviewed,amountOfReviews,currentWatching,status,rating,movieLength,poster,type,name,year,description,const DeepCollectionEquality().hash(genres),const DeepCollectionEquality().hash(countries),const DeepCollectionEquality().hash(seasonsInfo),alternativeName,enName,isSeries,seriesLength,totalSeriesLength]);
+int get hashCode => Object.hashAll([runtimeType,id,dateAdded,dateViewed,dateLastReviewed,amountOfReviews,currentStatus,currentWatching,status,rating,movieLength,poster,type,name,year,description,const DeepCollectionEquality().hash(genres),const DeepCollectionEquality().hash(countries),const DeepCollectionEquality().hash(seasonsInfo),alternativeName,enName,isSeries,seriesLength,totalSeriesLength]);
 
 @override
 String toString() {
-  return 'ViewedEntity(id: $id, dateAdded: $dateAdded, dateViewed: $dateViewed, dateLastReviewed: $dateLastReviewed, amountOfReviews: $amountOfReviews, currentWatching: $currentWatching, status: $status, rating: $rating, movieLength: $movieLength, poster: $poster, type: $type, name: $name, year: $year, description: $description, genres: $genres, countries: $countries, seasonsInfo: $seasonsInfo, alternativeName: $alternativeName, enName: $enName, isSeries: $isSeries, seriesLength: $seriesLength, totalSeriesLength: $totalSeriesLength)';
+  return 'ViewedEntity(id: $id, dateAdded: $dateAdded, dateViewed: $dateViewed, dateLastReviewed: $dateLastReviewed, amountOfReviews: $amountOfReviews, currentStatus: $currentStatus, currentWatching: $currentWatching, status: $status, rating: $rating, movieLength: $movieLength, poster: $poster, type: $type, name: $name, year: $year, description: $description, genres: $genres, countries: $countries, seasonsInfo: $seasonsInfo, alternativeName: $alternativeName, enName: $enName, isSeries: $isSeries, seriesLength: $seriesLength, totalSeriesLength: $totalSeriesLength)';
 }
 
 
@@ -1623,7 +1623,7 @@ abstract mixin class $ViewedEntityCopyWith<$Res>  {
   factory $ViewedEntityCopyWith(ViewedEntity value, $Res Function(ViewedEntity) _then) = _$ViewedEntityCopyWithImpl;
 @useResult
 $Res call({
- String id, String? dateAdded, String? dateViewed, String? dateLastReviewed, int amountOfReviews, CurrentWatchingEntity? currentWatching, String? status, RatingEntity? rating, int? movieLength, ImageObjectEntity? poster, String? type, String? name, int? year, String? description, List<GenreEntity>? genres, List<CountryEntity>? countries, List<SeasonsEntity>? seasonsInfo, String? alternativeName, String? enName, bool isSeries, int? seriesLength, int? totalSeriesLength
+ String id, String? dateAdded, String? dateViewed, String? dateLastReviewed, int amountOfReviews, String? currentStatus, CurrentWatchingEntity? currentWatching, String? status, RatingEntity? rating, int? movieLength, ImageObjectEntity? poster, String? type, String? name, int? year, String? description, List<GenreEntity>? genres, List<CountryEntity>? countries, List<SeasonsEntity>? seasonsInfo, String? alternativeName, String? enName, bool isSeries, int? seriesLength, int? totalSeriesLength
 });
 
 
@@ -1640,14 +1640,15 @@ class _$ViewedEntityCopyWithImpl<$Res>
 
 /// Create a copy of ViewedEntity
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? dateAdded = freezed,Object? dateViewed = freezed,Object? dateLastReviewed = freezed,Object? amountOfReviews = null,Object? currentWatching = freezed,Object? status = freezed,Object? rating = freezed,Object? movieLength = freezed,Object? poster = freezed,Object? type = freezed,Object? name = freezed,Object? year = freezed,Object? description = freezed,Object? genres = freezed,Object? countries = freezed,Object? seasonsInfo = freezed,Object? alternativeName = freezed,Object? enName = freezed,Object? isSeries = null,Object? seriesLength = freezed,Object? totalSeriesLength = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? dateAdded = freezed,Object? dateViewed = freezed,Object? dateLastReviewed = freezed,Object? amountOfReviews = null,Object? currentStatus = freezed,Object? currentWatching = freezed,Object? status = freezed,Object? rating = freezed,Object? movieLength = freezed,Object? poster = freezed,Object? type = freezed,Object? name = freezed,Object? year = freezed,Object? description = freezed,Object? genres = freezed,Object? countries = freezed,Object? seasonsInfo = freezed,Object? alternativeName = freezed,Object? enName = freezed,Object? isSeries = null,Object? seriesLength = freezed,Object? totalSeriesLength = freezed,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,dateAdded: freezed == dateAdded ? _self.dateAdded : dateAdded // ignore: cast_nullable_to_non_nullable
 as String?,dateViewed: freezed == dateViewed ? _self.dateViewed : dateViewed // ignore: cast_nullable_to_non_nullable
 as String?,dateLastReviewed: freezed == dateLastReviewed ? _self.dateLastReviewed : dateLastReviewed // ignore: cast_nullable_to_non_nullable
 as String?,amountOfReviews: null == amountOfReviews ? _self.amountOfReviews : amountOfReviews // ignore: cast_nullable_to_non_nullable
-as int,currentWatching: freezed == currentWatching ? _self.currentWatching : currentWatching // ignore: cast_nullable_to_non_nullable
+as int,currentStatus: freezed == currentStatus ? _self.currentStatus : currentStatus // ignore: cast_nullable_to_non_nullable
+as String?,currentWatching: freezed == currentWatching ? _self.currentWatching : currentWatching // ignore: cast_nullable_to_non_nullable
 as CurrentWatchingEntity?,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as String?,rating: freezed == rating ? _self.rating : rating // ignore: cast_nullable_to_non_nullable
 as RatingEntity?,movieLength: freezed == movieLength ? _self.movieLength : movieLength // ignore: cast_nullable_to_non_nullable
@@ -1785,10 +1786,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String? dateAdded,  String? dateViewed,  String? dateLastReviewed,  int amountOfReviews,  CurrentWatchingEntity? currentWatching,  String? status,  RatingEntity? rating,  int? movieLength,  ImageObjectEntity? poster,  String? type,  String? name,  int? year,  String? description,  List<GenreEntity>? genres,  List<CountryEntity>? countries,  List<SeasonsEntity>? seasonsInfo,  String? alternativeName,  String? enName,  bool isSeries,  int? seriesLength,  int? totalSeriesLength)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String? dateAdded,  String? dateViewed,  String? dateLastReviewed,  int amountOfReviews,  String? currentStatus,  CurrentWatchingEntity? currentWatching,  String? status,  RatingEntity? rating,  int? movieLength,  ImageObjectEntity? poster,  String? type,  String? name,  int? year,  String? description,  List<GenreEntity>? genres,  List<CountryEntity>? countries,  List<SeasonsEntity>? seasonsInfo,  String? alternativeName,  String? enName,  bool isSeries,  int? seriesLength,  int? totalSeriesLength)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ViewedEntity() when $default != null:
-return $default(_that.id,_that.dateAdded,_that.dateViewed,_that.dateLastReviewed,_that.amountOfReviews,_that.currentWatching,_that.status,_that.rating,_that.movieLength,_that.poster,_that.type,_that.name,_that.year,_that.description,_that.genres,_that.countries,_that.seasonsInfo,_that.alternativeName,_that.enName,_that.isSeries,_that.seriesLength,_that.totalSeriesLength);case _:
+return $default(_that.id,_that.dateAdded,_that.dateViewed,_that.dateLastReviewed,_that.amountOfReviews,_that.currentStatus,_that.currentWatching,_that.status,_that.rating,_that.movieLength,_that.poster,_that.type,_that.name,_that.year,_that.description,_that.genres,_that.countries,_that.seasonsInfo,_that.alternativeName,_that.enName,_that.isSeries,_that.seriesLength,_that.totalSeriesLength);case _:
   return orElse();
 
 }
@@ -1806,10 +1807,10 @@ return $default(_that.id,_that.dateAdded,_that.dateViewed,_that.dateLastReviewed
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String? dateAdded,  String? dateViewed,  String? dateLastReviewed,  int amountOfReviews,  CurrentWatchingEntity? currentWatching,  String? status,  RatingEntity? rating,  int? movieLength,  ImageObjectEntity? poster,  String? type,  String? name,  int? year,  String? description,  List<GenreEntity>? genres,  List<CountryEntity>? countries,  List<SeasonsEntity>? seasonsInfo,  String? alternativeName,  String? enName,  bool isSeries,  int? seriesLength,  int? totalSeriesLength)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String? dateAdded,  String? dateViewed,  String? dateLastReviewed,  int amountOfReviews,  String? currentStatus,  CurrentWatchingEntity? currentWatching,  String? status,  RatingEntity? rating,  int? movieLength,  ImageObjectEntity? poster,  String? type,  String? name,  int? year,  String? description,  List<GenreEntity>? genres,  List<CountryEntity>? countries,  List<SeasonsEntity>? seasonsInfo,  String? alternativeName,  String? enName,  bool isSeries,  int? seriesLength,  int? totalSeriesLength)  $default,) {final _that = this;
 switch (_that) {
 case _ViewedEntity():
-return $default(_that.id,_that.dateAdded,_that.dateViewed,_that.dateLastReviewed,_that.amountOfReviews,_that.currentWatching,_that.status,_that.rating,_that.movieLength,_that.poster,_that.type,_that.name,_that.year,_that.description,_that.genres,_that.countries,_that.seasonsInfo,_that.alternativeName,_that.enName,_that.isSeries,_that.seriesLength,_that.totalSeriesLength);case _:
+return $default(_that.id,_that.dateAdded,_that.dateViewed,_that.dateLastReviewed,_that.amountOfReviews,_that.currentStatus,_that.currentWatching,_that.status,_that.rating,_that.movieLength,_that.poster,_that.type,_that.name,_that.year,_that.description,_that.genres,_that.countries,_that.seasonsInfo,_that.alternativeName,_that.enName,_that.isSeries,_that.seriesLength,_that.totalSeriesLength);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -1826,10 +1827,10 @@ return $default(_that.id,_that.dateAdded,_that.dateViewed,_that.dateLastReviewed
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String? dateAdded,  String? dateViewed,  String? dateLastReviewed,  int amountOfReviews,  CurrentWatchingEntity? currentWatching,  String? status,  RatingEntity? rating,  int? movieLength,  ImageObjectEntity? poster,  String? type,  String? name,  int? year,  String? description,  List<GenreEntity>? genres,  List<CountryEntity>? countries,  List<SeasonsEntity>? seasonsInfo,  String? alternativeName,  String? enName,  bool isSeries,  int? seriesLength,  int? totalSeriesLength)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String? dateAdded,  String? dateViewed,  String? dateLastReviewed,  int amountOfReviews,  String? currentStatus,  CurrentWatchingEntity? currentWatching,  String? status,  RatingEntity? rating,  int? movieLength,  ImageObjectEntity? poster,  String? type,  String? name,  int? year,  String? description,  List<GenreEntity>? genres,  List<CountryEntity>? countries,  List<SeasonsEntity>? seasonsInfo,  String? alternativeName,  String? enName,  bool isSeries,  int? seriesLength,  int? totalSeriesLength)?  $default,) {final _that = this;
 switch (_that) {
 case _ViewedEntity() when $default != null:
-return $default(_that.id,_that.dateAdded,_that.dateViewed,_that.dateLastReviewed,_that.amountOfReviews,_that.currentWatching,_that.status,_that.rating,_that.movieLength,_that.poster,_that.type,_that.name,_that.year,_that.description,_that.genres,_that.countries,_that.seasonsInfo,_that.alternativeName,_that.enName,_that.isSeries,_that.seriesLength,_that.totalSeriesLength);case _:
+return $default(_that.id,_that.dateAdded,_that.dateViewed,_that.dateLastReviewed,_that.amountOfReviews,_that.currentStatus,_that.currentWatching,_that.status,_that.rating,_that.movieLength,_that.poster,_that.type,_that.name,_that.year,_that.description,_that.genres,_that.countries,_that.seasonsInfo,_that.alternativeName,_that.enName,_that.isSeries,_that.seriesLength,_that.totalSeriesLength);case _:
   return null;
 
 }
@@ -1841,7 +1842,7 @@ return $default(_that.id,_that.dateAdded,_that.dateViewed,_that.dateLastReviewed
 
 
 class _ViewedEntity implements ViewedEntity {
-  const _ViewedEntity({required this.id, required this.dateAdded, required this.dateViewed, required this.dateLastReviewed, required this.amountOfReviews, required this.currentWatching, required this.status, required this.rating, required this.movieLength, required this.poster, required this.type, required this.name, required this.year, required this.description, required final  List<GenreEntity>? genres, required final  List<CountryEntity>? countries, required final  List<SeasonsEntity>? seasonsInfo, required this.alternativeName, required this.enName, required this.isSeries, required this.seriesLength, required this.totalSeriesLength}): _genres = genres,_countries = countries,_seasonsInfo = seasonsInfo;
+  const _ViewedEntity({required this.id, required this.dateAdded, required this.dateViewed, required this.dateLastReviewed, required this.amountOfReviews, required this.currentStatus, required this.currentWatching, required this.status, required this.rating, required this.movieLength, required this.poster, required this.type, required this.name, required this.year, required this.description, required final  List<GenreEntity>? genres, required final  List<CountryEntity>? countries, required final  List<SeasonsEntity>? seasonsInfo, required this.alternativeName, required this.enName, required this.isSeries, required this.seriesLength, required this.totalSeriesLength}): _genres = genres,_countries = countries,_seasonsInfo = seasonsInfo;
   
 
 @override final  String id;
@@ -1849,6 +1850,7 @@ class _ViewedEntity implements ViewedEntity {
 @override final  String? dateViewed;
 @override final  String? dateLastReviewed;
 @override final  int amountOfReviews;
+@override final  String? currentStatus;
 @override final  CurrentWatchingEntity? currentWatching;
 @override final  String? status;
 @override final  RatingEntity? rating;
@@ -1901,16 +1903,16 @@ _$ViewedEntityCopyWith<_ViewedEntity> get copyWith => __$ViewedEntityCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ViewedEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.dateAdded, dateAdded) || other.dateAdded == dateAdded)&&(identical(other.dateViewed, dateViewed) || other.dateViewed == dateViewed)&&(identical(other.dateLastReviewed, dateLastReviewed) || other.dateLastReviewed == dateLastReviewed)&&(identical(other.amountOfReviews, amountOfReviews) || other.amountOfReviews == amountOfReviews)&&(identical(other.currentWatching, currentWatching) || other.currentWatching == currentWatching)&&(identical(other.status, status) || other.status == status)&&(identical(other.rating, rating) || other.rating == rating)&&(identical(other.movieLength, movieLength) || other.movieLength == movieLength)&&(identical(other.poster, poster) || other.poster == poster)&&(identical(other.type, type) || other.type == type)&&(identical(other.name, name) || other.name == name)&&(identical(other.year, year) || other.year == year)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other._genres, _genres)&&const DeepCollectionEquality().equals(other._countries, _countries)&&const DeepCollectionEquality().equals(other._seasonsInfo, _seasonsInfo)&&(identical(other.alternativeName, alternativeName) || other.alternativeName == alternativeName)&&(identical(other.enName, enName) || other.enName == enName)&&(identical(other.isSeries, isSeries) || other.isSeries == isSeries)&&(identical(other.seriesLength, seriesLength) || other.seriesLength == seriesLength)&&(identical(other.totalSeriesLength, totalSeriesLength) || other.totalSeriesLength == totalSeriesLength));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ViewedEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.dateAdded, dateAdded) || other.dateAdded == dateAdded)&&(identical(other.dateViewed, dateViewed) || other.dateViewed == dateViewed)&&(identical(other.dateLastReviewed, dateLastReviewed) || other.dateLastReviewed == dateLastReviewed)&&(identical(other.amountOfReviews, amountOfReviews) || other.amountOfReviews == amountOfReviews)&&(identical(other.currentStatus, currentStatus) || other.currentStatus == currentStatus)&&(identical(other.currentWatching, currentWatching) || other.currentWatching == currentWatching)&&(identical(other.status, status) || other.status == status)&&(identical(other.rating, rating) || other.rating == rating)&&(identical(other.movieLength, movieLength) || other.movieLength == movieLength)&&(identical(other.poster, poster) || other.poster == poster)&&(identical(other.type, type) || other.type == type)&&(identical(other.name, name) || other.name == name)&&(identical(other.year, year) || other.year == year)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other._genres, _genres)&&const DeepCollectionEquality().equals(other._countries, _countries)&&const DeepCollectionEquality().equals(other._seasonsInfo, _seasonsInfo)&&(identical(other.alternativeName, alternativeName) || other.alternativeName == alternativeName)&&(identical(other.enName, enName) || other.enName == enName)&&(identical(other.isSeries, isSeries) || other.isSeries == isSeries)&&(identical(other.seriesLength, seriesLength) || other.seriesLength == seriesLength)&&(identical(other.totalSeriesLength, totalSeriesLength) || other.totalSeriesLength == totalSeriesLength));
 }
 
 
 @override
-int get hashCode => Object.hashAll([runtimeType,id,dateAdded,dateViewed,dateLastReviewed,amountOfReviews,currentWatching,status,rating,movieLength,poster,type,name,year,description,const DeepCollectionEquality().hash(_genres),const DeepCollectionEquality().hash(_countries),const DeepCollectionEquality().hash(_seasonsInfo),alternativeName,enName,isSeries,seriesLength,totalSeriesLength]);
+int get hashCode => Object.hashAll([runtimeType,id,dateAdded,dateViewed,dateLastReviewed,amountOfReviews,currentStatus,currentWatching,status,rating,movieLength,poster,type,name,year,description,const DeepCollectionEquality().hash(_genres),const DeepCollectionEquality().hash(_countries),const DeepCollectionEquality().hash(_seasonsInfo),alternativeName,enName,isSeries,seriesLength,totalSeriesLength]);
 
 @override
 String toString() {
-  return 'ViewedEntity(id: $id, dateAdded: $dateAdded, dateViewed: $dateViewed, dateLastReviewed: $dateLastReviewed, amountOfReviews: $amountOfReviews, currentWatching: $currentWatching, status: $status, rating: $rating, movieLength: $movieLength, poster: $poster, type: $type, name: $name, year: $year, description: $description, genres: $genres, countries: $countries, seasonsInfo: $seasonsInfo, alternativeName: $alternativeName, enName: $enName, isSeries: $isSeries, seriesLength: $seriesLength, totalSeriesLength: $totalSeriesLength)';
+  return 'ViewedEntity(id: $id, dateAdded: $dateAdded, dateViewed: $dateViewed, dateLastReviewed: $dateLastReviewed, amountOfReviews: $amountOfReviews, currentStatus: $currentStatus, currentWatching: $currentWatching, status: $status, rating: $rating, movieLength: $movieLength, poster: $poster, type: $type, name: $name, year: $year, description: $description, genres: $genres, countries: $countries, seasonsInfo: $seasonsInfo, alternativeName: $alternativeName, enName: $enName, isSeries: $isSeries, seriesLength: $seriesLength, totalSeriesLength: $totalSeriesLength)';
 }
 
 
@@ -1921,7 +1923,7 @@ abstract mixin class _$ViewedEntityCopyWith<$Res> implements $ViewedEntityCopyWi
   factory _$ViewedEntityCopyWith(_ViewedEntity value, $Res Function(_ViewedEntity) _then) = __$ViewedEntityCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String? dateAdded, String? dateViewed, String? dateLastReviewed, int amountOfReviews, CurrentWatchingEntity? currentWatching, String? status, RatingEntity? rating, int? movieLength, ImageObjectEntity? poster, String? type, String? name, int? year, String? description, List<GenreEntity>? genres, List<CountryEntity>? countries, List<SeasonsEntity>? seasonsInfo, String? alternativeName, String? enName, bool isSeries, int? seriesLength, int? totalSeriesLength
+ String id, String? dateAdded, String? dateViewed, String? dateLastReviewed, int amountOfReviews, String? currentStatus, CurrentWatchingEntity? currentWatching, String? status, RatingEntity? rating, int? movieLength, ImageObjectEntity? poster, String? type, String? name, int? year, String? description, List<GenreEntity>? genres, List<CountryEntity>? countries, List<SeasonsEntity>? seasonsInfo, String? alternativeName, String? enName, bool isSeries, int? seriesLength, int? totalSeriesLength
 });
 
 
@@ -1938,14 +1940,15 @@ class __$ViewedEntityCopyWithImpl<$Res>
 
 /// Create a copy of ViewedEntity
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? dateAdded = freezed,Object? dateViewed = freezed,Object? dateLastReviewed = freezed,Object? amountOfReviews = null,Object? currentWatching = freezed,Object? status = freezed,Object? rating = freezed,Object? movieLength = freezed,Object? poster = freezed,Object? type = freezed,Object? name = freezed,Object? year = freezed,Object? description = freezed,Object? genres = freezed,Object? countries = freezed,Object? seasonsInfo = freezed,Object? alternativeName = freezed,Object? enName = freezed,Object? isSeries = null,Object? seriesLength = freezed,Object? totalSeriesLength = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? dateAdded = freezed,Object? dateViewed = freezed,Object? dateLastReviewed = freezed,Object? amountOfReviews = null,Object? currentStatus = freezed,Object? currentWatching = freezed,Object? status = freezed,Object? rating = freezed,Object? movieLength = freezed,Object? poster = freezed,Object? type = freezed,Object? name = freezed,Object? year = freezed,Object? description = freezed,Object? genres = freezed,Object? countries = freezed,Object? seasonsInfo = freezed,Object? alternativeName = freezed,Object? enName = freezed,Object? isSeries = null,Object? seriesLength = freezed,Object? totalSeriesLength = freezed,}) {
   return _then(_ViewedEntity(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,dateAdded: freezed == dateAdded ? _self.dateAdded : dateAdded // ignore: cast_nullable_to_non_nullable
 as String?,dateViewed: freezed == dateViewed ? _self.dateViewed : dateViewed // ignore: cast_nullable_to_non_nullable
 as String?,dateLastReviewed: freezed == dateLastReviewed ? _self.dateLastReviewed : dateLastReviewed // ignore: cast_nullable_to_non_nullable
 as String?,amountOfReviews: null == amountOfReviews ? _self.amountOfReviews : amountOfReviews // ignore: cast_nullable_to_non_nullable
-as int,currentWatching: freezed == currentWatching ? _self.currentWatching : currentWatching // ignore: cast_nullable_to_non_nullable
+as int,currentStatus: freezed == currentStatus ? _self.currentStatus : currentStatus // ignore: cast_nullable_to_non_nullable
+as String?,currentWatching: freezed == currentWatching ? _self.currentWatching : currentWatching // ignore: cast_nullable_to_non_nullable
 as CurrentWatchingEntity?,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as String?,rating: freezed == rating ? _self.rating : rating // ignore: cast_nullable_to_non_nullable
 as RatingEntity?,movieLength: freezed == movieLength ? _self.movieLength : movieLength // ignore: cast_nullable_to_non_nullable
@@ -2003,840 +2006,6 @@ $ImageObjectEntityCopyWith<$Res>? get poster {
     return _then(_self.copyWith(poster: value));
   });
 }
-}
-
-/// @nodoc
-mixin _$MoviesListEntity {
-
- List<ViewedEntity> get planned; List<ViewedEntity> get viewed;
-/// Create a copy of MoviesListEntity
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$MoviesListEntityCopyWith<MoviesListEntity> get copyWith => _$MoviesListEntityCopyWithImpl<MoviesListEntity>(this as MoviesListEntity, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MoviesListEntity&&const DeepCollectionEquality().equals(other.planned, planned)&&const DeepCollectionEquality().equals(other.viewed, viewed));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(planned),const DeepCollectionEquality().hash(viewed));
-
-@override
-String toString() {
-  return 'MoviesListEntity(planned: $planned, viewed: $viewed)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class $MoviesListEntityCopyWith<$Res>  {
-  factory $MoviesListEntityCopyWith(MoviesListEntity value, $Res Function(MoviesListEntity) _then) = _$MoviesListEntityCopyWithImpl;
-@useResult
-$Res call({
- List<ViewedEntity> planned, List<ViewedEntity> viewed
-});
-
-
-
-
-}
-/// @nodoc
-class _$MoviesListEntityCopyWithImpl<$Res>
-    implements $MoviesListEntityCopyWith<$Res> {
-  _$MoviesListEntityCopyWithImpl(this._self, this._then);
-
-  final MoviesListEntity _self;
-  final $Res Function(MoviesListEntity) _then;
-
-/// Create a copy of MoviesListEntity
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? planned = null,Object? viewed = null,}) {
-  return _then(_self.copyWith(
-planned: null == planned ? _self.planned : planned // ignore: cast_nullable_to_non_nullable
-as List<ViewedEntity>,viewed: null == viewed ? _self.viewed : viewed // ignore: cast_nullable_to_non_nullable
-as List<ViewedEntity>,
-  ));
-}
-
-}
-
-
-/// Adds pattern-matching-related methods to [MoviesListEntity].
-extension MoviesListEntityPatterns on MoviesListEntity {
-/// A variant of `map` that fallback to returning `orElse`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
-
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _MoviesListEntity value)?  $default,{required TResult orElse(),}){
-final _that = this;
-switch (_that) {
-case _MoviesListEntity() when $default != null:
-return $default(_that);case _:
-  return orElse();
-
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// Callbacks receives the raw object, upcasted.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case final Subclass2 value:
-///     return ...;
-/// }
-/// ```
-
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _MoviesListEntity value)  $default,){
-final _that = this;
-switch (_that) {
-case _MoviesListEntity():
-return $default(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
-}
-/// A variant of `map` that fallback to returning `null`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
-
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _MoviesListEntity value)?  $default,){
-final _that = this;
-switch (_that) {
-case _MoviesListEntity() when $default != null:
-return $default(_that);case _:
-  return null;
-
-}
-}
-/// A variant of `when` that fallback to an `orElse` callback.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
-
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<ViewedEntity> planned,  List<ViewedEntity> viewed)?  $default,{required TResult orElse(),}) {final _that = this;
-switch (_that) {
-case _MoviesListEntity() when $default != null:
-return $default(_that.planned,_that.viewed);case _:
-  return orElse();
-
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// As opposed to `map`, this offers destructuring.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case Subclass2(:final field2):
-///     return ...;
-/// }
-/// ```
-
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<ViewedEntity> planned,  List<ViewedEntity> viewed)  $default,) {final _that = this;
-switch (_that) {
-case _MoviesListEntity():
-return $default(_that.planned,_that.viewed);case _:
-  throw StateError('Unexpected subclass');
-
-}
-}
-/// A variant of `when` that fallback to returning `null`
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
-
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<ViewedEntity> planned,  List<ViewedEntity> viewed)?  $default,) {final _that = this;
-switch (_that) {
-case _MoviesListEntity() when $default != null:
-return $default(_that.planned,_that.viewed);case _:
-  return null;
-
-}
-}
-
-}
-
-/// @nodoc
-
-
-class _MoviesListEntity implements MoviesListEntity {
-  const _MoviesListEntity({required final  List<ViewedEntity> planned, required final  List<ViewedEntity> viewed}): _planned = planned,_viewed = viewed;
-  
-
- final  List<ViewedEntity> _planned;
-@override List<ViewedEntity> get planned {
-  if (_planned is EqualUnmodifiableListView) return _planned;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_planned);
-}
-
- final  List<ViewedEntity> _viewed;
-@override List<ViewedEntity> get viewed {
-  if (_viewed is EqualUnmodifiableListView) return _viewed;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_viewed);
-}
-
-
-/// Create a copy of MoviesListEntity
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$MoviesListEntityCopyWith<_MoviesListEntity> get copyWith => __$MoviesListEntityCopyWithImpl<_MoviesListEntity>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MoviesListEntity&&const DeepCollectionEquality().equals(other._planned, _planned)&&const DeepCollectionEquality().equals(other._viewed, _viewed));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_planned),const DeepCollectionEquality().hash(_viewed));
-
-@override
-String toString() {
-  return 'MoviesListEntity(planned: $planned, viewed: $viewed)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$MoviesListEntityCopyWith<$Res> implements $MoviesListEntityCopyWith<$Res> {
-  factory _$MoviesListEntityCopyWith(_MoviesListEntity value, $Res Function(_MoviesListEntity) _then) = __$MoviesListEntityCopyWithImpl;
-@override @useResult
-$Res call({
- List<ViewedEntity> planned, List<ViewedEntity> viewed
-});
-
-
-
-
-}
-/// @nodoc
-class __$MoviesListEntityCopyWithImpl<$Res>
-    implements _$MoviesListEntityCopyWith<$Res> {
-  __$MoviesListEntityCopyWithImpl(this._self, this._then);
-
-  final _MoviesListEntity _self;
-  final $Res Function(_MoviesListEntity) _then;
-
-/// Create a copy of MoviesListEntity
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? planned = null,Object? viewed = null,}) {
-  return _then(_MoviesListEntity(
-planned: null == planned ? _self._planned : planned // ignore: cast_nullable_to_non_nullable
-as List<ViewedEntity>,viewed: null == viewed ? _self._viewed : viewed // ignore: cast_nullable_to_non_nullable
-as List<ViewedEntity>,
-  ));
-}
-
-
-}
-
-/// @nodoc
-mixin _$TvListEntity {
-
- List<ViewedEntity> get planned; List<ViewedEntity> get inProgress; List<ViewedEntity> get viewed;
-/// Create a copy of TvListEntity
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$TvListEntityCopyWith<TvListEntity> get copyWith => _$TvListEntityCopyWithImpl<TvListEntity>(this as TvListEntity, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is TvListEntity&&const DeepCollectionEquality().equals(other.planned, planned)&&const DeepCollectionEquality().equals(other.inProgress, inProgress)&&const DeepCollectionEquality().equals(other.viewed, viewed));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(planned),const DeepCollectionEquality().hash(inProgress),const DeepCollectionEquality().hash(viewed));
-
-@override
-String toString() {
-  return 'TvListEntity(planned: $planned, inProgress: $inProgress, viewed: $viewed)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class $TvListEntityCopyWith<$Res>  {
-  factory $TvListEntityCopyWith(TvListEntity value, $Res Function(TvListEntity) _then) = _$TvListEntityCopyWithImpl;
-@useResult
-$Res call({
- List<ViewedEntity> planned, List<ViewedEntity> inProgress, List<ViewedEntity> viewed
-});
-
-
-
-
-}
-/// @nodoc
-class _$TvListEntityCopyWithImpl<$Res>
-    implements $TvListEntityCopyWith<$Res> {
-  _$TvListEntityCopyWithImpl(this._self, this._then);
-
-  final TvListEntity _self;
-  final $Res Function(TvListEntity) _then;
-
-/// Create a copy of TvListEntity
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? planned = null,Object? inProgress = null,Object? viewed = null,}) {
-  return _then(_self.copyWith(
-planned: null == planned ? _self.planned : planned // ignore: cast_nullable_to_non_nullable
-as List<ViewedEntity>,inProgress: null == inProgress ? _self.inProgress : inProgress // ignore: cast_nullable_to_non_nullable
-as List<ViewedEntity>,viewed: null == viewed ? _self.viewed : viewed // ignore: cast_nullable_to_non_nullable
-as List<ViewedEntity>,
-  ));
-}
-
-}
-
-
-/// Adds pattern-matching-related methods to [TvListEntity].
-extension TvListEntityPatterns on TvListEntity {
-/// A variant of `map` that fallback to returning `orElse`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
-
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _TvListEntity value)?  $default,{required TResult orElse(),}){
-final _that = this;
-switch (_that) {
-case _TvListEntity() when $default != null:
-return $default(_that);case _:
-  return orElse();
-
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// Callbacks receives the raw object, upcasted.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case final Subclass2 value:
-///     return ...;
-/// }
-/// ```
-
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _TvListEntity value)  $default,){
-final _that = this;
-switch (_that) {
-case _TvListEntity():
-return $default(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
-}
-/// A variant of `map` that fallback to returning `null`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
-
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _TvListEntity value)?  $default,){
-final _that = this;
-switch (_that) {
-case _TvListEntity() when $default != null:
-return $default(_that);case _:
-  return null;
-
-}
-}
-/// A variant of `when` that fallback to an `orElse` callback.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
-
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<ViewedEntity> planned,  List<ViewedEntity> inProgress,  List<ViewedEntity> viewed)?  $default,{required TResult orElse(),}) {final _that = this;
-switch (_that) {
-case _TvListEntity() when $default != null:
-return $default(_that.planned,_that.inProgress,_that.viewed);case _:
-  return orElse();
-
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// As opposed to `map`, this offers destructuring.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case Subclass2(:final field2):
-///     return ...;
-/// }
-/// ```
-
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<ViewedEntity> planned,  List<ViewedEntity> inProgress,  List<ViewedEntity> viewed)  $default,) {final _that = this;
-switch (_that) {
-case _TvListEntity():
-return $default(_that.planned,_that.inProgress,_that.viewed);case _:
-  throw StateError('Unexpected subclass');
-
-}
-}
-/// A variant of `when` that fallback to returning `null`
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
-
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<ViewedEntity> planned,  List<ViewedEntity> inProgress,  List<ViewedEntity> viewed)?  $default,) {final _that = this;
-switch (_that) {
-case _TvListEntity() when $default != null:
-return $default(_that.planned,_that.inProgress,_that.viewed);case _:
-  return null;
-
-}
-}
-
-}
-
-/// @nodoc
-
-
-class _TvListEntity implements TvListEntity {
-  const _TvListEntity({required final  List<ViewedEntity> planned, required final  List<ViewedEntity> inProgress, required final  List<ViewedEntity> viewed}): _planned = planned,_inProgress = inProgress,_viewed = viewed;
-  
-
- final  List<ViewedEntity> _planned;
-@override List<ViewedEntity> get planned {
-  if (_planned is EqualUnmodifiableListView) return _planned;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_planned);
-}
-
- final  List<ViewedEntity> _inProgress;
-@override List<ViewedEntity> get inProgress {
-  if (_inProgress is EqualUnmodifiableListView) return _inProgress;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_inProgress);
-}
-
- final  List<ViewedEntity> _viewed;
-@override List<ViewedEntity> get viewed {
-  if (_viewed is EqualUnmodifiableListView) return _viewed;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_viewed);
-}
-
-
-/// Create a copy of TvListEntity
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$TvListEntityCopyWith<_TvListEntity> get copyWith => __$TvListEntityCopyWithImpl<_TvListEntity>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TvListEntity&&const DeepCollectionEquality().equals(other._planned, _planned)&&const DeepCollectionEquality().equals(other._inProgress, _inProgress)&&const DeepCollectionEquality().equals(other._viewed, _viewed));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_planned),const DeepCollectionEquality().hash(_inProgress),const DeepCollectionEquality().hash(_viewed));
-
-@override
-String toString() {
-  return 'TvListEntity(planned: $planned, inProgress: $inProgress, viewed: $viewed)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$TvListEntityCopyWith<$Res> implements $TvListEntityCopyWith<$Res> {
-  factory _$TvListEntityCopyWith(_TvListEntity value, $Res Function(_TvListEntity) _then) = __$TvListEntityCopyWithImpl;
-@override @useResult
-$Res call({
- List<ViewedEntity> planned, List<ViewedEntity> inProgress, List<ViewedEntity> viewed
-});
-
-
-
-
-}
-/// @nodoc
-class __$TvListEntityCopyWithImpl<$Res>
-    implements _$TvListEntityCopyWith<$Res> {
-  __$TvListEntityCopyWithImpl(this._self, this._then);
-
-  final _TvListEntity _self;
-  final $Res Function(_TvListEntity) _then;
-
-/// Create a copy of TvListEntity
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? planned = null,Object? inProgress = null,Object? viewed = null,}) {
-  return _then(_TvListEntity(
-planned: null == planned ? _self._planned : planned // ignore: cast_nullable_to_non_nullable
-as List<ViewedEntity>,inProgress: null == inProgress ? _self._inProgress : inProgress // ignore: cast_nullable_to_non_nullable
-as List<ViewedEntity>,viewed: null == viewed ? _self._viewed : viewed // ignore: cast_nullable_to_non_nullable
-as List<ViewedEntity>,
-  ));
-}
-
-
-}
-
-/// @nodoc
-mixin _$AnimeListEntity {
-
- List<ViewedEntity> get planned; List<ViewedEntity> get inProgress; List<ViewedEntity> get viewed;
-/// Create a copy of AnimeListEntity
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$AnimeListEntityCopyWith<AnimeListEntity> get copyWith => _$AnimeListEntityCopyWithImpl<AnimeListEntity>(this as AnimeListEntity, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AnimeListEntity&&const DeepCollectionEquality().equals(other.planned, planned)&&const DeepCollectionEquality().equals(other.inProgress, inProgress)&&const DeepCollectionEquality().equals(other.viewed, viewed));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(planned),const DeepCollectionEquality().hash(inProgress),const DeepCollectionEquality().hash(viewed));
-
-@override
-String toString() {
-  return 'AnimeListEntity(planned: $planned, inProgress: $inProgress, viewed: $viewed)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class $AnimeListEntityCopyWith<$Res>  {
-  factory $AnimeListEntityCopyWith(AnimeListEntity value, $Res Function(AnimeListEntity) _then) = _$AnimeListEntityCopyWithImpl;
-@useResult
-$Res call({
- List<ViewedEntity> planned, List<ViewedEntity> inProgress, List<ViewedEntity> viewed
-});
-
-
-
-
-}
-/// @nodoc
-class _$AnimeListEntityCopyWithImpl<$Res>
-    implements $AnimeListEntityCopyWith<$Res> {
-  _$AnimeListEntityCopyWithImpl(this._self, this._then);
-
-  final AnimeListEntity _self;
-  final $Res Function(AnimeListEntity) _then;
-
-/// Create a copy of AnimeListEntity
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? planned = null,Object? inProgress = null,Object? viewed = null,}) {
-  return _then(_self.copyWith(
-planned: null == planned ? _self.planned : planned // ignore: cast_nullable_to_non_nullable
-as List<ViewedEntity>,inProgress: null == inProgress ? _self.inProgress : inProgress // ignore: cast_nullable_to_non_nullable
-as List<ViewedEntity>,viewed: null == viewed ? _self.viewed : viewed // ignore: cast_nullable_to_non_nullable
-as List<ViewedEntity>,
-  ));
-}
-
-}
-
-
-/// Adds pattern-matching-related methods to [AnimeListEntity].
-extension AnimeListEntityPatterns on AnimeListEntity {
-/// A variant of `map` that fallback to returning `orElse`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
-
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _AnimeListEntity value)?  $default,{required TResult orElse(),}){
-final _that = this;
-switch (_that) {
-case _AnimeListEntity() when $default != null:
-return $default(_that);case _:
-  return orElse();
-
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// Callbacks receives the raw object, upcasted.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case final Subclass2 value:
-///     return ...;
-/// }
-/// ```
-
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _AnimeListEntity value)  $default,){
-final _that = this;
-switch (_that) {
-case _AnimeListEntity():
-return $default(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
-}
-/// A variant of `map` that fallback to returning `null`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
-
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _AnimeListEntity value)?  $default,){
-final _that = this;
-switch (_that) {
-case _AnimeListEntity() when $default != null:
-return $default(_that);case _:
-  return null;
-
-}
-}
-/// A variant of `when` that fallback to an `orElse` callback.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
-
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<ViewedEntity> planned,  List<ViewedEntity> inProgress,  List<ViewedEntity> viewed)?  $default,{required TResult orElse(),}) {final _that = this;
-switch (_that) {
-case _AnimeListEntity() when $default != null:
-return $default(_that.planned,_that.inProgress,_that.viewed);case _:
-  return orElse();
-
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// As opposed to `map`, this offers destructuring.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case Subclass2(:final field2):
-///     return ...;
-/// }
-/// ```
-
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<ViewedEntity> planned,  List<ViewedEntity> inProgress,  List<ViewedEntity> viewed)  $default,) {final _that = this;
-switch (_that) {
-case _AnimeListEntity():
-return $default(_that.planned,_that.inProgress,_that.viewed);case _:
-  throw StateError('Unexpected subclass');
-
-}
-}
-/// A variant of `when` that fallback to returning `null`
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
-
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<ViewedEntity> planned,  List<ViewedEntity> inProgress,  List<ViewedEntity> viewed)?  $default,) {final _that = this;
-switch (_that) {
-case _AnimeListEntity() when $default != null:
-return $default(_that.planned,_that.inProgress,_that.viewed);case _:
-  return null;
-
-}
-}
-
-}
-
-/// @nodoc
-
-
-class _AnimeListEntity implements AnimeListEntity {
-  const _AnimeListEntity({required final  List<ViewedEntity> planned, required final  List<ViewedEntity> inProgress, required final  List<ViewedEntity> viewed}): _planned = planned,_inProgress = inProgress,_viewed = viewed;
-  
-
- final  List<ViewedEntity> _planned;
-@override List<ViewedEntity> get planned {
-  if (_planned is EqualUnmodifiableListView) return _planned;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_planned);
-}
-
- final  List<ViewedEntity> _inProgress;
-@override List<ViewedEntity> get inProgress {
-  if (_inProgress is EqualUnmodifiableListView) return _inProgress;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_inProgress);
-}
-
- final  List<ViewedEntity> _viewed;
-@override List<ViewedEntity> get viewed {
-  if (_viewed is EqualUnmodifiableListView) return _viewed;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_viewed);
-}
-
-
-/// Create a copy of AnimeListEntity
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$AnimeListEntityCopyWith<_AnimeListEntity> get copyWith => __$AnimeListEntityCopyWithImpl<_AnimeListEntity>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AnimeListEntity&&const DeepCollectionEquality().equals(other._planned, _planned)&&const DeepCollectionEquality().equals(other._inProgress, _inProgress)&&const DeepCollectionEquality().equals(other._viewed, _viewed));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_planned),const DeepCollectionEquality().hash(_inProgress),const DeepCollectionEquality().hash(_viewed));
-
-@override
-String toString() {
-  return 'AnimeListEntity(planned: $planned, inProgress: $inProgress, viewed: $viewed)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$AnimeListEntityCopyWith<$Res> implements $AnimeListEntityCopyWith<$Res> {
-  factory _$AnimeListEntityCopyWith(_AnimeListEntity value, $Res Function(_AnimeListEntity) _then) = __$AnimeListEntityCopyWithImpl;
-@override @useResult
-$Res call({
- List<ViewedEntity> planned, List<ViewedEntity> inProgress, List<ViewedEntity> viewed
-});
-
-
-
-
-}
-/// @nodoc
-class __$AnimeListEntityCopyWithImpl<$Res>
-    implements _$AnimeListEntityCopyWith<$Res> {
-  __$AnimeListEntityCopyWithImpl(this._self, this._then);
-
-  final _AnimeListEntity _self;
-  final $Res Function(_AnimeListEntity) _then;
-
-/// Create a copy of AnimeListEntity
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? planned = null,Object? inProgress = null,Object? viewed = null,}) {
-  return _then(_AnimeListEntity(
-planned: null == planned ? _self._planned : planned // ignore: cast_nullable_to_non_nullable
-as List<ViewedEntity>,inProgress: null == inProgress ? _self._inProgress : inProgress // ignore: cast_nullable_to_non_nullable
-as List<ViewedEntity>,viewed: null == viewed ? _self._viewed : viewed // ignore: cast_nullable_to_non_nullable
-as List<ViewedEntity>,
-  ));
-}
-
-
 }
 
 /// @nodoc

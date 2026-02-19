@@ -2,6 +2,7 @@ part of '../models.dart';
 
 @freezed
 abstract class RatingModel with _$RatingModel {
+
   const factory RatingModel({
     double? kp,
     double? imdb,

@@ -1,15 +1,13 @@
 import 'package:viewed/data/model/models.dart';
 
 abstract interface class StorageDataSource {
-  Future<void> addViewed({required String userId, required ViewedModel viewed});
+  Future<void> addViewed(String userId, ViewedModel viewed);
 
-  Stream<MoviesListModel> watchMovies(String userId);
+  Stream<List<ViewedModel>> watchViewed(String userId, String type);
 
-  Stream<TvListModel> watchTv(String userId);
+  Future<void> setAsViewed(String userId, ViewedModel viewed);
 
-  Stream<AnimeListModel> watchAnime(String userId);
-
-  Future<void> removeViewed(String userId, String viewedId);
+  Future<void> removeViewed(String userId, String viewedId, String viewedType);
 
   Future<void> updateViewed(String usedId, ViewedModel viewed);
 

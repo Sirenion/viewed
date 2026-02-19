@@ -8,6 +8,7 @@ abstract class ViewedEntity with _$ViewedEntity {
     required String? dateViewed,
     required String? dateLastReviewed,
     required int amountOfReviews,
+    required String? currentStatus,
     required CurrentWatchingEntity? currentWatching,
     required String? status,
     required RatingEntity? rating,
