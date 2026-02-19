@@ -16,12 +16,6 @@ part 'general/rating_entity.dart';
 
 part 'viewed/viewed_entity.dart';
 
-part 'movies_list_entity.dart';
-
-part 'tv_list_entity.dart';
-
-part 'anime_list_entity.dart';
-
 part 'general/external_id_entity.dart';
 
 part 'general/fact_entity.dart';

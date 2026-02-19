@@ -18,12 +18,6 @@ part 'general/rating_model.dart';
 
 part 'viewed/viewed_model.dart';
 
-part 'viewed/movies_list_model.dart';
-
-part 'viewed/tv_list_model.dart';
-
-part 'viewed/anime_list_model.dart';
-
 part 'general/budget_model.dart';
 
 part 'general/external_id_model.dart';

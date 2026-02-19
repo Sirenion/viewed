@@ -7,7 +7,6 @@ class _ViewedMoviesExpansionTile extends StatelessWidget {
   final DateTime dateViewed;
 
   final VoidCallback? onRemove;
-  final VoidCallback? onReplace;
   final VoidCallback? onGoToOriginal;
 
   const _ViewedMoviesExpansionTile({
@@ -16,9 +15,7 @@ class _ViewedMoviesExpansionTile extends StatelessWidget {
     required this.dateAdded,
     required this.dateViewed,
     this.onRemove,
-    this.onReplace,
     this.onGoToOriginal,
-    super.key,
   });
 
   String _formatDate(DateTime date) {
@@ -49,7 +46,7 @@ class _ViewedMoviesExpansionTile extends StatelessWidget {
                   children: [
                     Expanded(
                       child: ElevatedButton.icon(
-                        onPressed: () {},
+                        onPressed: onRemove,
                         icon: const Icon(Icons.delete, color: Colors.white),
                         label: const Text('Remove', style: TextStyle(color: Colors.white)),
                         style: ElevatedButton.styleFrom(
@@ -61,7 +58,7 @@ class _ViewedMoviesExpansionTile extends StatelessWidget {
                     const SizedBox(width: 10.0),
                     Expanded(
                       child: ElevatedButton.icon(
-                        onPressed: () {},
+                        onPressed: onGoToOriginal,
                         icon: const Icon(Icons.open_in_new, color: Colors.white),
                         label: const Text('Open', style: TextStyle(color: Colors.white)),
                         style: ElevatedButton.styleFrom(
