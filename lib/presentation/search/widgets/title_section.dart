@@ -7,6 +7,7 @@ class _TitleSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double rating = searchItemDetailsEntity.rating!.kp!;
     return Row(
       crossAxisAlignment: .start,
       children: [
@@ -30,16 +31,23 @@ class _TitleSection extends StatelessWidget {
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
               const SizedBox(height: 8.0),
-              Text(
-                '${searchItemDetailsEntity.year} • ${searchItemDetailsEntity.movieLength ?? '-'} ${S.of(context).min}',
-              ),
+              Text(switch (searchItemDetailsEntity.isSeries) {
+                true =>
+                  '${searchItemDetailsEntity.year} • ${searchItemDetailsEntity.seasonsInfo.length} ${S.of(context).seasons.toLowerCase()}',
+                false =>
+                  '${searchItemDetailsEntity.year} • ${searchItemDetailsEntity.movieLength ?? '-'} ${S.of(context).min}',
+                _ => '',
+              }),
               const SizedBox(height: 8.0),
               if (searchItemDetailsEntity.rating?.kp != null)
                 Row(
                   children: [
                     const Icon(Icons.star, color: Colors.amber),
                     const SizedBox(width: 4.0),
-                    Text(searchItemDetailsEntity.rating!.kp!.toStringAsFixed(1)),
+                    Text(
+                      rating.toStringAsFixed(1),
+                      style: TextStyle(color: TextColor.getRatingColor(rating)),
+                    ),
                   ],
                 ),
             ],

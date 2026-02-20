@@ -31,12 +31,14 @@ _SeasonsModel _$SeasonsModelFromJson(Map<String, dynamic> json) =>
     _SeasonsModel(
       number: (json['number'] as num?)?.toInt(),
       episodesCount: (json['episodesCount'] as num?)?.toInt(),
+      id: json['id'] as String?,
     );
 
 Map<String, dynamic> _$SeasonsModelToJson(_SeasonsModel instance) =>
     <String, dynamic>{
       'number': instance.number,
       'episodesCount': instance.episodesCount,
+      'id': instance.id,
     };
 
 _CurrentWatching _$CurrentWatchingFromJson(Map<String, dynamic> json) =>
@@ -715,4 +717,28 @@ Map<String, dynamic> _$SearchItemDetailsModelToJson(
   'networks': instance.networks?.toJson(),
   'updatedAt': instance.updatedAt?.toIso8601String(),
   'createdAt': instance.createdAt?.toIso8601String(),
+};
+
+_SeasonsResponseModel _$SeasonsResponseModelFromJson(
+  Map<String, dynamic> json,
+) => _SeasonsResponseModel(
+  docs: (json['docs'] as List<dynamic>)
+      .map((e) => SeasonsModel.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  limit: (json['limit'] as num).toInt(),
+  next: json['next'],
+  prev: json['prev'],
+  hasNext: json['hasNext'] as bool,
+  hasPrev: json['hasPrev'] as bool,
+);
+
+Map<String, dynamic> _$SeasonsResponseModelToJson(
+  _SeasonsResponseModel instance,
+) => <String, dynamic>{
+  'docs': instance.docs.map((e) => e.toJson()).toList(),
+  'limit': instance.limit,
+  'next': instance.next,
+  'prev': instance.prev,
+  'hasNext': instance.hasNext,
+  'hasPrev': instance.hasPrev,
 };

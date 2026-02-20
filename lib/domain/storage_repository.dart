@@ -4,11 +4,15 @@ import 'package:viewed/data/storage_data_source.dart';
 import 'package:viewed/domain/entity/entities.dart';
 
 abstract interface class StorageRepository {
-  Future<void> addViewed({required SearchItemDetailsEntity entity});
+  Future<ViewedEntity?> addViewed({required SearchItemDetailsEntity entity});
 
   Future<void> setAsViewed({required ViewedEntity entity});
 
   Future<void> removeViewed({required ViewedEntity entity});
+
+  Future<void> setReviewed({required ViewedEntity entity, required bool add});
+
+  Future<ViewedEntity?> searchViewedById({required SearchItemDetailsEntity entity});
 
   Stream<List<ViewedEntity>> watchViewed(String type);
 }
@@ -27,14 +31,23 @@ final class StorageRepositoryImpl implements StorageRepository {
        _viewedMapper = viewedMapper;
 
   @override
-  Future<void> addViewed({required SearchItemDetailsEntity entity}) {
+  Future<ViewedEntity?> addViewed({required SearchItemDetailsEntity entity}) async {
     final userId = _firebaseAuth.currentUser?.uid;
 
     if (userId == null) {
       throw Exception('User must be authorized');
     }
 
-    return _storageDataSource.addViewed(userId, _viewedMapper.searchDetailsToViewedModel(entity));
+    final item = await _storageDataSource.addViewed(
+      userId,
+      _viewedMapper.searchDetailsToViewedModel(entity),
+    );
+
+    if (item != null) {
+      return _viewedMapper.toViewedEntity(item);
+    } else {
+      return null;
+    }
   }
 
   @override
@@ -57,6 +70,41 @@ final class StorageRepositoryImpl implements StorageRepository {
     }
 
     return _storageDataSource.removeViewed(userId, entity.id, entity.type ?? '');
+  }
+
+  @override
+  Future<void> setReviewed({required ViewedEntity entity, required bool add}) {
+    final userId = _firebaseAuth.currentUser?.uid;
+
+    if (userId == null) {
+      throw Exception('User must be authorized');
+    }
+    return _storageDataSource.setReviewed(
+      userId,
+      _viewedMapper.viewedEntityToViewedModel(entity),
+      add,
+    );
+  }
+
+  @override
+  Future<ViewedEntity?> searchViewedById({required SearchItemDetailsEntity entity}) async {
+    final userId = _firebaseAuth.currentUser?.uid;
+
+    if (userId == null) {
+      throw Exception('User must be authorized');
+    }
+
+    final result = await _storageDataSource.searchViewedById(
+      userId,
+      entity.id.toString(),
+      entity.type!,
+    );
+
+    if (result == null) {
+      return null;
+    } else {
+      return _viewedMapper.toViewedEntity(result);
+    }
   }
 
   @override

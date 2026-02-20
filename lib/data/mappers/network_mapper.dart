@@ -7,6 +7,8 @@ abstract interface class NetworkMapper {
   ViewedEntity searchToViewedEntity(SearchItemModel model);
 
   SearchItemDetailsEntity toSearchItemDetailsEntity(SearchItemDetailsModel model);
+
+  SeasonsEntity toSeasonEntity(SeasonsModel model);
 }
 
 final class NetworkMapperImpl implements NetworkMapper {
@@ -242,5 +244,10 @@ final class NetworkMapperImpl implements NetworkMapper {
       seriesLength: model.seriesLength,
       totalSeriesLength: model.totalSeriesLength,
     );
+  }
+
+  @override
+  SeasonsEntity toSeasonEntity(SeasonsModel model) {
+    return SeasonsEntity(number: model.number ?? 0, episodesCount: model.episodesCount ?? 0);
   }
 }

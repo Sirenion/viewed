@@ -44,7 +44,7 @@ class _SearchItem extends StatelessWidget {
                     true => rating!.toStringAsFixed(1),
                     false => '—',
                   },
-                  style: TextStyle(color: getRatingColor(rating)),
+                  style: TextStyle(color: TextColor.getRatingColor(rating)),
                 ),
                 TextSpan(
                   text: ', $alternativeName',
@@ -64,19 +64,6 @@ class _SearchItem extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Color getRatingColor(double? rating) {
-    Color color;
-    if (rating == null) {
-      return Colors.grey;
-    }
-    color = switch (rating) {
-      > 7.0 => Colors.green,
-      < 5 => Colors.red,
-      _ => Colors.grey,
-    };
-    return color;
   }
 
   String typeFormatter(BuildContext context, String? type) {

@@ -264,14 +264,9 @@ class S {
     return Intl.message('В процессе', name: 'inProcess', desc: '', args: []);
   }
 
-  /// `Ничего не найдено`
+  /// `Список пуст`
   String get empty_list {
-    return Intl.message(
-      'Ничего не найдено',
-      name: 'empty_list',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Список пуст', name: 'empty_list', desc: '', args: []);
   }
 
   /// `Посмотрите что-нибудь и пополните список`
@@ -337,6 +332,81 @@ class S {
   /// `Добавить`
   String get add {
     return Intl.message('Добавить', name: 'add', desc: '', args: []);
+  }
+
+  /// `Добавлено`
+  String get date_added {
+    return Intl.message('Добавлено', name: 'date_added', desc: '', args: []);
+  }
+
+  /// `Удалить`
+  String get delete {
+    return Intl.message('Удалить', name: 'delete', desc: '', args: []);
+  }
+
+  /// `О фильме`
+  String get movie_about {
+    return Intl.message('О фильме', name: 'movie_about', desc: '', args: []);
+  }
+
+  /// `Последний просмотр`
+  String get date_last_viewed {
+    return Intl.message(
+      'Последний просмотр',
+      name: 'date_last_viewed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Повторных просмотров`
+  String get times_reviewed {
+    return Intl.message(
+      'Повторных просмотров',
+      name: 'times_reviewed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Отмена`
+  String get abort {
+    return Intl.message('Отмена', name: 'abort', desc: '', args: []);
+  }
+
+  /// `Удалить из списка`
+  String get remove_from_list {
+    return Intl.message(
+      'Удалить из списка',
+      name: 'remove_from_list',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Вы действительно хотите удалить {name} из списка?`
+  String remove_from_list_body(Object name) {
+    return Intl.message(
+      'Вы действительно хотите удалить $name из списка?',
+      name: 'remove_from_list_body',
+      desc: '',
+      args: [name],
+    );
+  }
+
+  /// `{type} уже находится в Вашем списке - {list}`
+  String already_in_your_list(Object type, Object list) {
+    return Intl.message(
+      '$type уже находится в Вашем списке - $list',
+      name: 'already_in_your_list',
+      desc: '',
+      args: [type, list],
+    );
+  }
+
+  /// `Сезонов`
+  String get seasons {
+    return Intl.message('Сезонов', name: 'seasons', desc: '', args: []);
   }
 }
 

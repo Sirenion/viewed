@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:viewed/app/navigation/routes/app_routes.dart';
+import 'package:viewed/core/presentation/text_color.dart';
 import 'package:viewed/core/presentation/widgets/button.dart';
 import 'package:viewed/core/presentation/widgets/list_empty_widget.dart';
 import 'package:viewed/core/presentation/widgets/list_error_widget.dart';
+import 'package:viewed/core/presentation/widgets/remove_dialog.dart';
 import 'package:viewed/domain/entity/entities.dart';
 import 'package:viewed/generated/l10n.dart';
 import 'package:viewed/presentation/search/controller/search_details_cubit.dart';
@@ -16,7 +18,7 @@ part 'widgets/title_section.dart';
 
 part 'widgets/genre_widget.dart';
 
-part 'widgets/add_button.dart';
+part 'widgets/status_buttons_widget.dart';
 
 part 'widgets/description.dart';
 
@@ -56,20 +58,20 @@ class SearchDetailsPage extends StatelessWidget {
                 _BackdropAppBar(route: route, searchItemDetailsEntity: state.searchItemDetails!),
                 SliverToBoxAdapter(
                   child: Padding(
-                    padding: const EdgeInsets.all(16),
+                    padding: const .all(16.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         _TitleSection(searchItemDetailsEntity: state.searchItemDetails!),
-                        const SizedBox(height: 16),
+                        const SizedBox(height: 16.0),
                         _GenreWidget(searchItemDetailsEntity: state.searchItemDetails!),
-                        const SizedBox(height: 16),
-                        const _AddButton(),
-                        const SizedBox(height: 16),
+                        const SizedBox(height: 16.0),
+                        const _StatusButtonsWidget(),
+                        const SizedBox(height: 16.0),
                         _DescriptionWidget(searchItemDetailsEntity: state.searchItemDetails!),
-                        const SizedBox(height: 24),
+                        const SizedBox(height: 24.0),
                         _PersonsWidget(searchItemDetailsEntity: state.searchItemDetails!),
-                        const SizedBox(height: 24),
+                        const SizedBox(height: 24.0),
                         _SimilarMovies(
                           route: route,
                           searchItemDetailsEntity: state.searchItemDetails!,

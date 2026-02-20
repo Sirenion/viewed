@@ -20,13 +20,21 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ru';
 
+  static String m0(type, list) =>
+      "${type} уже находится в Вашем списке - ${list}";
+
+  static String m1(name) =>
+      "Вы действительно хотите удалить ${name} из списка?";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "abort": MessageLookupByLibrary.simpleMessage("Отмена"),
     "add": MessageLookupByLibrary.simpleMessage("Добавить"),
     "add_something": MessageLookupByLibrary.simpleMessage(
       "Посмотрите что-нибудь и пополните список",
     ),
     "alreadyHaveAcc": MessageLookupByLibrary.simpleMessage("Уже есть аккаут?"),
+    "already_in_your_list": m0,
     "animated_series": MessageLookupByLibrary.simpleMessage(
       "Анимационный сериал",
     ),
@@ -34,6 +42,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "auth": MessageLookupByLibrary.simpleMessage("Авторизация"),
     "cartoon": MessageLookupByLibrary.simpleMessage("Мультфильм"),
     "cast": MessageLookupByLibrary.simpleMessage("В ролях"),
+    "date_added": MessageLookupByLibrary.simpleMessage("Добавлено"),
+    "date_last_viewed": MessageLookupByLibrary.simpleMessage(
+      "Последний просмотр",
+    ),
+    "delete": MessageLookupByLibrary.simpleMessage("Удалить"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "emptyEmail": MessageLookupByLibrary.simpleMessage(
       "Необходимо ввести email",
@@ -44,7 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "empty_field": MessageLookupByLibrary.simpleMessage(
       "Поле не может быть пустым",
     ),
-    "empty_list": MessageLookupByLibrary.simpleMessage("Ничего не найдено"),
+    "empty_list": MessageLookupByLibrary.simpleMessage("Список пуст"),
     "exampleEmail": MessageLookupByLibrary.simpleMessage("example@mail.com"),
     "find": MessageLookupByLibrary.simpleMessage("Найти"),
     "home": MessageLookupByLibrary.simpleMessage("Домой"),
@@ -60,6 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "logout": MessageLookupByLibrary.simpleMessage("Выйти"),
     "min": MessageLookupByLibrary.simpleMessage("мин"),
     "movie": MessageLookupByLibrary.simpleMessage("Фильм"),
+    "movie_about": MessageLookupByLibrary.simpleMessage("О фильме"),
     "movies": MessageLookupByLibrary.simpleMessage("Фильмы"),
     "noAcc": MessageLookupByLibrary.simpleMessage("Нет аккаунта?"),
     "password": MessageLookupByLibrary.simpleMessage("Пароль"),
@@ -71,10 +85,18 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "register": MessageLookupByLibrary.simpleMessage("Зарегистрироваться"),
     "registration": MessageLookupByLibrary.simpleMessage("Регистрация"),
+    "remove_from_list": MessageLookupByLibrary.simpleMessage(
+      "Удалить из списка",
+    ),
+    "remove_from_list_body": m1,
     "search": MessageLookupByLibrary.simpleMessage("Поиск"),
+    "seasons": MessageLookupByLibrary.simpleMessage("Сезонов"),
     "similar_movies": MessageLookupByLibrary.simpleMessage("Похожие фильмы"),
     "something_went_wrong": MessageLookupByLibrary.simpleMessage(
       "Что-то пошло не так",
+    ),
+    "times_reviewed": MessageLookupByLibrary.simpleMessage(
+      "Повторных просмотров",
     ),
     "tv": MessageLookupByLibrary.simpleMessage("Сериал"),
     "tvSeries": MessageLookupByLibrary.simpleMessage("Сериалы"),

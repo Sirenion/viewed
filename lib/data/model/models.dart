@@ -59,3 +59,5 @@ part 'search/search_model.dart';
 part 'search/search_list_model.dart';
 
 part 'search/search_item_details_model.dart';
+
+part 'search/search_seasons_model.dart';

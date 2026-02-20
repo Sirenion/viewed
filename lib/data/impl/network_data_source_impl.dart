@@ -18,10 +18,20 @@ final class NetworkDataSourceImpl implements NetworkDataSource {
   }
 
   @override
-  Future<dynamic> getMovie({required String movieId}) async {
+  Future<SearchItemDetailsModel> getMovie({required String movieId}) async {
     final response = await _dio.get('/v1.4/movie/$movieId');
 
     return SearchItemDetailsModel.fromJson(response.data as Map<String, dynamic>);
+  }
+
+  @override
+  Future<List<SeasonsModel>> getSeasons({required String movieId}) async {
+    final response = await _dio.get(
+      '/v1.5/season',
+      queryParameters: {'movieId': movieId, 'selectFields': 'number, episodesCount', 'limit': 30},
+    );
+
+    return SeasonsResponseModel.fromJson(response.data as Map<String, dynamic>).docs;
   }
 
   @override

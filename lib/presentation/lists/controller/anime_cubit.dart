@@ -5,17 +5,17 @@ import 'package:viewed/domain/entity/entities.dart';
 import 'package:viewed/domain/storage_repository.dart';
 import 'package:viewed/presentation/lists/controller/state/state.dart';
 
-class MoviesCubit extends Cubit<MoviesState> {
+class AnimeCubit extends Cubit<AnimeState> {
   final StorageRepository _storageRepository;
 
-  late final StreamSubscription<List<ViewedEntity>> _moviesListStreamSubscription;
+  late final StreamSubscription<List<ViewedEntity>> _animeListStreamSubscription;
 
-  MoviesCubit({required StorageRepository storageRepository})
+  AnimeCubit({required StorageRepository storageRepository})
     : _storageRepository = storageRepository,
-      super(const MoviesState()) {
-    _moviesListStreamSubscription = _storageRepository
-        .watchViewed('movie')
-        .listen(_onMoviesData, onError: _onMoviesError);
+      super(const AnimeState()) {
+    _animeListStreamSubscription = _storageRepository
+        .watchViewed('anime')
+        .listen(_onAnimeData, onError: _onAnimeError);
   }
 
   void setAsViewed(ViewedEntity entity) {
@@ -35,13 +35,17 @@ class MoviesCubit extends Cubit<MoviesState> {
     _storageRepository.removeViewed(entity: entity);
   }
 
-  void _onMoviesData(List<ViewedEntity> event) {
+  void _onAnimeData(List<ViewedEntity> event) {
     final List<ViewedEntity> planned = [];
+    final List<ViewedEntity> inProcess = [];
     final List<ViewedEntity> viewed = [];
     for (var elem in event) {
       switch (elem.currentStatus) {
         case 'planned':
           planned.add(elem);
+          break;
+        case 'inProcess':
+          inProcess.add(elem);
           break;
         case 'viewed':
           viewed.add(elem);
@@ -56,18 +60,20 @@ class MoviesCubit extends Cubit<MoviesState> {
         isLoading: false,
         isLocalLoading: false,
         planned: planned,
+        inProcess: inProcess,
         viewed: viewed,
         error: null,
       ),
     );
   }
 
-  void _onMoviesError(Object error) {
+  void _onAnimeError(Object error) {
     emit(
       state.copyWith(
         isLoading: false,
         isLocalLoading: false,
         planned: [],
+        inProcess: [],
         viewed: [],
         error: error,
       ),
@@ -76,7 +82,7 @@ class MoviesCubit extends Cubit<MoviesState> {
 
   @override
   Future<void> close() {
-    _moviesListStreamSubscription.cancel();
+    _animeListStreamSubscription.cancel();
     return super.close();
   }
 }

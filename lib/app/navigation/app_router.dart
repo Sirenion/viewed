@@ -12,7 +12,9 @@ import 'package:viewed/presentation/auth/login_page.dart';
 import 'package:viewed/presentation/auth/register_page.dart';
 import 'package:viewed/presentation/home_page.dart';
 import 'package:viewed/presentation/home_shell.dart';
+import 'package:viewed/presentation/lists/controller/anime_cubit.dart';
 import 'package:viewed/presentation/lists/controller/movies_cubit.dart';
+import 'package:viewed/presentation/lists/controller/tv_cubit.dart';
 import 'package:viewed/presentation/lists/movies_page.dart';
 import 'package:viewed/presentation/profile/profile_page.dart';
 import 'package:viewed/presentation/lists/tv_page.dart';
@@ -109,7 +111,11 @@ GoRouter createRouter(AuthCubit authCubit) {
                 name: appRoutes.tv.routeName,
                 path: appRoutes.tv.relativePath,
                 builder: (context, state) {
-                  return TvPage(route: appRoutes);
+                  return BlocProvider(
+                    create: (context) =>
+                        TvCubit(storageRepository: context.read<StorageRepository>()),
+                    child: TvPage(route: appRoutes),
+                  );
                 },
               ),
             ],
@@ -120,7 +126,11 @@ GoRouter createRouter(AuthCubit authCubit) {
                 name: appRoutes.anime.routeName,
                 path: appRoutes.anime.relativePath,
                 builder: (context, state) {
-                  return AnimePage(route: appRoutes);
+                  return BlocProvider(
+                    create: (context) =>
+                        AnimeCubit(storageRepository: context.read<StorageRepository>()),
+                    child: AnimePage(route: appRoutes),
+                  );
                 },
               ),
             ],

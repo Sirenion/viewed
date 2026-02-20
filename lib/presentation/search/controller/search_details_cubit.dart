@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:viewed/domain/entity/entities.dart';
 import 'package:viewed/domain/network_repository.dart';
 import 'package:viewed/domain/storage_repository.dart';
 import 'package:viewed/presentation/search/controller/state/state.dart';
@@ -26,21 +27,48 @@ class SearchDetailsCubit extends Cubit<SearchDetailsState> {
 
       final searchItem = await _networkRepository.getMovie(id: id);
 
-      emit(state.copyWith(isLoading: false, searchItemDetails: searchItem));
+      final seasonsList = switch (searchItem.isSeries) {
+        true => await _networkRepository.getSeasons(id: id),
+        _ => List<SeasonsEntity>.empty(),
+      };
+
+      final alreadyInCollection = await _storageRepository.searchViewedById(entity: searchItem);
+
+      emit(
+        state.copyWith(
+          isLoading: false,
+          searchItemDetails: searchItem.copyWith(seasonsInfo: seasonsList),
+          alreadyInCollection: alreadyInCollection,
+        ),
+      );
     } catch (e) {
       emit(state.copyWith(isLoading: false, error: e));
     }
   }
 
-  void addMovie() {
+  void addMovie() async {
     try {
       if (state.isLoading || state.searchItemDetails == null) return;
 
       emit(state.copyWith(isLoading: true));
 
-      _storageRepository.addViewed(entity: state.searchItemDetails!);
+      final result = await _storageRepository.addViewed(entity: state.searchItemDetails!);
 
-      emit(state.copyWith(isLoading: false));
+      emit(state.copyWith(isLoading: false, alreadyInCollection: result));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false, error: e));
+    }
+  }
+
+  void removeItem(ViewedEntity entity) {
+    try {
+      if (state.isLoading || state.alreadyInCollection == null) return;
+
+      emit(state.copyWith(isLoading: true));
+
+      _storageRepository.removeViewed(entity: entity);
+
+      emit(state.copyWith(isLoading: false, alreadyInCollection: null));
     } catch (e) {
       emit(state.copyWith(isLoading: false, error: e));
     }

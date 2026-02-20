@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:viewed/app/navigation/routes/app_routes.dart';
+import 'package:viewed/core/presentation/text_color.dart';
 import 'package:viewed/core/presentation/validators/text_field_validator.dart';
 import 'package:viewed/core/presentation/widgets/button.dart';
 import 'package:viewed/core/presentation/widgets/custom_text_field.dart';

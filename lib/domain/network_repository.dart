@@ -6,6 +6,8 @@ abstract interface class NetworkRepository {
   Future<SearchListEntity> searchMovies({required String search, int page});
 
   Future<SearchItemDetailsEntity> getMovie({required String id});
+
+  Future<List<SeasonsEntity>> getSeasons({required String id});
 }
 
 final class NetworkRepositoryImpl implements NetworkRepository {
@@ -28,5 +30,11 @@ final class NetworkRepositoryImpl implements NetworkRepository {
   Future<SearchItemDetailsEntity> getMovie({required String id}) async {
     final searchItemDetailsModel = await _networkDataSource.getMovie(movieId: id);
     return _networkMapper.toSearchItemDetailsEntity(searchItemDetailsModel);
+  }
+
+  @override
+  Future<List<SeasonsEntity>> getSeasons({required String id}) async {
+    final seasonsInfo = await _networkDataSource.getSeasons(movieId: id);
+    return List<SeasonsEntity>.from(seasonsInfo.map((elem) => _networkMapper.toSeasonEntity(elem)));
   }
 }

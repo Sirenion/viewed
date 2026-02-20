@@ -29,7 +29,7 @@
   "logout": "Выйти",
   "planned": "Запланировано",
   "inProcess": "В процессе",
-  "empty_list": "Ничего не найдено",
+  "empty_list": "Список пуст",
   "add_something": "Посмотрите что-нибудь и пополните список",
   "something_went_wrong": "Что-то пошло не так",
   "search": "Поиск",
@@ -38,5 +38,15 @@
   "similar_movies": "Похожие фильмы",
   "min": "мин",
   "cast": "В ролях",
-  "add": "Добавить"
+  "add": "Добавить",
+  "date_added": "Добавлено",
+  "delete": "Удалить",
+  "movie_about": "О фильме",
+  "date_last_viewed": "Последний просмотр",
+  "times_reviewed": "Повторных просмотров",
+  "abort": "Отмена",
+  "remove_from_list": "Удалить из списка",
+  "remove_from_list_body": "Вы действительно хотите удалить {name} из списка?",
+  "already_in_your_list": "{type} уже находится в Вашем списке - {list}",
+  "seasons": "Сезонов"
 }

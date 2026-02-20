@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:viewed/core/presentation/validators/email_validator.dart';
 import 'package:viewed/core/presentation/validators/password_validator.dart';
 import 'package:viewed/core/presentation/validators/search_validator.dart';

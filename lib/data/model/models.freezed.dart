@@ -807,7 +807,7 @@ as String,
 /// @nodoc
 mixin _$SeasonsModel {
 
- int? get number; int? get episodesCount;
+ int? get number; int? get episodesCount; String? get id;
 /// Create a copy of SeasonsModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -820,16 +820,16 @@ $SeasonsModelCopyWith<SeasonsModel> get copyWith => _$SeasonsModelCopyWithImpl<S
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SeasonsModel&&(identical(other.number, number) || other.number == number)&&(identical(other.episodesCount, episodesCount) || other.episodesCount == episodesCount));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SeasonsModel&&(identical(other.number, number) || other.number == number)&&(identical(other.episodesCount, episodesCount) || other.episodesCount == episodesCount)&&(identical(other.id, id) || other.id == id));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,number,episodesCount);
+int get hashCode => Object.hash(runtimeType,number,episodesCount,id);
 
 @override
 String toString() {
-  return 'SeasonsModel(number: $number, episodesCount: $episodesCount)';
+  return 'SeasonsModel(number: $number, episodesCount: $episodesCount, id: $id)';
 }
 
 
@@ -840,7 +840,7 @@ abstract mixin class $SeasonsModelCopyWith<$Res>  {
   factory $SeasonsModelCopyWith(SeasonsModel value, $Res Function(SeasonsModel) _then) = _$SeasonsModelCopyWithImpl;
 @useResult
 $Res call({
- int? number, int? episodesCount
+ int? number, int? episodesCount, String? id
 });
 
 
@@ -857,11 +857,12 @@ class _$SeasonsModelCopyWithImpl<$Res>
 
 /// Create a copy of SeasonsModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? number = freezed,Object? episodesCount = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? number = freezed,Object? episodesCount = freezed,Object? id = freezed,}) {
   return _then(_self.copyWith(
 number: freezed == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as int?,episodesCount: freezed == episodesCount ? _self.episodesCount : episodesCount // ignore: cast_nullable_to_non_nullable
-as int?,
+as int?,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 
@@ -946,10 +947,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? number,  int? episodesCount)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? number,  int? episodesCount,  String? id)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SeasonsModel() when $default != null:
-return $default(_that.number,_that.episodesCount);case _:
+return $default(_that.number,_that.episodesCount,_that.id);case _:
   return orElse();
 
 }
@@ -967,10 +968,10 @@ return $default(_that.number,_that.episodesCount);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? number,  int? episodesCount)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? number,  int? episodesCount,  String? id)  $default,) {final _that = this;
 switch (_that) {
 case _SeasonsModel():
-return $default(_that.number,_that.episodesCount);case _:
+return $default(_that.number,_that.episodesCount,_that.id);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -987,10 +988,10 @@ return $default(_that.number,_that.episodesCount);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? number,  int? episodesCount)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? number,  int? episodesCount,  String? id)?  $default,) {final _that = this;
 switch (_that) {
 case _SeasonsModel() when $default != null:
-return $default(_that.number,_that.episodesCount);case _:
+return $default(_that.number,_that.episodesCount,_that.id);case _:
   return null;
 
 }
@@ -1002,11 +1003,12 @@ return $default(_that.number,_that.episodesCount);case _:
 @JsonSerializable()
 
 class _SeasonsModel implements SeasonsModel {
-  const _SeasonsModel({this.number, this.episodesCount});
+  const _SeasonsModel({this.number, this.episodesCount, this.id});
   factory _SeasonsModel.fromJson(Map<String, dynamic> json) => _$SeasonsModelFromJson(json);
 
 @override final  int? number;
 @override final  int? episodesCount;
+@override final  String? id;
 
 /// Create a copy of SeasonsModel
 /// with the given fields replaced by the non-null parameter values.
@@ -1021,16 +1023,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SeasonsModel&&(identical(other.number, number) || other.number == number)&&(identical(other.episodesCount, episodesCount) || other.episodesCount == episodesCount));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SeasonsModel&&(identical(other.number, number) || other.number == number)&&(identical(other.episodesCount, episodesCount) || other.episodesCount == episodesCount)&&(identical(other.id, id) || other.id == id));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,number,episodesCount);
+int get hashCode => Object.hash(runtimeType,number,episodesCount,id);
 
 @override
 String toString() {
-  return 'SeasonsModel(number: $number, episodesCount: $episodesCount)';
+  return 'SeasonsModel(number: $number, episodesCount: $episodesCount, id: $id)';
 }
 
 
@@ -1041,7 +1043,7 @@ abstract mixin class _$SeasonsModelCopyWith<$Res> implements $SeasonsModelCopyWi
   factory _$SeasonsModelCopyWith(_SeasonsModel value, $Res Function(_SeasonsModel) _then) = __$SeasonsModelCopyWithImpl;
 @override @useResult
 $Res call({
- int? number, int? episodesCount
+ int? number, int? episodesCount, String? id
 });
 
 
@@ -1058,11 +1060,12 @@ class __$SeasonsModelCopyWithImpl<$Res>
 
 /// Create a copy of SeasonsModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? number = freezed,Object? episodesCount = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? number = freezed,Object? episodesCount = freezed,Object? id = freezed,}) {
   return _then(_SeasonsModel(
 number: freezed == number ? _self.number : number // ignore: cast_nullable_to_non_nullable
 as int?,episodesCount: freezed == episodesCount ? _self.episodesCount : episodesCount // ignore: cast_nullable_to_non_nullable
-as int?,
+as int?,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 
@@ -8687,6 +8690,290 @@ $NetworksModelCopyWith<$Res>? get networks {
     return _then(_self.copyWith(networks: value));
   });
 }
+}
+
+
+/// @nodoc
+mixin _$SeasonsResponseModel {
+
+ List<SeasonsModel> get docs; int get limit; dynamic get next; dynamic get prev; bool get hasNext; bool get hasPrev;
+/// Create a copy of SeasonsResponseModel
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SeasonsResponseModelCopyWith<SeasonsResponseModel> get copyWith => _$SeasonsResponseModelCopyWithImpl<SeasonsResponseModel>(this as SeasonsResponseModel, _$identity);
+
+  /// Serializes this SeasonsResponseModel to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SeasonsResponseModel&&const DeepCollectionEquality().equals(other.docs, docs)&&(identical(other.limit, limit) || other.limit == limit)&&const DeepCollectionEquality().equals(other.next, next)&&const DeepCollectionEquality().equals(other.prev, prev)&&(identical(other.hasNext, hasNext) || other.hasNext == hasNext)&&(identical(other.hasPrev, hasPrev) || other.hasPrev == hasPrev));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(docs),limit,const DeepCollectionEquality().hash(next),const DeepCollectionEquality().hash(prev),hasNext,hasPrev);
+
+@override
+String toString() {
+  return 'SeasonsResponseModel(docs: $docs, limit: $limit, next: $next, prev: $prev, hasNext: $hasNext, hasPrev: $hasPrev)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $SeasonsResponseModelCopyWith<$Res>  {
+  factory $SeasonsResponseModelCopyWith(SeasonsResponseModel value, $Res Function(SeasonsResponseModel) _then) = _$SeasonsResponseModelCopyWithImpl;
+@useResult
+$Res call({
+ List<SeasonsModel> docs, int limit, dynamic next, dynamic prev, bool hasNext, bool hasPrev
+});
+
+
+
+
+}
+/// @nodoc
+class _$SeasonsResponseModelCopyWithImpl<$Res>
+    implements $SeasonsResponseModelCopyWith<$Res> {
+  _$SeasonsResponseModelCopyWithImpl(this._self, this._then);
+
+  final SeasonsResponseModel _self;
+  final $Res Function(SeasonsResponseModel) _then;
+
+/// Create a copy of SeasonsResponseModel
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? docs = null,Object? limit = null,Object? next = freezed,Object? prev = freezed,Object? hasNext = null,Object? hasPrev = null,}) {
+  return _then(_self.copyWith(
+docs: null == docs ? _self.docs : docs // ignore: cast_nullable_to_non_nullable
+as List<SeasonsModel>,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,next: freezed == next ? _self.next : next // ignore: cast_nullable_to_non_nullable
+as dynamic,prev: freezed == prev ? _self.prev : prev // ignore: cast_nullable_to_non_nullable
+as dynamic,hasNext: null == hasNext ? _self.hasNext : hasNext // ignore: cast_nullable_to_non_nullable
+as bool,hasPrev: null == hasPrev ? _self.hasPrev : hasPrev // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [SeasonsResponseModel].
+extension SeasonsResponseModelPatterns on SeasonsResponseModel {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _SeasonsResponseModel value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _SeasonsResponseModel() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _SeasonsResponseModel value)  $default,){
+final _that = this;
+switch (_that) {
+case _SeasonsResponseModel():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _SeasonsResponseModel value)?  $default,){
+final _that = this;
+switch (_that) {
+case _SeasonsResponseModel() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<SeasonsModel> docs,  int limit,  dynamic next,  dynamic prev,  bool hasNext,  bool hasPrev)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _SeasonsResponseModel() when $default != null:
+return $default(_that.docs,_that.limit,_that.next,_that.prev,_that.hasNext,_that.hasPrev);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<SeasonsModel> docs,  int limit,  dynamic next,  dynamic prev,  bool hasNext,  bool hasPrev)  $default,) {final _that = this;
+switch (_that) {
+case _SeasonsResponseModel():
+return $default(_that.docs,_that.limit,_that.next,_that.prev,_that.hasNext,_that.hasPrev);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<SeasonsModel> docs,  int limit,  dynamic next,  dynamic prev,  bool hasNext,  bool hasPrev)?  $default,) {final _that = this;
+switch (_that) {
+case _SeasonsResponseModel() when $default != null:
+return $default(_that.docs,_that.limit,_that.next,_that.prev,_that.hasNext,_that.hasPrev);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _SeasonsResponseModel implements SeasonsResponseModel {
+  const _SeasonsResponseModel({required final  List<SeasonsModel> docs, required this.limit, required this.next, required this.prev, required this.hasNext, required this.hasPrev}): _docs = docs;
+  factory _SeasonsResponseModel.fromJson(Map<String, dynamic> json) => _$SeasonsResponseModelFromJson(json);
+
+ final  List<SeasonsModel> _docs;
+@override List<SeasonsModel> get docs {
+  if (_docs is EqualUnmodifiableListView) return _docs;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_docs);
+}
+
+@override final  int limit;
+@override final  dynamic next;
+@override final  dynamic prev;
+@override final  bool hasNext;
+@override final  bool hasPrev;
+
+/// Create a copy of SeasonsResponseModel
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$SeasonsResponseModelCopyWith<_SeasonsResponseModel> get copyWith => __$SeasonsResponseModelCopyWithImpl<_SeasonsResponseModel>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$SeasonsResponseModelToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SeasonsResponseModel&&const DeepCollectionEquality().equals(other._docs, _docs)&&(identical(other.limit, limit) || other.limit == limit)&&const DeepCollectionEquality().equals(other.next, next)&&const DeepCollectionEquality().equals(other.prev, prev)&&(identical(other.hasNext, hasNext) || other.hasNext == hasNext)&&(identical(other.hasPrev, hasPrev) || other.hasPrev == hasPrev));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_docs),limit,const DeepCollectionEquality().hash(next),const DeepCollectionEquality().hash(prev),hasNext,hasPrev);
+
+@override
+String toString() {
+  return 'SeasonsResponseModel(docs: $docs, limit: $limit, next: $next, prev: $prev, hasNext: $hasNext, hasPrev: $hasPrev)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$SeasonsResponseModelCopyWith<$Res> implements $SeasonsResponseModelCopyWith<$Res> {
+  factory _$SeasonsResponseModelCopyWith(_SeasonsResponseModel value, $Res Function(_SeasonsResponseModel) _then) = __$SeasonsResponseModelCopyWithImpl;
+@override @useResult
+$Res call({
+ List<SeasonsModel> docs, int limit, dynamic next, dynamic prev, bool hasNext, bool hasPrev
+});
+
+
+
+
+}
+/// @nodoc
+class __$SeasonsResponseModelCopyWithImpl<$Res>
+    implements _$SeasonsResponseModelCopyWith<$Res> {
+  __$SeasonsResponseModelCopyWithImpl(this._self, this._then);
+
+  final _SeasonsResponseModel _self;
+  final $Res Function(_SeasonsResponseModel) _then;
+
+/// Create a copy of SeasonsResponseModel
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? docs = null,Object? limit = null,Object? next = freezed,Object? prev = freezed,Object? hasNext = null,Object? hasPrev = null,}) {
+  return _then(_SeasonsResponseModel(
+docs: null == docs ? _self._docs : docs // ignore: cast_nullable_to_non_nullable
+as List<SeasonsModel>,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,next: freezed == next ? _self.next : next // ignore: cast_nullable_to_non_nullable
+as dynamic,prev: freezed == prev ? _self.prev : prev // ignore: cast_nullable_to_non_nullable
+as dynamic,hasNext: null == hasNext ? _self.hasNext : hasNext // ignore: cast_nullable_to_non_nullable
+as bool,hasPrev: null == hasPrev ? _self.hasPrev : hasPrev // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+
 }
 
 // dart format on

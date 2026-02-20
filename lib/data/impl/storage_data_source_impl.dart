@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:intl/intl.dart';
 import 'package:viewed/data/model/models.dart';
 import 'package:viewed/data/storage_data_source.dart';
 
@@ -9,22 +10,38 @@ final class StorageDataSourceImpl implements StorageDataSource {
     : _firebaseFirestore = firebaseFirestore;
 
   @override
-  Future<void> addViewed(String userId, ViewedModel viewed) async {
+  Future<ViewedModel?> addViewed(String userId, ViewedModel viewed) async {
     final ref = _getPath(viewed.type, userId);
 
-    if (ref.isEmpty) return;
+    if (ref.isEmpty) return null;
 
-    final item = viewed.copyWith(dateAdded: DateTime.now().toString(), currentStatus: 'planned');
+    final date = DateFormat('dd.MM.yyyy').format(DateTime.now()).toString();
+
+    final item = viewed.copyWith(dateAdded: date, currentStatus: 'planned');
 
     final docRef = _firebaseFirestore.doc('$ref/${viewed.id}');
 
     await docRef.set(item.toJson());
+
+    return item;
   }
 
   @override
-  Future<ViewedModel> fetchViewedById(String userId, String viewedId) {
-    // TODO: implement fetchViewedById
-    throw UnimplementedError();
+  Future<void> setReviewed(String userId, ViewedModel viewed, bool add) async {
+    final ref = _getPath(viewed.type, userId);
+
+    if (ref.isEmpty) return;
+
+    final date = DateFormat('dd.MM.yyyy').format(DateTime.now()).toString();
+
+    final item = switch (add) {
+      true => viewed.copyWith(dateLastReviewed: date, amountOfReviews: viewed.amountOfReviews + 1),
+      false => viewed.copyWith(amountOfReviews: viewed.amountOfReviews - 1),
+    };
+
+    final docRef = _firebaseFirestore.doc('$ref/${viewed.id}');
+
+    await docRef.set(item.toJson());
   }
 
   @override
@@ -33,7 +50,9 @@ final class StorageDataSourceImpl implements StorageDataSource {
 
     if (ref.isEmpty) return;
 
-    final item = viewed.copyWith(dateViewed: DateTime.now().toString(), currentStatus: 'viewed');
+    final date = DateFormat('dd.MM.yyyy').format(DateTime.now()).toString();
+
+    final item = viewed.copyWith(dateViewed: date, currentStatus: 'viewed');
 
     final docRef = _firebaseFirestore.doc('$ref/${item.id}');
 
@@ -52,9 +71,20 @@ final class StorageDataSourceImpl implements StorageDataSource {
   }
 
   @override
-  Future<void> updateViewed(String usedId, ViewedModel viewed) {
-    // TODO: implement updateViewed
-    throw UnimplementedError();
+  Future<ViewedModel?> searchViewedById(String usedId, String viewedId, String viewedType) async {
+    final colPath = _getPath(viewedType, usedId);
+
+    if (colPath.isEmpty) return null;
+
+    final docRef = _firebaseFirestore.doc('$colPath/$viewedId');
+
+    final document = await docRef.get();
+
+    if (document.exists && document.data() != null) {
+      return ViewedModel.fromJson(document.data()!);
+    } else {
+      return null;
+    }
   }
 
   @override
