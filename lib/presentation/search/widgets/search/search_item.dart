@@ -86,7 +86,7 @@ class _SearchItem extends StatelessWidget {
         }
       case 'animated-series':
         {
-          formatted = ', ${S.of(context).animated_series.toLowerCase()}';
+          formatted = ', ${S.of(context).animatedSeries.toLowerCase()}';
           break;
         }
       case 'anime':

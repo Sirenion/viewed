@@ -38,52 +38,56 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m7(number, total) => "${number}/${total}";
 
-  static String m8(name) =>
+  static String m8(count) =>
+      "${Intl.plural(count, one: '${count} сезон', few: '${count} сезона', many: '${count} сезонов', other: '${count} сезона')}";
+
+  static String m9(name) =>
       "Вы действительно хотите удалить ${name} из списка?";
 
-  static String m9(number) => "Повторных просмотров: ${number}";
+  static String m10(number) => "Повторных просмотров: ${number}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "abort": MessageLookupByLibrary.simpleMessage("Отмена"),
     "add": MessageLookupByLibrary.simpleMessage("Добавить"),
+    "addToList": MessageLookupByLibrary.simpleMessage("Добавить в список:"),
     "add_something": MessageLookupByLibrary.simpleMessage(
       "Посмотрите что-нибудь и пополните список",
     ),
-    "add_to_list": MessageLookupByLibrary.simpleMessage("Добавить в список:"),
     "alreadyHaveAcc": MessageLookupByLibrary.simpleMessage("Уже есть аккаут?"),
-    "already_in_your_list": m0,
-    "amount_of_seasons": m1,
-    "animated_series": MessageLookupByLibrary.simpleMessage(
+    "alreadyInYourList": m0,
+    "amountOfSeasons": m1,
+    "animatedSeries": MessageLookupByLibrary.simpleMessage(
       "Анимационный сериал",
     ),
     "anime": MessageLookupByLibrary.simpleMessage("Аниме"),
+    "animeAbout": MessageLookupByLibrary.simpleMessage("О аниме"),
     "auth": MessageLookupByLibrary.simpleMessage("Авторизация"),
     "cartoon": MessageLookupByLibrary.simpleMessage("Мультфильм"),
     "cast": MessageLookupByLibrary.simpleMessage("В ролях"),
-    "date_added": m2,
-    "date_last_episode_viewed": m3,
-    "date_last_viewed": m4,
-    "date_viewed": m5,
+    "dateAdded": m2,
+    "dateLastEpisodeViewed": m3,
+    "dateLastViewed": m4,
+    "dateViewed": m5,
     "delete": MessageLookupByLibrary.simpleMessage("Удалить"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "emptyEmail": MessageLookupByLibrary.simpleMessage(
       "Необходимо ввести email",
     ),
+    "emptyField": MessageLookupByLibrary.simpleMessage(
+      "Поле не может быть пустым",
+    ),
+    "emptyList": MessageLookupByLibrary.simpleMessage("Список пуст"),
     "emptyPassword": MessageLookupByLibrary.simpleMessage(
       "Необходимо ввести пароль",
     ),
-    "empty_field": MessageLookupByLibrary.simpleMessage(
-      "Поле не может быть пустым",
-    ),
-    "empty_list": MessageLookupByLibrary.simpleMessage("Список пуст"),
     "episodes": MessageLookupByLibrary.simpleMessage("Серия:"),
     "exampleEmail": MessageLookupByLibrary.simpleMessage("example@mail.com"),
     "find": MessageLookupByLibrary.simpleMessage("Найти"),
     "home": MessageLookupByLibrary.simpleMessage("Домой"),
     "inProcess": MessageLookupByLibrary.simpleMessage("В процессе"),
-    "in_process_info": m6,
-    "in_process_template": m7,
+    "inProcessInfo": m6,
+    "inProcessTemplate": m7,
     "incorrectEmail": MessageLookupByLibrary.simpleMessage("Неверный email"),
     "incorrectPassword": MessageLookupByLibrary.simpleMessage(
       "Пароль должен состоять как минимум из 8 символов и содержать как минимум одну заглавную букву, одну строчную букву, одну цифру и один специальный символ",
@@ -95,9 +99,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "logout": MessageLookupByLibrary.simpleMessage("Выйти"),
     "min": MessageLookupByLibrary.simpleMessage("мин"),
     "movie": MessageLookupByLibrary.simpleMessage("Фильм"),
-    "movie_about": MessageLookupByLibrary.simpleMessage("О фильме"),
+    "movieAbout": MessageLookupByLibrary.simpleMessage("О фильме"),
     "movies": MessageLookupByLibrary.simpleMessage("Фильмы"),
     "noAcc": MessageLookupByLibrary.simpleMessage("Нет аккаунта?"),
+    "numberOfSeasons": m8,
     "password": MessageLookupByLibrary.simpleMessage("Пароль"),
     "planned": MessageLookupByLibrary.simpleMessage("Запланировано"),
     "profile": MessageLookupByLibrary.simpleMessage("Профиль"),
@@ -107,22 +112,19 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "register": MessageLookupByLibrary.simpleMessage("Зарегистрироваться"),
     "registration": MessageLookupByLibrary.simpleMessage("Регистрация"),
-    "remove_from_list": MessageLookupByLibrary.simpleMessage(
-      "Удалить из списка",
-    ),
-    "remove_from_list_body": m8,
+    "removeFromList": MessageLookupByLibrary.simpleMessage("Удалить из списка"),
+    "removeFromListBody": m9,
     "search": MessageLookupByLibrary.simpleMessage("Поиск"),
-    "seasons": MessageLookupByLibrary.simpleMessage("Сезонов"),
-    "similar_movies": MessageLookupByLibrary.simpleMessage("Похожие фильмы"),
-    "something_went_wrong": MessageLookupByLibrary.simpleMessage(
+    "similarMovies": MessageLookupByLibrary.simpleMessage("Похожие фильмы"),
+    "somethingWentWrong": MessageLookupByLibrary.simpleMessage(
       "Что-то пошло не так",
     ),
-    "times_reviewed": m9,
+    "timesReviewed": m10,
     "tv": MessageLookupByLibrary.simpleMessage("Сериал"),
+    "tvAbout": MessageLookupByLibrary.simpleMessage("О сериале"),
     "tvSeries": MessageLookupByLibrary.simpleMessage("Сериалы"),
-    "tv_about": MessageLookupByLibrary.simpleMessage("О сериале"),
-    "unknown_type": MessageLookupByLibrary.simpleMessage("Неизвестный формат"),
+    "unknownType": MessageLookupByLibrary.simpleMessage("Неизвестный формат"),
     "viewed": MessageLookupByLibrary.simpleMessage("Просмотрено"),
-    "watched_seasons": MessageLookupByLibrary.simpleMessage("Сезон: "),
+    "watchedSeasons": MessageLookupByLibrary.simpleMessage("Сезон:"),
   };
 }

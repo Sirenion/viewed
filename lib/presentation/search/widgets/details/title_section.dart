@@ -33,7 +33,7 @@ class _TitleSection extends StatelessWidget {
               const SizedBox(height: 8.0),
               Text(switch (searchItemDetailsEntity.isSeries) {
                 true =>
-                  '${searchItemDetailsEntity.year} • ${searchItemDetailsEntity.seasonsInfo!.length} ${S.of(context).seasons.toLowerCase()}',
+                  '${searchItemDetailsEntity.year} • ${S.of(context).numberOfSeasons(searchItemDetailsEntity.seasonsInfo!.length)}',
                 false =>
                   '${searchItemDetailsEntity.year} • ${searchItemDetailsEntity.movieLength ?? '-'} ${S.of(context).min}',
                 _ => '',

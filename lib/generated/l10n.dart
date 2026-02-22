@@ -145,10 +145,10 @@ class S {
   }
 
   /// `Анимационный сериал`
-  String get animated_series {
+  String get animatedSeries {
     return Intl.message(
       'Анимационный сериал',
-      name: 'animated_series',
+      name: 'animatedSeries',
       desc: '',
       args: [],
     );
@@ -165,10 +165,10 @@ class S {
   }
 
   /// `Неизвестный формат`
-  String get unknown_type {
+  String get unknownType {
     return Intl.message(
       'Неизвестный формат',
-      name: 'unknown_type',
+      name: 'unknownType',
       desc: '',
       args: [],
     );
@@ -265,8 +265,8 @@ class S {
   }
 
   /// `Список пуст`
-  String get empty_list {
-    return Intl.message('Список пуст', name: 'empty_list', desc: '', args: []);
+  String get emptyList {
+    return Intl.message('Список пуст', name: 'emptyList', desc: '', args: []);
   }
 
   /// `Посмотрите что-нибудь и пополните список`
@@ -280,10 +280,10 @@ class S {
   }
 
   /// `Что-то пошло не так`
-  String get something_went_wrong {
+  String get somethingWentWrong {
     return Intl.message(
       'Что-то пошло не так',
-      name: 'something_went_wrong',
+      name: 'somethingWentWrong',
       desc: '',
       args: [],
     );
@@ -295,10 +295,10 @@ class S {
   }
 
   /// `Поле не может быть пустым`
-  String get empty_field {
+  String get emptyField {
     return Intl.message(
       'Поле не может быть пустым',
-      name: 'empty_field',
+      name: 'emptyField',
       desc: '',
       args: [],
     );
@@ -310,10 +310,10 @@ class S {
   }
 
   /// `Похожие фильмы`
-  String get similar_movies {
+  String get similarMovies {
     return Intl.message(
       'Похожие фильмы',
-      name: 'similar_movies',
+      name: 'similarMovies',
       desc: '',
       args: [],
     );
@@ -335,40 +335,40 @@ class S {
   }
 
   /// `Добавить в список:`
-  String get add_to_list {
+  String get addToList {
     return Intl.message(
       'Добавить в список:',
-      name: 'add_to_list',
+      name: 'addToList',
       desc: '',
       args: [],
     );
   }
 
   /// `Количество сезонов: {amountOfSeasons}`
-  String amount_of_seasons(Object amountOfSeasons) {
+  String amountOfSeasons(Object amountOfSeasons) {
     return Intl.message(
       'Количество сезонов: $amountOfSeasons',
-      name: 'amount_of_seasons',
+      name: 'amountOfSeasons',
       desc: '',
       args: [amountOfSeasons],
     );
   }
 
   /// `Добавлено: {date}`
-  String date_added(Object date) {
+  String dateAdded(Object date) {
     return Intl.message(
       'Добавлено: $date',
-      name: 'date_added',
+      name: 'dateAdded',
       desc: '',
       args: [date],
     );
   }
 
   /// `Просмотрено: {date}`
-  String date_viewed(Object date) {
+  String dateViewed(Object date) {
     return Intl.message(
       'Просмотрено: $date',
-      name: 'date_viewed',
+      name: 'dateViewed',
       desc: '',
       args: [date],
     );
@@ -380,20 +380,20 @@ class S {
   }
 
   /// `{season} сезон, {episode}/{count}`
-  String in_process_info(Object season, Object episode, Object count) {
+  String inProcessInfo(Object season, Object episode, Object count) {
     return Intl.message(
       '$season сезон, $episode/$count',
-      name: 'in_process_info',
+      name: 'inProcessInfo',
       desc: '',
       args: [season, episode, count],
     );
   }
 
   /// `{number}/{total}`
-  String in_process_template(Object number, Object total) {
+  String inProcessTemplate(Object number, Object total) {
     return Intl.message(
       '$number/$total',
-      name: 'in_process_template',
+      name: 'inProcessTemplate',
       desc: '',
       args: [number, total],
     );
@@ -404,46 +404,51 @@ class S {
     return Intl.message('Серия:', name: 'episodes', desc: '', args: []);
   }
 
-  /// `Сезон: `
-  String get watched_seasons {
-    return Intl.message('Сезон: ', name: 'watched_seasons', desc: '', args: []);
+  /// `Сезон:`
+  String get watchedSeasons {
+    return Intl.message('Сезон:', name: 'watchedSeasons', desc: '', args: []);
   }
 
   /// `О фильме`
-  String get movie_about {
-    return Intl.message('О фильме', name: 'movie_about', desc: '', args: []);
+  String get movieAbout {
+    return Intl.message('О фильме', name: 'movieAbout', desc: '', args: []);
   }
 
   /// `О сериале`
-  String get tv_about {
-    return Intl.message('О сериале', name: 'tv_about', desc: '', args: []);
+  String get tvAbout {
+    return Intl.message('О сериале', name: 'tvAbout', desc: '', args: []);
+  }
+
+  /// `О аниме`
+  String get animeAbout {
+    return Intl.message('О аниме', name: 'animeAbout', desc: '', args: []);
   }
 
   /// `Последняя серия просмотрена: {date}`
-  String date_last_episode_viewed(Object date) {
+  String dateLastEpisodeViewed(Object date) {
     return Intl.message(
       'Последняя серия просмотрена: $date',
-      name: 'date_last_episode_viewed',
+      name: 'dateLastEpisodeViewed',
       desc: '',
       args: [date],
     );
   }
 
   /// `Последний просмотр: {date}`
-  String date_last_viewed(Object date) {
+  String dateLastViewed(Object date) {
     return Intl.message(
       'Последний просмотр: $date',
-      name: 'date_last_viewed',
+      name: 'dateLastViewed',
       desc: '',
       args: [date],
     );
   }
 
   /// `Повторных просмотров: {number}`
-  String times_reviewed(Object number) {
+  String timesReviewed(Object number) {
     return Intl.message(
       'Повторных просмотров: $number',
-      name: 'times_reviewed',
+      name: 'timesReviewed',
       desc: '',
       args: [number],
     );
@@ -455,38 +460,47 @@ class S {
   }
 
   /// `Удалить из списка`
-  String get remove_from_list {
+  String get removeFromList {
     return Intl.message(
       'Удалить из списка',
-      name: 'remove_from_list',
+      name: 'removeFromList',
       desc: '',
       args: [],
     );
   }
 
   /// `Вы действительно хотите удалить {name} из списка?`
-  String remove_from_list_body(Object name) {
+  String removeFromListBody(Object name) {
     return Intl.message(
       'Вы действительно хотите удалить $name из списка?',
-      name: 'remove_from_list_body',
+      name: 'removeFromListBody',
       desc: '',
       args: [name],
     );
   }
 
   /// `{type} уже находится в Вашем списке - {list}`
-  String already_in_your_list(Object type, Object list) {
+  String alreadyInYourList(Object type, Object list) {
     return Intl.message(
       '$type уже находится в Вашем списке - $list',
-      name: 'already_in_your_list',
+      name: 'alreadyInYourList',
       desc: '',
       args: [type, list],
     );
   }
 
-  /// `Сезонов`
-  String get seasons {
-    return Intl.message('Сезонов', name: 'seasons', desc: '', args: []);
+  /// `{count, plural, one{{count} сезон} few{{count} сезона} many{{count} сезонов} other{{count} сезона}}`
+  String numberOfSeasons(num count) {
+    return Intl.plural(
+      count,
+      one: '$count сезон',
+      few: '$count сезона',
+      many: '$count сезонов',
+      other: '$count сезона',
+      name: 'numberOfSeasons',
+      desc: '',
+      args: [count],
+    );
   }
 }
 

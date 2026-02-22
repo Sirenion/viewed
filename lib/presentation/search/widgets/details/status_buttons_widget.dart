@@ -18,7 +18,7 @@ class _StatusButtonsWidget extends StatelessWidget {
           return Column(
             mainAxisAlignment: .center,
             children: [
-              Text(S.of(context).add_to_list),
+              Text(S.of(context).addToList),
               const SizedBox(height: 10.0),
               Row(
                 mainAxisAlignment: .spaceBetween,
@@ -108,6 +108,6 @@ class _StatusButtonsWidget extends StatelessWidget {
       _ => '',
     };
 
-    return S.of(context).already_in_your_list(itemType, itemListName);
+    return S.of(context).alreadyInYourList(itemType, itemListName);
   }
 }

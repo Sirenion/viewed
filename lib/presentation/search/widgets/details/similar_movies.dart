@@ -16,7 +16,7 @@ class _SimilarMovies extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          S.of(context).similar_movies,
+          S.of(context).similarMovies,
           style: const TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 12.0),

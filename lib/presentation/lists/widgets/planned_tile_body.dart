@@ -34,11 +34,11 @@ class PlannedTileBody extends StatelessWidget {
           if (amountOfSeasons != 0)
             Padding(
               padding: const .only(bottom: 14.0),
-              child: Text(S.of(context).amount_of_seasons(amountOfSeasons.toString())),
+              child: Text(S.of(context).amountOfSeasons(amountOfSeasons.toString())),
             ),
           Padding(
             padding: const .only(bottom: 14.0),
-            child: Text(S.of(context).date_added(dateAdded)),
+            child: Text(S.of(context).dateAdded(dateAdded)),
           ),
           switch (isSeries) {
             true => Row(
@@ -111,7 +111,7 @@ class PlannedTileBody extends StatelessWidget {
                 child: ElevatedButton.icon(
                   onPressed: onGoToOriginal,
                   icon: const Icon(Icons.open_in_new, color: Colors.white),
-                  label: Text(S.of(context).tv_about, style: const TextStyle(color: Colors.white)),
+                  label: Text(S.of(context).tvAbout, style: const TextStyle(color: Colors.white)),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blueAccent,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),

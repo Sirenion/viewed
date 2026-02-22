@@ -39,7 +39,7 @@ class TextFieldValidator {
     final displayError = search.displayError;
 
     if (displayError != null) {
-      return S.of(context).empty_field;
+      return S.of(context).emptyField;
     }
     return null;
   }

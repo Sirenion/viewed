@@ -13,7 +13,7 @@ class ListEmptyWidget extends StatelessWidget {
           Icon(Icons.playlist_add_check_rounded, size: 80, color: Colors.grey.shade400),
           const SizedBox(height: 16),
           Text(
-            S.of(context).empty_list,
+            S.of(context).emptyList,
             style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.grey.shade700),
           ),
         ],

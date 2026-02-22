@@ -39,7 +39,7 @@ class _TvInProcessList extends StatelessWidget {
                       year: item.year ?? 0,
                       progress: S
                           .of(context)
-                          .in_process_info(
+                          .inProcessInfo(
                             item.currentWatching?.seasonNumber ?? 0,
                             item.currentWatching?.viewedEpisodes ?? 0,
                             item.currentWatching?.episodesCount ?? 0,

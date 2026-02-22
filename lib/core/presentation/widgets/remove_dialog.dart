@@ -9,8 +9,8 @@ class RemoveDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text(S.of(context).remove_from_list),
-      content: Text(S.of(context).remove_from_list_body(name)),
+      title: Text(S.of(context).removeFromList),
+      content: Text(S.of(context).removeFromListBody(name)),
       actions: <Widget>[
         TextButton(
           onPressed: () {

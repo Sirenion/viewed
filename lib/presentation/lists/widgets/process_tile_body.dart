@@ -57,7 +57,7 @@ class ProcessTileBody extends StatelessWidget {
                     },
                     icon: const Icon(Icons.remove, size: 25.0),
                   ),
-                  Text(S.of(context).in_process_template(currentEpisode, totalEpisodes)),
+                  Text(S.of(context).inProcessTemplate(currentEpisode, totalEpisodes)),
                   IconButton(onPressed: addEpisode, icon: const Icon(Icons.add, size: 25.0)),
                 ],
               ),
@@ -67,7 +67,7 @@ class ProcessTileBody extends StatelessWidget {
             mainAxisSize: .max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(S.of(context).watched_seasons),
+              Text(S.of(context).watchedSeasons),
               Row(
                 children: [
                   IconButton(
@@ -77,7 +77,7 @@ class ProcessTileBody extends StatelessWidget {
                     },
                     icon: const Icon(Icons.remove, size: 25.0),
                   ),
-                  Text(S.of(context).in_process_template(currentSeason, totalSeasons)),
+                  Text(S.of(context).inProcessTemplate(currentSeason, totalSeasons)),
                   IconButton(
                     onPressed: switch (currentSeason == totalSeasons) {
                       true => null,
@@ -90,10 +90,10 @@ class ProcessTileBody extends StatelessWidget {
             ],
           ),
           if (dateLastEpisodeViewed.isNotEmpty)
-            Text(S.of(context).date_last_episode_viewed(dateLastEpisodeViewed)),
+            Text(S.of(context).dateLastEpisodeViewed(dateLastEpisodeViewed)),
           Padding(
             padding: const .symmetric(vertical: 14.0),
-            child: Text(S.of(context).date_added(dateAdded)),
+            child: Text(S.of(context).dateAdded(dateAdded)),
           ),
           SizedBox(
             width: .maxFinite,
@@ -135,7 +135,7 @@ class ProcessTileBody extends StatelessWidget {
                 child: ElevatedButton.icon(
                   onPressed: onGoToOriginal,
                   icon: const Icon(Icons.open_in_new, color: Colors.white),
-                  label: Text(S.of(context).tv_about, style: const TextStyle(color: Colors.white)),
+                  label: Text(S.of(context).tvAbout, style: const TextStyle(color: Colors.white)),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blueAccent,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
