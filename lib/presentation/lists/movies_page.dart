@@ -7,12 +7,14 @@ import 'package:viewed/presentation/lists/controller/movies_cubit.dart';
 import 'package:viewed/presentation/lists/controller/state/state.dart';
 import 'package:viewed/core/presentation/widgets/list_empty_widget.dart';
 import 'package:viewed/core/presentation/widgets/list_error_widget.dart';
-import 'package:viewed/presentation/lists/widgets/movies_expansion_tile.dart';
-import 'package:viewed/presentation/lists/widgets/viewed_movies_expansion_tile.dart';
+import 'package:collection/collection.dart';
+import 'package:viewed/presentation/lists/widgets/header_info_widget.dart';
+import 'package:viewed/presentation/lists/widgets/planned_tile_body.dart';
+import 'package:viewed/presentation/lists/widgets/viewed_tile_body.dart';
 
-part 'widgets/movies_planned_list.dart';
+part 'widgets/movies/movies_planned_list.dart';
 
-part 'widgets/movies_viewed_list.dart';
+part 'widgets/movies/movies_viewed_list.dart';
 
 class MoviesPage extends StatelessWidget {
   const MoviesPage({required this.route, super.key});

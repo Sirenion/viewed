@@ -1,4 +1,4 @@
-part of '../search_page.dart';
+part of '../../search_page.dart';
 
 class _SearchListWidget extends StatelessWidget {
   const _SearchListWidget({required this.route});

@@ -30,7 +30,7 @@ abstract class SearchItemDetailsModel with _$SearchItemDetailsModel {
     @Default([]) List<CountryModel> countries,
     @Default([]) List<PersonModel> persons,
     ReviewInfoModel? reviewInfo,
-    @Default([]) List<SeasonsModel> seasonsInfo,
+    @Default([]) List<SeasonsModel>? seasonsInfo,
     BudgetModel? budget,
     FeesModel? fees,
     PremiereModel? premiere,

@@ -109,11 +109,14 @@ final class NetworkMapperImpl implements NetworkMapper {
         positiveCount: model.reviewInfo?.positiveCount,
         percentage: model.reviewInfo?.percentage,
       ),
-      seasonsInfo: List<SeasonsEntity>.from(
-        model.seasonsInfo.map(
-          (elem) => SeasonsEntity(number: elem.number!, episodesCount: elem.episodesCount!),
+      seasonsInfo: switch (model.seasonsInfo != null) {
+        true => List<SeasonsEntity>.from(
+          model.seasonsInfo!.map(
+            (elem) => SeasonsEntity(number: elem.number!, episodesCount: elem.episodesCount!),
+          ),
         ),
-      ),
+        false => null,
+      },
       premiere: PremiereEntity(
         country: model.premiere?.country,
         world: model.premiere?.world,
@@ -194,7 +197,10 @@ final class NetworkMapperImpl implements NetworkMapper {
               model.networks!.items!.map(
                 (elem) => NetworkItemEntity(
                   name: elem.name ?? '',
-                  logo: ImageObjectEntity(previewUrl: elem.logo!.url),
+                  logo: switch (elem.logo != null) {
+                    true => ImageObjectEntity(previewUrl: elem.logo!.url),
+                    false => null,
+                  },
                 ),
               ),
             ),

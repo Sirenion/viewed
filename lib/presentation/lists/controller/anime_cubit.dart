@@ -23,6 +23,11 @@ class AnimeCubit extends Cubit<AnimeState> {
     _storageRepository.setAsViewed(entity: entity);
   }
 
+  void setInProcess(ViewedEntity entity) {
+    emit(state.copyWith(isLocalLoading: true));
+    _storageRepository.setInProcess(entity: entity);
+  }
+
   void setReviewed(ViewedEntity entity, bool add) {
     if (entity.amountOfReviews == 0 && !add) return;
 
@@ -33,6 +38,32 @@ class AnimeCubit extends Cubit<AnimeState> {
   void removeItem(ViewedEntity entity) {
     emit(state.copyWith(isLocalLoading: true));
     _storageRepository.removeViewed(entity: entity);
+  }
+
+  void addEpisode(ViewedEntity entity, bool add) {
+    if (entity.currentWatching!.viewedEpisodes - 1 == -1 && !add) return;
+
+    emit(state.copyWith(isLocalLoading: true));
+    if (add &&
+        entity.currentWatching!.viewedEpisodes + 1 == entity.currentWatching!.episodesCount) {
+      if (entity.currentWatching!.seasonNumber == entity.seasonsInfo!.length) {
+        _storageRepository.setAsViewed(entity: entity);
+      } else {
+        _storageRepository.addViewedSeason(entity: entity, add: add);
+      }
+    } else {
+      _storageRepository.addViewedEpisode(entity: entity, add: add);
+    }
+  }
+
+  void addSeason(ViewedEntity entity, bool add) {
+    if ((entity.currentWatching!.seasonNumber - 1 == 0 && !add) ||
+        (entity.currentWatching!.seasonNumber + 1 > entity.seasonsInfo!.length && add)) {
+      return;
+    }
+
+    emit(state.copyWith(isLocalLoading: true));
+    _storageRepository.addViewedSeason(entity: entity, add: add);
   }
 
   void _onAnimeData(List<ViewedEntity> event) {

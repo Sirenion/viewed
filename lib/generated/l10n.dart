@@ -334,9 +334,44 @@ class S {
     return Intl.message('Добавить', name: 'add', desc: '', args: []);
   }
 
-  /// `Добавлено`
-  String get date_added {
-    return Intl.message('Добавлено', name: 'date_added', desc: '', args: []);
+  /// `Добавить в список:`
+  String get add_to_list {
+    return Intl.message(
+      'Добавить в список:',
+      name: 'add_to_list',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Количество сезонов: {amountOfSeasons}`
+  String amount_of_seasons(Object amountOfSeasons) {
+    return Intl.message(
+      'Количество сезонов: $amountOfSeasons',
+      name: 'amount_of_seasons',
+      desc: '',
+      args: [amountOfSeasons],
+    );
+  }
+
+  /// `Добавлено: {date}`
+  String date_added(Object date) {
+    return Intl.message(
+      'Добавлено: $date',
+      name: 'date_added',
+      desc: '',
+      args: [date],
+    );
+  }
+
+  /// `Просмотрено: {date}`
+  String date_viewed(Object date) {
+    return Intl.message(
+      'Просмотрено: $date',
+      name: 'date_viewed',
+      desc: '',
+      args: [date],
+    );
   }
 
   /// `Удалить`
@@ -344,28 +379,73 @@ class S {
     return Intl.message('Удалить', name: 'delete', desc: '', args: []);
   }
 
+  /// `{season} сезон, {episode}/{count}`
+  String in_process_info(Object season, Object episode, Object count) {
+    return Intl.message(
+      '$season сезон, $episode/$count',
+      name: 'in_process_info',
+      desc: '',
+      args: [season, episode, count],
+    );
+  }
+
+  /// `{number}/{total}`
+  String in_process_template(Object number, Object total) {
+    return Intl.message(
+      '$number/$total',
+      name: 'in_process_template',
+      desc: '',
+      args: [number, total],
+    );
+  }
+
+  /// `Серия:`
+  String get episodes {
+    return Intl.message('Серия:', name: 'episodes', desc: '', args: []);
+  }
+
+  /// `Сезон: `
+  String get watched_seasons {
+    return Intl.message('Сезон: ', name: 'watched_seasons', desc: '', args: []);
+  }
+
   /// `О фильме`
   String get movie_about {
     return Intl.message('О фильме', name: 'movie_about', desc: '', args: []);
   }
 
-  /// `Последний просмотр`
-  String get date_last_viewed {
+  /// `О сериале`
+  String get tv_about {
+    return Intl.message('О сериале', name: 'tv_about', desc: '', args: []);
+  }
+
+  /// `Последняя серия просмотрена: {date}`
+  String date_last_episode_viewed(Object date) {
     return Intl.message(
-      'Последний просмотр',
-      name: 'date_last_viewed',
+      'Последняя серия просмотрена: $date',
+      name: 'date_last_episode_viewed',
       desc: '',
-      args: [],
+      args: [date],
     );
   }
 
-  /// `Повторных просмотров`
-  String get times_reviewed {
+  /// `Последний просмотр: {date}`
+  String date_last_viewed(Object date) {
     return Intl.message(
-      'Повторных просмотров',
+      'Последний просмотр: $date',
+      name: 'date_last_viewed',
+      desc: '',
+      args: [date],
+    );
+  }
+
+  /// `Повторных просмотров: {number}`
+  String times_reviewed(Object number) {
+    return Intl.message(
+      'Повторных просмотров: $number',
       name: 'times_reviewed',
       desc: '',
-      args: [],
+      args: [number],
     );
   }
 

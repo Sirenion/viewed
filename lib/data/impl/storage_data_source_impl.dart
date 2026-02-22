@@ -19,7 +19,24 @@ final class StorageDataSourceImpl implements StorageDataSource {
 
     final item = viewed.copyWith(dateAdded: date, currentStatus: 'planned');
 
-    final docRef = _firebaseFirestore.doc('$ref/${viewed.id}');
+    final docRef = _firebaseFirestore.doc('$ref/${item.id}');
+
+    await docRef.set(item.toJson());
+
+    return item;
+  }
+
+  @override
+  Future<ViewedModel?> addAsViewed(String userId, ViewedModel viewed) async {
+    final ref = _getPath(viewed.type, userId);
+
+    if (ref.isEmpty) return null;
+
+    final date = DateFormat('dd.MM.yyyy').format(DateTime.now()).toString();
+
+    final item = viewed.copyWith(dateViewed: date, dateAdded: date, currentStatus: 'viewed');
+
+    final docRef = _firebaseFirestore.doc('$ref/${item.id}');
 
     await docRef.set(item.toJson());
 
@@ -52,9 +69,88 @@ final class StorageDataSourceImpl implements StorageDataSource {
 
     final date = DateFormat('dd.MM.yyyy').format(DateTime.now()).toString();
 
-    final item = viewed.copyWith(dateViewed: date, currentStatus: 'viewed');
+    final item = viewed.copyWith(dateViewed: date, currentStatus: 'viewed', currentWatching: null);
 
     final docRef = _firebaseFirestore.doc('$ref/${item.id}');
+
+    await docRef.set(item.toJson());
+  }
+
+  @override
+  Future<void> setInProcess(String userId, ViewedModel viewed) async {
+    final ref = _getPath(viewed.type, userId);
+
+    if (ref.isEmpty) return;
+
+    final seasonInfo = viewed.seasonsInfo!.firstWhere((elem) => elem.number == 1);
+
+    final item = viewed.copyWith(
+      currentStatus: 'inProcess',
+      currentWatching: CurrentWatchingModel(
+        seasonNumber: 1,
+        viewedEpisodes: 0,
+        episodesCount: seasonInfo.episodesCount ?? 0,
+        dateLastEpisodeViewed: '',
+      ),
+    );
+
+    final docRef = _firebaseFirestore.doc('$ref/${item.id}');
+
+    await docRef.set(item.toJson());
+  }
+
+  @override
+  Future<void> addViewedEpisode(String userId, ViewedModel viewed, bool add) async {
+    final ref = _getPath(viewed.type, userId);
+
+    if (ref.isEmpty) return;
+
+    final newEpisode = switch (add) {
+      true => viewed.currentWatching!.viewedEpisodes + 1,
+      false => viewed.currentWatching!.viewedEpisodes - 1,
+    };
+
+    final date = switch (add) {
+      true => DateFormat('dd.MM.yyyy').format(DateTime.now()).toString(),
+      false => viewed.currentWatching!.dateLastEpisodeViewed,
+    };
+
+    final item = viewed.copyWith(
+      currentWatching: viewed.currentWatching!.copyWith(
+        viewedEpisodes: newEpisode,
+        dateLastEpisodeViewed: date,
+      ),
+    );
+
+    final docRef = _firebaseFirestore.doc('$ref/${viewed.id}');
+
+    await docRef.set(item.toJson());
+  }
+
+  @override
+  Future<void> addViewedSeason(String userId, ViewedModel viewed, bool add) async {
+    final ref = _getPath(viewed.type, userId);
+
+    if (ref.isEmpty) return;
+
+    final seasonInfo = switch (add) {
+      true => viewed.seasonsInfo!.firstWhere(
+        (elem) => elem.number == viewed.currentWatching!.seasonNumber + 1,
+      ),
+      false => viewed.seasonsInfo!.firstWhere(
+        (elem) => elem.number == viewed.currentWatching!.seasonNumber - 1,
+      ),
+    };
+
+    final item = viewed.copyWith(
+      currentWatching: viewed.currentWatching!.copyWith(
+        seasonNumber: seasonInfo.number ?? 0,
+        viewedEpisodes: 0,
+        episodesCount: seasonInfo.episodesCount ?? 0,
+      ),
+    );
+
+    final docRef = _firebaseFirestore.doc('$ref/${viewed.id}');
 
     await docRef.set(item.toJson());
   }

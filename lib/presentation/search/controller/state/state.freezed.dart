@@ -308,7 +308,7 @@ $SearchListEntityCopyWith<$Res>? get searchResults {
 /// @nodoc
 mixin _$SearchDetailsState {
 
- String get id; bool get isLoading; SearchItemDetailsEntity? get searchItemDetails; ViewedEntity? get alreadyInCollection; Object? get error;
+ String get id; bool get isLoading; bool get isLocalLoading; SearchItemDetailsEntity? get searchItemDetails; ViewedEntity? get alreadyInCollection; Object? get error;
 /// Create a copy of SearchDetailsState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -319,16 +319,16 @@ $SearchDetailsStateCopyWith<SearchDetailsState> get copyWith => _$SearchDetailsS
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SearchDetailsState&&(identical(other.id, id) || other.id == id)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.searchItemDetails, searchItemDetails) || other.searchItemDetails == searchItemDetails)&&(identical(other.alreadyInCollection, alreadyInCollection) || other.alreadyInCollection == alreadyInCollection)&&const DeepCollectionEquality().equals(other.error, error));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SearchDetailsState&&(identical(other.id, id) || other.id == id)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.isLocalLoading, isLocalLoading) || other.isLocalLoading == isLocalLoading)&&(identical(other.searchItemDetails, searchItemDetails) || other.searchItemDetails == searchItemDetails)&&(identical(other.alreadyInCollection, alreadyInCollection) || other.alreadyInCollection == alreadyInCollection)&&const DeepCollectionEquality().equals(other.error, error));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,isLoading,searchItemDetails,alreadyInCollection,const DeepCollectionEquality().hash(error));
+int get hashCode => Object.hash(runtimeType,id,isLoading,isLocalLoading,searchItemDetails,alreadyInCollection,const DeepCollectionEquality().hash(error));
 
 @override
 String toString() {
-  return 'SearchDetailsState(id: $id, isLoading: $isLoading, searchItemDetails: $searchItemDetails, alreadyInCollection: $alreadyInCollection, error: $error)';
+  return 'SearchDetailsState(id: $id, isLoading: $isLoading, isLocalLoading: $isLocalLoading, searchItemDetails: $searchItemDetails, alreadyInCollection: $alreadyInCollection, error: $error)';
 }
 
 
@@ -339,7 +339,7 @@ abstract mixin class $SearchDetailsStateCopyWith<$Res>  {
   factory $SearchDetailsStateCopyWith(SearchDetailsState value, $Res Function(SearchDetailsState) _then) = _$SearchDetailsStateCopyWithImpl;
 @useResult
 $Res call({
- String id, bool isLoading, SearchItemDetailsEntity? searchItemDetails, ViewedEntity? alreadyInCollection, Object? error
+ String id, bool isLoading, bool isLocalLoading, SearchItemDetailsEntity? searchItemDetails, ViewedEntity? alreadyInCollection, Object? error
 });
 
 
@@ -356,10 +356,11 @@ class _$SearchDetailsStateCopyWithImpl<$Res>
 
 /// Create a copy of SearchDetailsState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? isLoading = null,Object? searchItemDetails = freezed,Object? alreadyInCollection = freezed,Object? error = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? isLoading = null,Object? isLocalLoading = null,Object? searchItemDetails = freezed,Object? alreadyInCollection = freezed,Object? error = freezed,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
+as bool,isLocalLoading: null == isLocalLoading ? _self.isLocalLoading : isLocalLoading // ignore: cast_nullable_to_non_nullable
 as bool,searchItemDetails: freezed == searchItemDetails ? _self.searchItemDetails : searchItemDetails // ignore: cast_nullable_to_non_nullable
 as SearchItemDetailsEntity?,alreadyInCollection: freezed == alreadyInCollection ? _self.alreadyInCollection : alreadyInCollection // ignore: cast_nullable_to_non_nullable
 as ViewedEntity?,error: freezed == error ? _self.error : error ,
@@ -471,10 +472,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  bool isLoading,  SearchItemDetailsEntity? searchItemDetails,  ViewedEntity? alreadyInCollection,  Object? error)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  bool isLoading,  bool isLocalLoading,  SearchItemDetailsEntity? searchItemDetails,  ViewedEntity? alreadyInCollection,  Object? error)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SearchDetailsState() when $default != null:
-return $default(_that.id,_that.isLoading,_that.searchItemDetails,_that.alreadyInCollection,_that.error);case _:
+return $default(_that.id,_that.isLoading,_that.isLocalLoading,_that.searchItemDetails,_that.alreadyInCollection,_that.error);case _:
   return orElse();
 
 }
@@ -492,10 +493,10 @@ return $default(_that.id,_that.isLoading,_that.searchItemDetails,_that.alreadyIn
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  bool isLoading,  SearchItemDetailsEntity? searchItemDetails,  ViewedEntity? alreadyInCollection,  Object? error)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  bool isLoading,  bool isLocalLoading,  SearchItemDetailsEntity? searchItemDetails,  ViewedEntity? alreadyInCollection,  Object? error)  $default,) {final _that = this;
 switch (_that) {
 case _SearchDetailsState():
-return $default(_that.id,_that.isLoading,_that.searchItemDetails,_that.alreadyInCollection,_that.error);case _:
+return $default(_that.id,_that.isLoading,_that.isLocalLoading,_that.searchItemDetails,_that.alreadyInCollection,_that.error);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -512,10 +513,10 @@ return $default(_that.id,_that.isLoading,_that.searchItemDetails,_that.alreadyIn
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  bool isLoading,  SearchItemDetailsEntity? searchItemDetails,  ViewedEntity? alreadyInCollection,  Object? error)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  bool isLoading,  bool isLocalLoading,  SearchItemDetailsEntity? searchItemDetails,  ViewedEntity? alreadyInCollection,  Object? error)?  $default,) {final _that = this;
 switch (_that) {
 case _SearchDetailsState() when $default != null:
-return $default(_that.id,_that.isLoading,_that.searchItemDetails,_that.alreadyInCollection,_that.error);case _:
+return $default(_that.id,_that.isLoading,_that.isLocalLoading,_that.searchItemDetails,_that.alreadyInCollection,_that.error);case _:
   return null;
 
 }
@@ -527,11 +528,12 @@ return $default(_that.id,_that.isLoading,_that.searchItemDetails,_that.alreadyIn
 
 
 class _SearchDetailsState extends SearchDetailsState {
-  const _SearchDetailsState({required this.id, this.isLoading = false, this.searchItemDetails = null, this.alreadyInCollection = null, this.error = null}): super._();
+  const _SearchDetailsState({required this.id, this.isLoading = false, this.isLocalLoading = false, this.searchItemDetails = null, this.alreadyInCollection = null, this.error = null}): super._();
   
 
 @override final  String id;
 @override@JsonKey() final  bool isLoading;
+@override@JsonKey() final  bool isLocalLoading;
 @override@JsonKey() final  SearchItemDetailsEntity? searchItemDetails;
 @override@JsonKey() final  ViewedEntity? alreadyInCollection;
 @override@JsonKey() final  Object? error;
@@ -546,16 +548,16 @@ _$SearchDetailsStateCopyWith<_SearchDetailsState> get copyWith => __$SearchDetai
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SearchDetailsState&&(identical(other.id, id) || other.id == id)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.searchItemDetails, searchItemDetails) || other.searchItemDetails == searchItemDetails)&&(identical(other.alreadyInCollection, alreadyInCollection) || other.alreadyInCollection == alreadyInCollection)&&const DeepCollectionEquality().equals(other.error, error));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SearchDetailsState&&(identical(other.id, id) || other.id == id)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.isLocalLoading, isLocalLoading) || other.isLocalLoading == isLocalLoading)&&(identical(other.searchItemDetails, searchItemDetails) || other.searchItemDetails == searchItemDetails)&&(identical(other.alreadyInCollection, alreadyInCollection) || other.alreadyInCollection == alreadyInCollection)&&const DeepCollectionEquality().equals(other.error, error));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,isLoading,searchItemDetails,alreadyInCollection,const DeepCollectionEquality().hash(error));
+int get hashCode => Object.hash(runtimeType,id,isLoading,isLocalLoading,searchItemDetails,alreadyInCollection,const DeepCollectionEquality().hash(error));
 
 @override
 String toString() {
-  return 'SearchDetailsState(id: $id, isLoading: $isLoading, searchItemDetails: $searchItemDetails, alreadyInCollection: $alreadyInCollection, error: $error)';
+  return 'SearchDetailsState(id: $id, isLoading: $isLoading, isLocalLoading: $isLocalLoading, searchItemDetails: $searchItemDetails, alreadyInCollection: $alreadyInCollection, error: $error)';
 }
 
 
@@ -566,7 +568,7 @@ abstract mixin class _$SearchDetailsStateCopyWith<$Res> implements $SearchDetail
   factory _$SearchDetailsStateCopyWith(_SearchDetailsState value, $Res Function(_SearchDetailsState) _then) = __$SearchDetailsStateCopyWithImpl;
 @override @useResult
 $Res call({
- String id, bool isLoading, SearchItemDetailsEntity? searchItemDetails, ViewedEntity? alreadyInCollection, Object? error
+ String id, bool isLoading, bool isLocalLoading, SearchItemDetailsEntity? searchItemDetails, ViewedEntity? alreadyInCollection, Object? error
 });
 
 
@@ -583,10 +585,11 @@ class __$SearchDetailsStateCopyWithImpl<$Res>
 
 /// Create a copy of SearchDetailsState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? isLoading = null,Object? searchItemDetails = freezed,Object? alreadyInCollection = freezed,Object? error = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? isLoading = null,Object? isLocalLoading = null,Object? searchItemDetails = freezed,Object? alreadyInCollection = freezed,Object? error = freezed,}) {
   return _then(_SearchDetailsState(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
+as bool,isLocalLoading: null == isLocalLoading ? _self.isLocalLoading : isLocalLoading // ignore: cast_nullable_to_non_nullable
 as bool,searchItemDetails: freezed == searchItemDetails ? _self.searchItemDetails : searchItemDetails // ignore: cast_nullable_to_non_nullable
 as SearchItemDetailsEntity?,alreadyInCollection: freezed == alreadyInCollection ? _self.alreadyInCollection : alreadyInCollection // ignore: cast_nullable_to_non_nullable
 as ViewedEntity?,error: freezed == error ? _self.error : error ,

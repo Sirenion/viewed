@@ -13,13 +13,13 @@ import 'package:viewed/generated/l10n.dart';
 import 'package:viewed/presentation/search/controller/search_cubit.dart';
 import 'package:viewed/presentation/search/controller/state/state.dart';
 
-part 'widgets/search_button.dart';
+part 'widgets/search/search_button.dart';
 
-part 'widgets/search_field.dart';
+part 'widgets/search/search_field.dart';
 
-part 'widgets/search_item.dart';
+part 'widgets/search/search_item.dart';
 
-part 'widgets/search_list_widget.dart';
+part 'widgets/search/search_list_widget.dart';
 
 class SearchPage extends StatelessWidget {
   final AppRoutes route;

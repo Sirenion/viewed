@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:viewed/domain/entity/entities.dart';
 import 'package:viewed/domain/network_repository.dart';
@@ -27,6 +28,8 @@ class SearchDetailsCubit extends Cubit<SearchDetailsState> {
 
       final searchItem = await _networkRepository.getMovie(id: id);
 
+      debugPrint(searchItem.toString());
+
       final seasonsList = switch (searchItem.isSeries) {
         true => await _networkRepository.getSeasons(id: id),
         _ => List<SeasonsEntity>.empty(),
@@ -48,29 +51,43 @@ class SearchDetailsCubit extends Cubit<SearchDetailsState> {
 
   void addMovie() async {
     try {
-      if (state.isLoading || state.searchItemDetails == null) return;
+      if (state.isLoading || state.searchItemDetails == null || state.isLocalLoading) return;
 
-      emit(state.copyWith(isLoading: true));
+      emit(state.copyWith(isLocalLoading: true));
 
       final result = await _storageRepository.addViewed(entity: state.searchItemDetails!);
 
-      emit(state.copyWith(isLoading: false, alreadyInCollection: result));
+      emit(state.copyWith(isLocalLoading: false, alreadyInCollection: result));
     } catch (e) {
-      emit(state.copyWith(isLoading: false, error: e));
+      emit(state.copyWith(isLocalLoading: false, error: e));
+    }
+  }
+
+  void addMovieAsViewed() async {
+    try {
+      if (state.isLoading || state.searchItemDetails == null || state.isLocalLoading) return;
+
+      emit(state.copyWith(isLocalLoading: true));
+
+      final result = await _storageRepository.addAsViewed(entity: state.searchItemDetails!);
+
+      emit(state.copyWith(isLocalLoading: false, alreadyInCollection: result));
+    } catch (e) {
+      emit(state.copyWith(isLocalLoading: false, error: e));
     }
   }
 
   void removeItem(ViewedEntity entity) {
     try {
-      if (state.isLoading || state.alreadyInCollection == null) return;
+      if (state.isLoading || state.alreadyInCollection == null || state.isLocalLoading) return;
 
-      emit(state.copyWith(isLoading: true));
+      emit(state.copyWith(isLocalLoading: true));
 
       _storageRepository.removeViewed(entity: entity);
 
-      emit(state.copyWith(isLoading: false, alreadyInCollection: null));
+      emit(state.copyWith(isLocalLoading: false, alreadyInCollection: null));
     } catch (e) {
-      emit(state.copyWith(isLoading: false, error: e));
+      emit(state.copyWith(isLocalLoading: false, error: e));
     }
   }
 }

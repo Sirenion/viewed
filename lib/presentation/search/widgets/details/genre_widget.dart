@@ -1,4 +1,4 @@
-part of '../search_details_page.dart';
+part of '../../search_details_page.dart';
 
 class _GenreWidget extends StatelessWidget {
   const _GenreWidget({required this.searchItemDetailsEntity});

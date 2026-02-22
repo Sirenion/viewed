@@ -6,11 +6,19 @@ import 'package:viewed/domain/entity/entities.dart';
 abstract interface class StorageRepository {
   Future<ViewedEntity?> addViewed({required SearchItemDetailsEntity entity});
 
+  Future<ViewedEntity?> addAsViewed({required SearchItemDetailsEntity entity});
+
   Future<void> setAsViewed({required ViewedEntity entity});
+
+  Future<void> setInProcess({required ViewedEntity entity});
 
   Future<void> removeViewed({required ViewedEntity entity});
 
   Future<void> setReviewed({required ViewedEntity entity, required bool add});
+
+  Future<void> addViewedEpisode({required ViewedEntity entity, required bool add});
+
+  Future<void> addViewedSeason({required ViewedEntity entity, required bool add});
 
   Future<ViewedEntity?> searchViewedById({required SearchItemDetailsEntity entity});
 
@@ -51,6 +59,26 @@ final class StorageRepositoryImpl implements StorageRepository {
   }
 
   @override
+  Future<ViewedEntity?> addAsViewed({required SearchItemDetailsEntity entity}) async {
+    final userId = _firebaseAuth.currentUser?.uid;
+
+    if (userId == null) {
+      throw Exception('User must be authorized');
+    }
+
+    final item = await _storageDataSource.addAsViewed(
+      userId,
+      _viewedMapper.searchDetailsToViewedModel(entity),
+    );
+
+    if (item != null) {
+      return _viewedMapper.toViewedEntity(item);
+    } else {
+      return null;
+    }
+  }
+
+  @override
   Future<void> setAsViewed({required ViewedEntity entity}) {
     final userId = _firebaseAuth.currentUser?.uid;
 
@@ -59,6 +87,17 @@ final class StorageRepositoryImpl implements StorageRepository {
     }
 
     return _storageDataSource.setAsViewed(userId, _viewedMapper.viewedEntityToViewedModel(entity));
+  }
+
+  @override
+  Future<void> setInProcess({required ViewedEntity entity}) {
+    final userId = _firebaseAuth.currentUser?.uid;
+
+    if (userId == null) {
+      throw Exception('User must be authorized');
+    }
+
+    return _storageDataSource.setInProcess(userId, _viewedMapper.viewedEntityToViewedModel(entity));
   }
 
   @override
@@ -79,7 +118,38 @@ final class StorageRepositoryImpl implements StorageRepository {
     if (userId == null) {
       throw Exception('User must be authorized');
     }
+
     return _storageDataSource.setReviewed(
+      userId,
+      _viewedMapper.viewedEntityToViewedModel(entity),
+      add,
+    );
+  }
+
+  @override
+  Future<void> addViewedEpisode({required ViewedEntity entity, required bool add}) {
+    final userId = _firebaseAuth.currentUser?.uid;
+
+    if (userId == null) {
+      throw Exception('User must be authorized');
+    }
+
+    return _storageDataSource.addViewedEpisode(
+      userId,
+      _viewedMapper.viewedEntityToViewedModel(entity),
+      add,
+    );
+  }
+
+  @override
+  Future<void> addViewedSeason({required ViewedEntity entity, required bool add}) {
+    final userId = _firebaseAuth.currentUser?.uid;
+
+    if (userId == null) {
+      throw Exception('User must be authorized');
+    }
+
+    return _storageDataSource.addViewedSeason(
       userId,
       _viewedMapper.viewedEntityToViewedModel(entity),
       add,

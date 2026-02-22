@@ -12,19 +12,19 @@ import 'package:viewed/generated/l10n.dart';
 import 'package:viewed/presentation/search/controller/search_details_cubit.dart';
 import 'package:viewed/presentation/search/controller/state/state.dart';
 
-part 'widgets/backdrop_app_bar.dart';
+part 'widgets/details/backdrop_app_bar.dart';
 
-part 'widgets/title_section.dart';
+part 'widgets/details/title_section.dart';
 
-part 'widgets/genre_widget.dart';
+part 'widgets/details/genre_widget.dart';
 
-part 'widgets/status_buttons_widget.dart';
+part 'widgets/details/status_buttons_widget.dart';
 
-part 'widgets/description.dart';
+part 'widgets/details/description.dart';
 
-part 'widgets/persons_widget.dart';
+part 'widgets/details/persons_widget.dart';
 
-part 'widgets/similar_movies.dart';
+part 'widgets/details/similar_movies.dart';
 
 class SearchDetailsPage extends StatelessWidget {
   final AppRoutes route;

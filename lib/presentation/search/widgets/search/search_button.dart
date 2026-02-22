@@ -1,4 +1,4 @@
-part of '../search_page.dart';
+part of '../../search_page.dart';
 
 class _SearchButton extends StatelessWidget {
   const _SearchButton();

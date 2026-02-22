@@ -1,4 +1,4 @@
-part of '../search_details_page.dart';
+part of '../../search_details_page.dart';
 
 class _SimilarMovies extends StatelessWidget {
   const _SimilarMovies({required this.route, required this.searchItemDetailsEntity});
@@ -15,7 +15,10 @@ class _SimilarMovies extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(S.of(context).similar_movies, style: const TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold)),
+        Text(
+          S.of(context).similar_movies,
+          style: const TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+        ),
         const SizedBox(height: 12.0),
         SizedBox(
           height: 200.0,

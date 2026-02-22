@@ -1,4 +1,4 @@
-part of '../search_page.dart';
+part of '../../search_page.dart';
 
 class _SearchItem extends StatelessWidget {
   const _SearchItem({

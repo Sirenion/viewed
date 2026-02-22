@@ -696,7 +696,7 @@ Map<String, dynamic> _$SearchItemDetailsModelToJson(
   'countries': instance.countries.map((e) => e.toJson()).toList(),
   'persons': instance.persons.map((e) => e.toJson()).toList(),
   'reviewInfo': instance.reviewInfo?.toJson(),
-  'seasonsInfo': instance.seasonsInfo.map((e) => e.toJson()).toList(),
+  'seasonsInfo': instance.seasonsInfo?.map((e) => e.toJson()).toList(),
   'budget': instance.budget?.toJson(),
   'fees': instance.fees?.toJson(),
   'premiere': instance.premiere?.toJson(),

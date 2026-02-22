@@ -30,7 +30,7 @@ abstract class SearchItemDetailsEntity with _$SearchItemDetailsEntity {
     @Default([]) List<PersonEntity> persons,
     ReviewInfoEntity? reviewInfo,
     PremiereEntity? premiere,
-    @Default([]) List<SeasonsEntity> seasonsInfo,
+    @Default([]) List<SeasonsEntity>? seasonsInfo,
     @Default(null) List<SimilarMovieEntity>? similarMovies,
     @Default(null) List<SimilarMovieEntity>? sequelsAndPrequels,
     @Default(null) List<ReleaseYearEntity>? releaseYears,

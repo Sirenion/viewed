@@ -1,4 +1,4 @@
-part of '../search_details_page.dart';
+part of '../../search_details_page.dart';
 
 class _DescriptionWidget extends StatelessWidget {
   const _DescriptionWidget({required this.searchItemDetailsEntity});

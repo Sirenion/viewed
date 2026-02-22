@@ -172,9 +172,9 @@ final class ViewedMapperImpl implements ViewedMapper {
         ),
         false => null,
       },
-      seasonsInfo: switch (entity.seasonsInfo.isNotEmpty) {
+      seasonsInfo: switch (entity.seasonsInfo != null) {
         true => List<SeasonsModel>.from(
-          entity.seasonsInfo.map(
+          entity.seasonsInfo!.map(
             (elem) => SeasonsModel(number: elem.number, episodesCount: elem.episodesCount),
           ),
         ),

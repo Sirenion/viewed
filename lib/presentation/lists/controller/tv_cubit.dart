@@ -14,13 +14,18 @@ class TvCubit extends Cubit<TvState> {
     : _storageRepository = storageRepository,
       super(const TvState()) {
     _tvListStreamSubscription = _storageRepository
-        .watchViewed('tv')
+        .watchViewed('tv-series')
         .listen(_onTvData, onError: _onTvError);
   }
 
   void setAsViewed(ViewedEntity entity) {
     emit(state.copyWith(isLocalLoading: true));
     _storageRepository.setAsViewed(entity: entity);
+  }
+
+  void setInProcess(ViewedEntity entity) {
+    emit(state.copyWith(isLocalLoading: true));
+    _storageRepository.setInProcess(entity: entity);
   }
 
   void setReviewed(ViewedEntity entity, bool add) {
@@ -33,6 +38,32 @@ class TvCubit extends Cubit<TvState> {
   void removeItem(ViewedEntity entity) {
     emit(state.copyWith(isLocalLoading: true));
     _storageRepository.removeViewed(entity: entity);
+  }
+
+  void addEpisode(ViewedEntity entity, bool add) {
+    if (entity.currentWatching!.viewedEpisodes - 1 == -1 && !add) return;
+
+    emit(state.copyWith(isLocalLoading: true));
+    if (add &&
+        entity.currentWatching!.viewedEpisodes + 1 == entity.currentWatching!.episodesCount) {
+      if (entity.currentWatching!.seasonNumber == entity.seasonsInfo!.length) {
+        _storageRepository.setAsViewed(entity: entity);
+      } else {
+        _storageRepository.addViewedSeason(entity: entity, add: add);
+      }
+    } else {
+      _storageRepository.addViewedEpisode(entity: entity, add: add);
+    }
+  }
+
+  void addSeason(ViewedEntity entity, bool add) {
+    if ((entity.currentWatching!.seasonNumber - 1 == 0 && !add) ||
+        (entity.currentWatching!.seasonNumber + 1 > entity.seasonsInfo!.length && add)) {
+      return;
+    }
+
+    emit(state.copyWith(isLocalLoading: true));
+    _storageRepository.addViewedSeason(entity: entity, add: add);
   }
 
   void _onTvData(List<ViewedEntity> event) {

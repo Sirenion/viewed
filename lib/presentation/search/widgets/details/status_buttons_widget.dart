@@ -1,4 +1,4 @@
-part of '../search_details_page.dart';
+part of '../../search_details_page.dart';
 
 class _StatusButtonsWidget extends StatelessWidget {
   const _StatusButtonsWidget();
@@ -7,15 +7,42 @@ class _StatusButtonsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SearchDetailsCubit, SearchDetailsState>(
       buildWhen: (previous, current) =>
-          previous.isLoading != current.isLoading ||
-          previous.alreadyInCollection != current.alreadyInCollection,
+          previous.alreadyInCollection != current.alreadyInCollection ||
+          previous.isLocalLoading != current.isLocalLoading,
       builder: (context, state) {
+        if (state.isLocalLoading) {
+          return const Center(child: CircularProgressIndicator());
+        }
+
         if (state.alreadyInCollection == null) {
-          return SubmitButton(
-            isClickable: !state.isLoading,
-            isLoading: state.isLoading,
-            label: S.of(context).add,
-            callback: () => context.read<SearchDetailsCubit>().addMovie(),
+          return Column(
+            mainAxisAlignment: .center,
+            children: [
+              Text(S.of(context).add_to_list),
+              const SizedBox(height: 10.0),
+              Row(
+                mainAxisAlignment: .spaceBetween,
+                children: [
+                  Flexible(
+                    child: SubmitButton(
+                      isClickable: !state.isLocalLoading,
+                      isLoading: state.isLocalLoading,
+                      label: S.of(context).planned,
+                      callback: () => context.read<SearchDetailsCubit>().addMovie(),
+                    ),
+                  ),
+                  const SizedBox(width: 10.0),
+                  Flexible(
+                    child: SubmitButton(
+                      isClickable: !state.isLocalLoading,
+                      isLoading: state.isLocalLoading,
+                      label: S.of(context).viewed,
+                      callback: () => context.read<SearchDetailsCubit>().addMovieAsViewed(),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           );
         }
 

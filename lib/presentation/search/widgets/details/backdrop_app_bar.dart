@@ -1,4 +1,4 @@
-part of '../search_details_page.dart';
+part of '../../search_details_page.dart';
 
 class _BackdropAppBar extends StatelessWidget {
   const _BackdropAppBar({required this.searchItemDetailsEntity, required this.route});
