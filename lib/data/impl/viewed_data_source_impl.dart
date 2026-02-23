@@ -1,12 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
 import 'package:viewed/data/model/models.dart';
-import 'package:viewed/data/storage_data_source.dart';
+import 'package:viewed/data/viewed_data_source.dart';
 
-final class StorageDataSourceImpl implements StorageDataSource {
+final class ViewedDataSourceImpl implements ViewedDataSource {
   final FirebaseFirestore _firebaseFirestore;
 
-  StorageDataSourceImpl({required FirebaseFirestore firebaseFirestore})
+  ViewedDataSourceImpl({required FirebaseFirestore firebaseFirestore})
     : _firebaseFirestore = firebaseFirestore;
 
   @override
@@ -38,6 +38,8 @@ final class StorageDataSourceImpl implements StorageDataSource {
 
     final docRef = _firebaseFirestore.doc('$ref/${item.id}');
 
+    _setStats(userId, item, true);
+
     await docRef.set(item.toJson());
 
     return item;
@@ -58,6 +60,8 @@ final class StorageDataSourceImpl implements StorageDataSource {
 
     final docRef = _firebaseFirestore.doc('$ref/${viewed.id}');
 
+    _setStats(userId, viewed, add);
+
     await docRef.set(item.toJson());
   }
 
@@ -72,6 +76,8 @@ final class StorageDataSourceImpl implements StorageDataSource {
     final item = viewed.copyWith(dateViewed: date, currentStatus: 'viewed', currentWatching: null);
 
     final docRef = _firebaseFirestore.doc('$ref/${item.id}');
+
+    _setStats(userId, item, true);
 
     await docRef.set(item.toJson());
   }
@@ -163,12 +169,18 @@ final class StorageDataSourceImpl implements StorageDataSource {
 
     final docRef = _firebaseFirestore.doc('$colPath/$viewedId');
 
+    final document = await docRef.get();
+
+    if (document.exists && document.data() != null) {
+      _setStats(userId, ViewedModel.fromJson(document.data()!), false);
+    }
+
     await docRef.delete();
   }
 
   @override
-  Future<ViewedModel?> searchViewedById(String usedId, String viewedId, String viewedType) async {
-    final colPath = _getPath(viewedType, usedId);
+  Future<ViewedModel?> searchViewedById(String userId, String viewedId, String viewedType) async {
+    final colPath = _getPath(viewedType, userId);
 
     if (colPath.isEmpty) return null;
 
@@ -212,6 +224,142 @@ final class StorageDataSourceImpl implements StorageDataSource {
             return e?.toJson() ?? {};
           },
         );
+  }
+
+  @override
+  Stream<StatsModel?> getStats(String userId) {
+    final path = 'users/$userId/stats';
+
+    return _queryStats(path).snapshots().map((e) {
+      final docs = e.docs;
+      final item = docs.map((e) => e.data()).nonNulls.first;
+
+      return item;
+    });
+  }
+
+  Query<StatsModel?> _queryStats(String path) {
+    return _firebaseFirestore
+        .collection(path)
+        .withConverter(
+          fromFirestore: (e, _) {
+            final data = e.data();
+
+            if (data == null) {
+              return null;
+            }
+
+            return StatsModel.fromJson(data);
+          },
+          toFirestore: (e, _) {
+            return e?.toJson() ?? {};
+          },
+        );
+  }
+
+  void _setStats(String userId, ViewedModel viewed, bool add) async {
+    if (viewed.currentStatus != 'viewed') return;
+    final docRef = _firebaseFirestore.doc('users/$userId/stats/userStatistics');
+
+    final document = await docRef.get();
+
+    StatsModel statsModel;
+
+    if (document.exists && document.data() != null) {
+      statsModel = StatsModel.fromJson(document.data()!);
+    } else {
+      statsModel = const StatsModel(
+        moviesViewed: 0,
+        timeSpentOnMovies: 0,
+        seriesViewed: 0,
+        seriesEpisodesViewed: 0,
+        timeSpentOnSeries: 0,
+        animeViewed: 0,
+        animeEpisodesViewed: 0,
+        timeSpentOnAnime: 0,
+      );
+    }
+
+    switch (viewed.type) {
+      case 'movie' || 'cartoon':
+        {
+          final movieLength = viewed.movieLength ?? 0;
+          if (add) {
+            statsModel = statsModel.copyWith(
+              moviesViewed: statsModel.moviesViewed + 1,
+              timeSpentOnMovies: statsModel.timeSpentOnMovies + movieLength,
+            );
+          } else {
+            statsModel = statsModel.copyWith(
+              moviesViewed: statsModel.moviesViewed - 1,
+              timeSpentOnMovies: statsModel.timeSpentOnMovies - movieLength,
+            );
+          }
+          break;
+        }
+      case 'tv-series' || 'animated-series':
+        {
+          final episodes = _calculateEpisodes(viewed.seasonsInfo!);
+          final seriesLength = switch (viewed.totalSeriesLength != null) {
+            true => viewed.totalSeriesLength!,
+            false => (viewed.seriesLength ?? 0) * episodes,
+          };
+          if (add) {
+            statsModel = statsModel.copyWith(
+              seriesViewed: statsModel.seriesViewed + 1,
+              seriesEpisodesViewed: statsModel.seriesEpisodesViewed + episodes,
+              timeSpentOnSeries: statsModel.timeSpentOnSeries + seriesLength,
+            );
+          } else {
+            statsModel = statsModel.copyWith(
+              seriesViewed: statsModel.seriesViewed - 1,
+              seriesEpisodesViewed: statsModel.seriesEpisodesViewed - episodes,
+              timeSpentOnSeries: statsModel.timeSpentOnSeries - seriesLength,
+            );
+          }
+          break;
+        }
+      case 'anime':
+        {
+          final episodes = switch (viewed.isSeries) {
+            true => _calculateEpisodes(viewed.seasonsInfo!),
+            false => 1,
+          };
+          final length = switch (viewed.isSeries) {
+            true => switch (viewed.totalSeriesLength != null) {
+              true => viewed.totalSeriesLength!,
+              false => (viewed.seriesLength ?? 0) * episodes,
+            },
+            false => viewed.movieLength ?? 0,
+          };
+          if (add) {
+            statsModel = statsModel.copyWith(
+              animeViewed: statsModel.animeViewed + 1,
+              animeEpisodesViewed: statsModel.animeEpisodesViewed + episodes,
+              timeSpentOnAnime: statsModel.timeSpentOnAnime + length,
+            );
+          } else {
+            statsModel = statsModel.copyWith(
+              animeViewed: statsModel.animeViewed - 1,
+              animeEpisodesViewed: statsModel.animeEpisodesViewed - episodes,
+              timeSpentOnAnime: statsModel.timeSpentOnAnime - length,
+            );
+          }
+          break;
+        }
+    }
+    await docRef.set(statsModel.toJson());
+  }
+
+  int _calculateEpisodes(List<SeasonsModel> list) {
+    int amount = 0;
+    for (var elem in list) {
+      if (elem.episodesCount != null) {
+        amount += elem.episodesCount!;
+      }
+    }
+
+    return amount;
   }
 
   String _getPath(String? type, String userId) {

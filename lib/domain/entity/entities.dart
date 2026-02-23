@@ -47,3 +47,13 @@ part 'general/votes_entity.dart';
 part 'search/search_list_entity.dart';
 
 part 'search/search_item_details_entity.dart';
+
+part 'stats_entity.dart';
+
+part 'person_details/person_details_entity.dart';
+
+part 'person_details/person_movie_entity.dart';
+
+part 'person_details/spouse_entity.dart';
+
+part 'person_details/value_item_entity.dart';

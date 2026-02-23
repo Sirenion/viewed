@@ -1,16 +1,14 @@
 part of '../../search_details_page.dart';
 
 class _SimilarMovies extends StatelessWidget {
-  const _SimilarMovies({required this.route, required this.searchItemDetailsEntity});
-
   final AppRoutes route;
-  final SearchItemDetailsEntity searchItemDetailsEntity;
+  final List<SimilarMovieEntity>? similarMovies;
+
+  const _SimilarMovies({required this.route, this.similarMovies});
 
   @override
   Widget build(BuildContext context) {
-    if (searchItemDetailsEntity.similarMovies == null) return const SizedBox();
-
-    if (searchItemDetailsEntity.similarMovies!.isEmpty) return const SizedBox();
+    if (similarMovies == null || similarMovies!.isEmpty) return const SizedBox();
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -24,11 +22,11 @@ class _SimilarMovies extends StatelessWidget {
           height: 200.0,
           child: ListView.separated(
             scrollDirection: .horizontal,
-            itemCount: searchItemDetailsEntity.similarMovies!.length,
+            itemCount: similarMovies!.length,
             separatorBuilder: (context, _) => const SizedBox(width: 12),
             itemBuilder: (context, index) {
-              final item = searchItemDetailsEntity.similarMovies![index];
-              return InkWell(
+              final item = similarMovies![index];
+              return GestureDetector(
                 onTap: () =>
                     route.searchDetails.push(context.read<GoRouter>(), id: item.id.toString()),
                 child: SizedBox(

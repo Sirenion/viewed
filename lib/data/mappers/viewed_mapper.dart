@@ -7,6 +7,8 @@ abstract interface class ViewedMapper {
   ViewedModel viewedEntityToViewedModel(ViewedEntity entity);
 
   ViewedModel searchDetailsToViewedModel(SearchItemDetailsEntity entity);
+
+  StatsEntity toStatsEntity(StatsModel? model);
 }
 
 final class ViewedMapperImpl implements ViewedMapper {
@@ -185,6 +187,20 @@ final class ViewedMapperImpl implements ViewedMapper {
       isSeries: entity.isSeries ?? false,
       seriesLength: entity.seriesLength,
       totalSeriesLength: entity.totalSeriesLength,
+    );
+  }
+
+  @override
+  StatsEntity toStatsEntity(StatsModel? model) {
+    return StatsEntity(
+      moviesViewed: model?.moviesViewed ?? 0,
+      timeSpentOnMovies: model?.timeSpentOnMovies ?? 0,
+      seriesViewed: model?.seriesViewed ?? 0,
+      seriesEpisodesViewed: model?.seriesEpisodesViewed ?? 0,
+      timeSpentOnSeries: model?.timeSpentOnSeries ?? 0,
+      animeViewed: model?.animeViewed ?? 0,
+      animeEpisodesViewed: model?.animeEpisodesViewed ?? 0,
+      timeSpentOnAnime: model?.timeSpentOnAnime ?? 0,
     );
   }
 }

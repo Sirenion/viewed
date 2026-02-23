@@ -742,3 +742,135 @@ Map<String, dynamic> _$SeasonsResponseModelToJson(
   'hasNext': instance.hasNext,
   'hasPrev': instance.hasPrev,
 };
+
+_StatsModel _$StatsModelFromJson(Map<String, dynamic> json) => _StatsModel(
+  moviesViewed: (json['moviesViewed'] as num).toInt(),
+  timeSpentOnMovies: (json['timeSpentOnMovies'] as num).toInt(),
+  seriesViewed: (json['seriesViewed'] as num).toInt(),
+  seriesEpisodesViewed: (json['seriesEpisodesViewed'] as num).toInt(),
+  timeSpentOnSeries: (json['timeSpentOnSeries'] as num).toInt(),
+  animeViewed: (json['animeViewed'] as num).toInt(),
+  animeEpisodesViewed: (json['animeEpisodesViewed'] as num).toInt(),
+  timeSpentOnAnime: (json['timeSpentOnAnime'] as num).toInt(),
+);
+
+Map<String, dynamic> _$StatsModelToJson(_StatsModel instance) =>
+    <String, dynamic>{
+      'moviesViewed': instance.moviesViewed,
+      'timeSpentOnMovies': instance.timeSpentOnMovies,
+      'seriesViewed': instance.seriesViewed,
+      'seriesEpisodesViewed': instance.seriesEpisodesViewed,
+      'timeSpentOnSeries': instance.timeSpentOnSeries,
+      'animeViewed': instance.animeViewed,
+      'animeEpisodesViewed': instance.animeEpisodesViewed,
+      'timeSpentOnAnime': instance.timeSpentOnAnime,
+    };
+
+_PersonDetailsModel _$PersonDetailsModelFromJson(Map<String, dynamic> json) =>
+    _PersonDetailsModel(
+      id: (json['id'] as num?)?.toInt(),
+      name: json['name'] as String?,
+      enName: json['enName'] as String?,
+      photo: json['photo'] as String?,
+      sex: json['sex'] as String?,
+      growth: (json['growth'] as num?)?.toInt(),
+      birthday: json['birthday'] as String?,
+      death: json['death'] as String?,
+      age: (json['age'] as num?)?.toInt(),
+      birthPlace: (json['birthPlace'] as List<dynamic>?)
+          ?.map((e) => ValueItemModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      deathPlace: (json['deathPlace'] as List<dynamic>?)
+          ?.map((e) => ValueItemModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      spouses: (json['spouses'] as List<dynamic>?)
+          ?.map((e) => SpouseModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      countAwards: (json['countAwards'] as num?)?.toInt(),
+      profession: (json['profession'] as List<dynamic>?)
+          ?.map((e) => ValueItemModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      facts: (json['facts'] as List<dynamic>?)
+          ?.map((e) => ValueItemModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      movies: (json['movies'] as List<dynamic>?)
+          ?.map((e) => PersonMovieModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      updatedAt: json['updatedAt'] == null
+          ? null
+          : DateTime.parse(json['updatedAt'] as String),
+      createdAt: json['createdAt'] == null
+          ? null
+          : DateTime.parse(json['createdAt'] as String),
+    );
+
+Map<String, dynamic> _$PersonDetailsModelToJson(_PersonDetailsModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'enName': instance.enName,
+      'photo': instance.photo,
+      'sex': instance.sex,
+      'growth': instance.growth,
+      'birthday': instance.birthday,
+      'death': instance.death,
+      'age': instance.age,
+      'birthPlace': instance.birthPlace?.map((e) => e.toJson()).toList(),
+      'deathPlace': instance.deathPlace?.map((e) => e.toJson()).toList(),
+      'spouses': instance.spouses?.map((e) => e.toJson()).toList(),
+      'countAwards': instance.countAwards,
+      'profession': instance.profession?.map((e) => e.toJson()).toList(),
+      'facts': instance.facts?.map((e) => e.toJson()).toList(),
+      'movies': instance.movies?.map((e) => e.toJson()).toList(),
+      'updatedAt': instance.updatedAt?.toIso8601String(),
+      'createdAt': instance.createdAt?.toIso8601String(),
+    };
+
+_PersonMovieModel _$PersonMovieModelFromJson(Map<String, dynamic> json) =>
+    _PersonMovieModel(
+      id: (json['id'] as num?)?.toInt(),
+      name: json['name'] as String?,
+      alternativeName: json['alternativeName'] as String?,
+      rating: (json['rating'] as num?)?.toDouble(),
+      general: json['general'] as bool?,
+      description: json['description'] as String?,
+      enProfession: json['enProfession'] as String?,
+    );
+
+Map<String, dynamic> _$PersonMovieModelToJson(_PersonMovieModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'alternativeName': instance.alternativeName,
+      'rating': instance.rating,
+      'general': instance.general,
+      'description': instance.description,
+      'enProfession': instance.enProfession,
+    };
+
+_SpouseModel _$SpouseModelFromJson(Map<String, dynamic> json) => _SpouseModel(
+  id: (json['id'] as num?)?.toInt(),
+  name: json['name'] as String?,
+  divorced: json['divorced'] as bool?,
+  divorcedReason: json['divorcedReason'] as String?,
+  sex: json['sex'] as String?,
+  children: (json['children'] as num?)?.toInt(),
+  relation: json['relation'] as String?,
+);
+
+Map<String, dynamic> _$SpouseModelToJson(_SpouseModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'divorced': instance.divorced,
+      'divorcedReason': instance.divorcedReason,
+      'sex': instance.sex,
+      'children': instance.children,
+      'relation': instance.relation,
+    };
+
+_ValueItemModel _$ValueItemModelFromJson(Map<String, dynamic> json) =>
+    _ValueItemModel(value: json['value'] as String?);
+
+Map<String, dynamic> _$ValueItemModelToJson(_ValueItemModel instance) =>
+    <String, dynamic>{'value': instance.value};

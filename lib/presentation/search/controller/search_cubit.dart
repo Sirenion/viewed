@@ -1,12 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:viewed/core/presentation/validators/search_validator.dart';
-import 'package:viewed/domain/network_repository.dart';
+import 'package:viewed/domain/search_repository.dart';
 import 'package:viewed/presentation/search/controller/state/state.dart';
 
 class SearchCubit extends Cubit<SearchState> {
-  final NetworkRepository _networkRepository;
+  final SearchRepository _networkRepository;
 
-  SearchCubit({required NetworkRepository networkRepository})
+  SearchCubit({required SearchRepository networkRepository})
     : _networkRepository = networkRepository,
       super(const SearchState());
 

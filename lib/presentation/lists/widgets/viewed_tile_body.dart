@@ -99,7 +99,7 @@ class ViewedTileBody extends StatelessWidget {
                 child: ElevatedButton.icon(
                   onPressed: onGoToOriginal,
                   icon: const Icon(Icons.open_in_new, color: Colors.white),
-                  label: Text(S.of(context).tvAbout, style: const TextStyle(color: Colors.white)),
+                  label: Text(S.of(context).about, style: const TextStyle(color: Colors.white)),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blueAccent,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),

@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:viewed/data/mappers/viewed_mapper.dart';
-import 'package:viewed/data/storage_data_source.dart';
+import 'package:viewed/data/viewed_data_source.dart';
 import 'package:viewed/domain/entity/entities.dart';
 
-abstract interface class StorageRepository {
+abstract interface class ViewedRepository {
   Future<ViewedEntity?> addViewed({required SearchItemDetailsEntity entity});
 
   Future<ViewedEntity?> addAsViewed({required SearchItemDetailsEntity entity});
@@ -23,16 +23,18 @@ abstract interface class StorageRepository {
   Future<ViewedEntity?> searchViewedById({required SearchItemDetailsEntity entity});
 
   Stream<List<ViewedEntity>> watchViewed(String type);
+
+  Stream<StatsEntity?> getStats();
 }
 
-final class StorageRepositoryImpl implements StorageRepository {
+final class ViewedRepositoryImpl implements ViewedRepository {
   final FirebaseAuth _firebaseAuth;
-  final StorageDataSource _storageDataSource;
+  final ViewedDataSource _storageDataSource;
   final ViewedMapper _viewedMapper;
 
-  StorageRepositoryImpl({
+  ViewedRepositoryImpl({
     required FirebaseAuth firebaseAuth,
-    required StorageDataSource storageDataSource,
+    required ViewedDataSource storageDataSource,
     required ViewedMapper viewedMapper,
   }) : _firebaseAuth = firebaseAuth,
        _storageDataSource = storageDataSource,
@@ -188,5 +190,16 @@ final class StorageRepositoryImpl implements StorageRepository {
     return _storageDataSource
         .watchViewed(userId, type)
         .map((elem) => elem.map(_viewedMapper.toViewedEntity).toList());
+  }
+
+  @override
+  Stream<StatsEntity?> getStats() {
+    final userId = _firebaseAuth.currentUser?.uid;
+
+    if (userId == null) {
+      throw Exception('User must be authorized');
+    }
+
+    return _storageDataSource.getStats(userId).map((elem) => _viewedMapper.toStatsEntity(elem));
   }
 }

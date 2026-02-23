@@ -1,10 +1,10 @@
 part of '../../search_details_page.dart';
 
 class _BackdropAppBar extends StatelessWidget {
-  const _BackdropAppBar({required this.searchItemDetailsEntity, required this.route});
-
   final AppRoutes route;
-  final SearchItemDetailsEntity searchItemDetailsEntity;
+  final ImageObjectEntity? backdrop;
+
+  const _BackdropAppBar({this.backdrop, required this.route});
 
   @override
   Widget build(BuildContext context) {
@@ -33,14 +33,14 @@ class _BackdropAppBar extends StatelessWidget {
             ),
           ),
 
-          onPressed: () => context.go(route.home.routePath),
+          onPressed: () => context.go(route.movies.routePath),
           icon: const Icon(Icons.home),
           color: Colors.black,
         ),
       ],
       flexibleSpace: FlexibleSpaceBar(
-        background: searchItemDetailsEntity.backdrop?.url != null
-            ? Image.network(searchItemDetailsEntity.backdrop!.url!, fit: BoxFit.cover)
+        background: backdrop?.url != null
+            ? Image.network(backdrop!.url!, fit: BoxFit.cover)
             : Container(color: Colors.black12),
       ),
     );

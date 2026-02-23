@@ -12,19 +12,19 @@ import 'package:viewed/generated/l10n.dart';
 import 'package:viewed/presentation/search/controller/search_details_cubit.dart';
 import 'package:viewed/presentation/search/controller/state/state.dart';
 
-part 'widgets/details/backdrop_app_bar.dart';
+part 'widgets/search_details/backdrop_app_bar.dart';
 
-part 'widgets/details/title_section.dart';
+part 'widgets/search_details/title_section.dart';
 
-part 'widgets/details/genre_widget.dart';
+part 'widgets/search_details/genre_widget.dart';
 
-part 'widgets/details/status_buttons_widget.dart';
+part 'widgets/search_details/status_buttons_widget.dart';
 
-part 'widgets/details/description.dart';
+part 'widgets/search_details/description.dart';
 
-part 'widgets/details/persons_widget.dart';
+part 'widgets/search_details/persons_widget.dart';
 
-part 'widgets/details/similar_movies.dart';
+part 'widgets/search_details/similar_movies.dart';
 
 class SearchDetailsPage extends StatelessWidget {
   final AppRoutes route;
@@ -55,26 +55,34 @@ class SearchDetailsPage extends StatelessWidget {
 
             return CustomScrollView(
               slivers: [
-                _BackdropAppBar(route: route, searchItemDetailsEntity: state.searchItemDetails!),
+                _BackdropAppBar(route: route, backdrop: state.searchItemDetails?.backdrop),
                 SliverToBoxAdapter(
                   child: Padding(
                     padding: const .all(16.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        _TitleSection(searchItemDetailsEntity: state.searchItemDetails!),
+                        _TitleSection(
+                          poster: state.searchItemDetails?.poster,
+                          name: state.searchItemDetails?.name,
+                          rating: state.searchItemDetails?.rating?.kp,
+                          isSeries: state.searchItemDetails?.isSeries ?? false,
+                          numberOfSeasons: state.searchItemDetails?.seasonsInfo?.length ?? 0,
+                          year: state.searchItemDetails?.year ?? 0,
+                          movieLength: state.searchItemDetails?.movieLength,
+                        ),
                         const SizedBox(height: 16.0),
-                        _GenreWidget(searchItemDetailsEntity: state.searchItemDetails!),
+                        _GenreWidget(genres: state.searchItemDetails?.genres),
                         const SizedBox(height: 16.0),
                         const _StatusButtonsWidget(),
                         const SizedBox(height: 16.0),
-                        _DescriptionWidget(searchItemDetailsEntity: state.searchItemDetails!),
+                        _DescriptionWidget(description: state.searchItemDetails?.description),
                         const SizedBox(height: 24.0),
-                        _PersonsWidget(searchItemDetailsEntity: state.searchItemDetails!),
+                        _PersonsWidget(persons: state.searchItemDetails?.persons, route: route),
                         const SizedBox(height: 24.0),
                         _SimilarMovies(
                           route: route,
-                          searchItemDetailsEntity: state.searchItemDetails!,
+                          similarMovies: state.searchItemDetails?.similarMovies,
                         ),
                       ],
                     ),

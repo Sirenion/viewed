@@ -1,7 +1,7 @@
 import 'package:viewed/data/model/models.dart';
 import 'package:viewed/domain/entity/entities.dart';
 
-abstract interface class NetworkMapper {
+abstract interface class SearchMapper {
   SearchListEntity toSearchListEntity(SearchListModel model);
 
   ViewedEntity searchToViewedEntity(SearchItemModel model);
@@ -9,9 +9,11 @@ abstract interface class NetworkMapper {
   SearchItemDetailsEntity toSearchItemDetailsEntity(SearchItemDetailsModel model);
 
   SeasonsEntity toSeasonEntity(SeasonsModel model);
+
+  PersonDetailsEntity toPersonDetailsEntity(PersonDetailsModel model);
 }
 
-final class NetworkMapperImpl implements NetworkMapper {
+final class SearchMapperImpl implements SearchMapper {
   @override
   SearchListEntity toSearchListEntity(SearchListModel model) {
     return SearchListEntity(
@@ -255,5 +257,79 @@ final class NetworkMapperImpl implements NetworkMapper {
   @override
   SeasonsEntity toSeasonEntity(SeasonsModel model) {
     return SeasonsEntity(number: model.number ?? 0, episodesCount: model.episodesCount ?? 0);
+  }
+
+  @override
+  PersonDetailsEntity toPersonDetailsEntity(PersonDetailsModel model) {
+    return PersonDetailsEntity(
+      id: model.id,
+      name: model.name,
+      enName: model.enName,
+      photo: model.photo,
+      sex: model.sex,
+      growth: model.growth,
+      birthday: model.birthday,
+      death: model.death,
+      age: model.age,
+      birthPlace: switch (model.birthPlace != null) {
+        true => List<ValueItemEntity>.from(
+          model.birthPlace!.map((elem) => ValueItemEntity(value: elem.value)),
+        ),
+        false => null,
+      },
+      deathPlace: switch (model.deathPlace != null) {
+        true => List<ValueItemEntity>.from(
+          model.deathPlace!.map((elem) => ValueItemEntity(value: elem.value)),
+        ),
+        false => null,
+      },
+      spouses: switch (model.spouses != null) {
+        true => List<SpouseEntity>.from(
+          model.spouses!.map(
+            (elem) => SpouseEntity(
+              id: elem.id,
+              name: elem.name,
+              divorced: elem.divorced,
+              divorcedReason: elem.divorcedReason,
+              sex: elem.sex,
+              children: elem.children,
+              relation: elem.relation,
+            ),
+          ),
+        ),
+        false => null,
+      },
+      countAwards: model.countAwards,
+      profession: switch (model.profession != null) {
+        true => List<ValueItemEntity>.from(
+          model.profession!.map((elem) => ValueItemEntity(value: elem.value)),
+        ),
+        false => null,
+      },
+      facts: switch (model.facts != null) {
+        true => List<ValueItemEntity>.from(
+          model.facts!.map((elem) => ValueItemEntity(value: elem.value)),
+        ),
+        false => null,
+      },
+      movies: switch (model.movies != null) {
+        true => List<PersonMovieEntity>.from(
+          model.movies!.map(
+            (elem) => PersonMovieEntity(
+              id: elem.id,
+              name: elem.name,
+              alternativeName: elem.alternativeName,
+              rating: elem.rating,
+              general: elem.general,
+              description: elem.description,
+              enProfession: elem.enProfession,
+            ),
+          ),
+        ),
+        false => null,
+      },
+      updatedAt: model.updatedAt,
+      createdAt: model.createdAt,
+    );
   }
 }

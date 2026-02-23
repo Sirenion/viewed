@@ -20,56 +20,114 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ru';
 
-  static String m0(type, list) =>
+  static String m0(amount) => "Возраст: ${amount}";
+
+  static String m1(type, list) =>
       "${type} уже находится в Вашем списке - ${list}";
 
-  static String m1(amountOfSeasons) => "Количество сезонов: ${amountOfSeasons}";
+  static String m2(amountOfSeasons) => "Количество сезонов: ${amountOfSeasons}";
 
-  static String m2(date) => "Добавлено: ${date}";
+  static String m3(number) => "Просмотрено эпизодов: ${number}";
 
-  static String m3(date) => "Последняя серия просмотрена: ${date}";
+  static String m4(number) => "Просмотрено тайтлов: ${number}";
 
-  static String m4(date) => "Последний просмотр: ${date}";
+  static String m5(amount) => "Количество наград: ${amount}";
 
-  static String m5(date) => "Просмотрено: ${date}";
+  static String m6(date) => "День рождения: ${date}";
 
-  static String m6(season, episode, count) =>
+  static String m7(number) => "Дети: ${number}";
+
+  static String m8(date) => "Добавлено: ${date}";
+
+  static String m9(date) => "Последняя серия просмотрена: ${date}";
+
+  static String m10(date) => "Последний просмотр: ${date}";
+
+  static String m11(date) => "Просмотрено: ${date}";
+
+  static String m12(count) =>
+      "${Intl.plural(count, one: '${count} день', few: '${count} дня', many: '${count} дней', other: '${count} дня')}";
+
+  static String m13(date) => "Дата смерти: ${date}";
+
+  static String m14(value) => "• ${value}";
+
+  static String m15(amount) => "Рост: ${amount}";
+
+  static String m16(count) =>
+      "${Intl.plural(count, one: '${count} час', few: '${count} часа', many: '${count} часов', other: '${count} часа')}";
+
+  static String m17(season, episode, count) =>
       "${season} сезон, ${episode}/${count}";
 
-  static String m7(number, total) => "${number}/${total}";
+  static String m18(number, total) => "${number}/${total}";
 
-  static String m8(count) =>
+  static String m19(count) =>
+      "${Intl.plural(count, one: '${count} минута', few: '${count} минуты', many: '${count} минут', other: '${count} минуты')}";
+
+  static String m20(number) => "Просмотрено фильмов: ${number}";
+
+  static String m21(count) =>
       "${Intl.plural(count, one: '${count} сезон', few: '${count} сезона', many: '${count} сезонов', other: '${count} сезона')}";
 
-  static String m9(name) =>
+  static String m22(amount) => "Рейтинг: ${amount}";
+
+  static String m23(name) => "Положение: ${name}";
+
+  static String m24(name) =>
       "Вы действительно хотите удалить ${name} из списка?";
 
-  static String m10(number) => "Повторных просмотров: ${number}";
+  static String m25(name) => "Роль: ${name}";
+
+  static String m26(number) => "Просмотрено серий: ${number}";
+
+  static String m27(number) => "Просмотрено сериалов: ${number}";
+
+  static String m28(name) => "Пол: ${name}";
+
+  static String m29(amount) => "Уделено времени аниме: ${amount}";
+
+  static String m30(amount) => "Уделено времени фильмам: ${amount}";
+
+  static String m31(amount) => "Уделено времени сериалам: ${amount}";
+
+  static String m32(number) => "Повторных просмотров: ${number}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "abort": MessageLookupByLibrary.simpleMessage("Отмена"),
+    "about": MessageLookupByLibrary.simpleMessage("Подробнее"),
     "add": MessageLookupByLibrary.simpleMessage("Добавить"),
     "addToList": MessageLookupByLibrary.simpleMessage("Добавить в список:"),
     "add_something": MessageLookupByLibrary.simpleMessage(
       "Посмотрите что-нибудь и пополните список",
     ),
+    "age": m0,
     "alreadyHaveAcc": MessageLookupByLibrary.simpleMessage("Уже есть аккаут?"),
-    "alreadyInYourList": m0,
-    "amountOfSeasons": m1,
+    "alreadyInYourList": m1,
+    "amountOfSeasons": m2,
     "animatedSeries": MessageLookupByLibrary.simpleMessage(
       "Анимационный сериал",
     ),
     "anime": MessageLookupByLibrary.simpleMessage("Аниме"),
-    "animeAbout": MessageLookupByLibrary.simpleMessage("О аниме"),
+    "animeEpisodesViewed": m3,
+    "animeViewed": m4,
     "auth": MessageLookupByLibrary.simpleMessage("Авторизация"),
+    "awards": m5,
+    "birthPlace": MessageLookupByLibrary.simpleMessage("Место рождения"),
+    "birthday": m6,
     "cartoon": MessageLookupByLibrary.simpleMessage("Мультфильм"),
     "cast": MessageLookupByLibrary.simpleMessage("В ролях"),
-    "dateAdded": m2,
-    "dateLastEpisodeViewed": m3,
-    "dateLastViewed": m4,
-    "dateViewed": m5,
+    "children": m7,
+    "dateAdded": m8,
+    "dateLastEpisodeViewed": m9,
+    "dateLastViewed": m10,
+    "dateViewed": m11,
+    "days": m12,
+    "death": m13,
+    "deathPlace": MessageLookupByLibrary.simpleMessage("Место смерти"),
     "delete": MessageLookupByLibrary.simpleMessage("Удалить"),
+    "divorced": MessageLookupByLibrary.simpleMessage("Развод"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "emptyEmail": MessageLookupByLibrary.simpleMessage(
       "Необходимо ввести email",
@@ -83,11 +141,15 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "episodes": MessageLookupByLibrary.simpleMessage("Серия:"),
     "exampleEmail": MessageLookupByLibrary.simpleMessage("example@mail.com"),
+    "fact": m14,
+    "facts": MessageLookupByLibrary.simpleMessage("Факты"),
     "find": MessageLookupByLibrary.simpleMessage("Найти"),
+    "height": m15,
     "home": MessageLookupByLibrary.simpleMessage("Домой"),
+    "hours": m16,
     "inProcess": MessageLookupByLibrary.simpleMessage("В процессе"),
-    "inProcessInfo": m6,
-    "inProcessTemplate": m7,
+    "inProcessInfo": m17,
+    "inProcessTemplate": m18,
     "incorrectEmail": MessageLookupByLibrary.simpleMessage("Неверный email"),
     "incorrectPassword": MessageLookupByLibrary.simpleMessage(
       "Пароль должен состоять как минимум из 8 символов и содержать как минимум одну заглавную букву, одну строчную букву, одну цифру и один специальный символ",
@@ -98,30 +160,43 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "logout": MessageLookupByLibrary.simpleMessage("Выйти"),
     "min": MessageLookupByLibrary.simpleMessage("мин"),
+    "minutes": m19,
     "movie": MessageLookupByLibrary.simpleMessage("Фильм"),
-    "movieAbout": MessageLookupByLibrary.simpleMessage("О фильме"),
     "movies": MessageLookupByLibrary.simpleMessage("Фильмы"),
+    "moviesViewed": m20,
     "noAcc": MessageLookupByLibrary.simpleMessage("Нет аккаунта?"),
-    "numberOfSeasons": m8,
+    "numberOfSeasons": m21,
     "password": MessageLookupByLibrary.simpleMessage("Пароль"),
     "planned": MessageLookupByLibrary.simpleMessage("Запланировано"),
+    "profession": MessageLookupByLibrary.simpleMessage("Профессия"),
     "profile": MessageLookupByLibrary.simpleMessage("Профиль"),
+    "projects": MessageLookupByLibrary.simpleMessage("Проекты"),
+    "rating": m22,
     "reg": MessageLookupByLibrary.simpleMessage("Регистрация"),
     "regToStart": MessageLookupByLibrary.simpleMessage(
       "Создайте аккаунт, чтобы начать работу",
     ),
     "register": MessageLookupByLibrary.simpleMessage("Зарегистрироваться"),
     "registration": MessageLookupByLibrary.simpleMessage("Регистрация"),
+    "relation": m23,
     "removeFromList": MessageLookupByLibrary.simpleMessage("Удалить из списка"),
-    "removeFromListBody": m9,
+    "removeFromListBody": m24,
+    "role": m25,
     "search": MessageLookupByLibrary.simpleMessage("Поиск"),
+    "seriesEpisodesViewed": m26,
+    "seriesViewed": m27,
+    "sex": m28,
     "similarMovies": MessageLookupByLibrary.simpleMessage("Похожие фильмы"),
     "somethingWentWrong": MessageLookupByLibrary.simpleMessage(
       "Что-то пошло не так",
     ),
-    "timesReviewed": m10,
+    "spouses": MessageLookupByLibrary.simpleMessage("Супруги"),
+    "stats": MessageLookupByLibrary.simpleMessage("Статистика"),
+    "timeSpentOnAnime": m29,
+    "timeSpentOnMovies": m30,
+    "timeSpentOnSeries": m31,
+    "timesReviewed": m32,
     "tv": MessageLookupByLibrary.simpleMessage("Сериал"),
-    "tvAbout": MessageLookupByLibrary.simpleMessage("О сериале"),
     "tvSeries": MessageLookupByLibrary.simpleMessage("Сериалы"),
     "unknownType": MessageLookupByLibrary.simpleMessage("Неизвестный формат"),
     "viewed": MessageLookupByLibrary.simpleMessage("Просмотрено"),

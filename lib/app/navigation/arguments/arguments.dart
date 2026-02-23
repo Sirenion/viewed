@@ -4,4 +4,6 @@ part 'arguments.freezed.dart';
 
 part 'arguments.g.dart';
 
+part 'person_details_arguments.dart';
+
 part 'search_details_arguments.dart';

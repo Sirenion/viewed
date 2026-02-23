@@ -319,11 +319,6 @@ class S {
     );
   }
 
-  /// `мин`
-  String get min {
-    return Intl.message('мин', name: 'min', desc: '', args: []);
-  }
-
   /// `В ролях`
   String get cast {
     return Intl.message('В ролях', name: 'cast', desc: '', args: []);
@@ -409,19 +404,9 @@ class S {
     return Intl.message('Сезон:', name: 'watchedSeasons', desc: '', args: []);
   }
 
-  /// `О фильме`
-  String get movieAbout {
-    return Intl.message('О фильме', name: 'movieAbout', desc: '', args: []);
-  }
-
-  /// `О сериале`
-  String get tvAbout {
-    return Intl.message('О сериале', name: 'tvAbout', desc: '', args: []);
-  }
-
-  /// `О аниме`
-  String get animeAbout {
-    return Intl.message('О аниме', name: 'animeAbout', desc: '', args: []);
+  /// `Подробнее`
+  String get about {
+    return Intl.message('Подробнее', name: 'about', desc: '', args: []);
   }
 
   /// `Последняя серия просмотрена: {date}`
@@ -501,6 +486,273 @@ class S {
       desc: '',
       args: [count],
     );
+  }
+
+  /// `Статистика`
+  String get stats {
+    return Intl.message('Статистика', name: 'stats', desc: '', args: []);
+  }
+
+  /// `Просмотрено эпизодов: {number}`
+  String animeEpisodesViewed(Object number) {
+    return Intl.message(
+      'Просмотрено эпизодов: $number',
+      name: 'animeEpisodesViewed',
+      desc: '',
+      args: [number],
+    );
+  }
+
+  /// `Просмотрено тайтлов: {number}`
+  String animeViewed(Object number) {
+    return Intl.message(
+      'Просмотрено тайтлов: $number',
+      name: 'animeViewed',
+      desc: '',
+      args: [number],
+    );
+  }
+
+  /// `Просмотрено фильмов: {number}`
+  String moviesViewed(Object number) {
+    return Intl.message(
+      'Просмотрено фильмов: $number',
+      name: 'moviesViewed',
+      desc: '',
+      args: [number],
+    );
+  }
+
+  /// `Просмотрено серий: {number}`
+  String seriesEpisodesViewed(Object number) {
+    return Intl.message(
+      'Просмотрено серий: $number',
+      name: 'seriesEpisodesViewed',
+      desc: '',
+      args: [number],
+    );
+  }
+
+  /// `Просмотрено сериалов: {number}`
+  String seriesViewed(Object number) {
+    return Intl.message(
+      'Просмотрено сериалов: $number',
+      name: 'seriesViewed',
+      desc: '',
+      args: [number],
+    );
+  }
+
+  /// `Уделено времени аниме: {amount}`
+  String timeSpentOnAnime(Object amount) {
+    return Intl.message(
+      'Уделено времени аниме: $amount',
+      name: 'timeSpentOnAnime',
+      desc: '',
+      args: [amount],
+    );
+  }
+
+  /// `Уделено времени фильмам: {amount}`
+  String timeSpentOnMovies(Object amount) {
+    return Intl.message(
+      'Уделено времени фильмам: $amount',
+      name: 'timeSpentOnMovies',
+      desc: '',
+      args: [amount],
+    );
+  }
+
+  /// `Уделено времени сериалам: {amount}`
+  String timeSpentOnSeries(Object amount) {
+    return Intl.message(
+      'Уделено времени сериалам: $amount',
+      name: 'timeSpentOnSeries',
+      desc: '',
+      args: [amount],
+    );
+  }
+
+  /// `мин`
+  String get min {
+    return Intl.message('мин', name: 'min', desc: '', args: []);
+  }
+
+  /// `{count, plural, one{{count} день} few{{count} дня} many{{count} дней} other{{count} дня}}`
+  String days(num count) {
+    return Intl.plural(
+      count,
+      one: '$count день',
+      few: '$count дня',
+      many: '$count дней',
+      other: '$count дня',
+      name: 'days',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `{count, plural, one{{count} час} few{{count} часа} many{{count} часов} other{{count} часа}}`
+  String hours(num count) {
+    return Intl.plural(
+      count,
+      one: '$count час',
+      few: '$count часа',
+      many: '$count часов',
+      other: '$count часа',
+      name: 'hours',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `{count, plural, one{{count} минута} few{{count} минуты} many{{count} минут} other{{count} минуты}}`
+  String minutes(num count) {
+    return Intl.plural(
+      count,
+      one: '$count минута',
+      few: '$count минуты',
+      many: '$count минут',
+      other: '$count минуты',
+      name: 'minutes',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `Место рождения`
+  String get birthPlace {
+    return Intl.message(
+      'Место рождения',
+      name: 'birthPlace',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Место смерти`
+  String get deathPlace {
+    return Intl.message('Место смерти', name: 'deathPlace', desc: '', args: []);
+  }
+
+  /// `Профессия`
+  String get profession {
+    return Intl.message('Профессия', name: 'profession', desc: '', args: []);
+  }
+
+  /// `Факты`
+  String get facts {
+    return Intl.message('Факты', name: 'facts', desc: '', args: []);
+  }
+
+  /// `День рождения: {date}`
+  String birthday(Object date) {
+    return Intl.message(
+      'День рождения: $date',
+      name: 'birthday',
+      desc: '',
+      args: [date],
+    );
+  }
+
+  /// `Дата смерти: {date}`
+  String death(Object date) {
+    return Intl.message(
+      'Дата смерти: $date',
+      name: 'death',
+      desc: '',
+      args: [date],
+    );
+  }
+
+  /// `Количество наград: {amount}`
+  String awards(Object amount) {
+    return Intl.message(
+      'Количество наград: $amount',
+      name: 'awards',
+      desc: '',
+      args: [amount],
+    );
+  }
+
+  /// `Возраст: {amount}`
+  String age(Object amount) {
+    return Intl.message(
+      'Возраст: $amount',
+      name: 'age',
+      desc: '',
+      args: [amount],
+    );
+  }
+
+  /// `Пол: {name}`
+  String sex(Object name) {
+    return Intl.message('Пол: $name', name: 'sex', desc: '', args: [name]);
+  }
+
+  /// `Рост: {amount}`
+  String height(Object amount) {
+    return Intl.message(
+      'Рост: $amount',
+      name: 'height',
+      desc: '',
+      args: [amount],
+    );
+  }
+
+  /// `Проекты`
+  String get projects {
+    return Intl.message('Проекты', name: 'projects', desc: '', args: []);
+  }
+
+  /// `Рейтинг: {amount}`
+  String rating(Object amount) {
+    return Intl.message(
+      'Рейтинг: $amount',
+      name: 'rating',
+      desc: '',
+      args: [amount],
+    );
+  }
+
+  /// `Роль: {name}`
+  String role(Object name) {
+    return Intl.message('Роль: $name', name: 'role', desc: '', args: [name]);
+  }
+
+  /// `Супруги`
+  String get spouses {
+    return Intl.message('Супруги', name: 'spouses', desc: '', args: []);
+  }
+
+  /// `Положение: {name}`
+  String relation(Object name) {
+    return Intl.message(
+      'Положение: $name',
+      name: 'relation',
+      desc: '',
+      args: [name],
+    );
+  }
+
+  /// `Дети: {number}`
+  String children(Object number) {
+    return Intl.message(
+      'Дети: $number',
+      name: 'children',
+      desc: '',
+      args: [number],
+    );
+  }
+
+  /// `Развод`
+  String get divorced {
+    return Intl.message('Развод', name: 'divorced', desc: '', args: []);
+  }
+
+  /// `• {value}`
+  String fact(Object value) {
+    return Intl.message('• $value', name: 'fact', desc: '', args: [value]);
   }
 }
 

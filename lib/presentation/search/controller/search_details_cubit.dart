@@ -1,19 +1,18 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:viewed/domain/entity/entities.dart';
-import 'package:viewed/domain/network_repository.dart';
-import 'package:viewed/domain/storage_repository.dart';
+import 'package:viewed/domain/search_repository.dart';
+import 'package:viewed/domain/viewed_repository.dart';
 import 'package:viewed/presentation/search/controller/state/state.dart';
 
 class SearchDetailsCubit extends Cubit<SearchDetailsState> {
-  final NetworkRepository _networkRepository;
+  final SearchRepository _networkRepository;
 
-  final StorageRepository _storageRepository;
+  final ViewedRepository _storageRepository;
 
   SearchDetailsCubit({
-    required NetworkRepository networkRepository,
+    required SearchRepository networkRepository,
     required String id,
-    required StorageRepository storageRepository,
+    required ViewedRepository storageRepository,
   }) : _storageRepository = storageRepository,
        _networkRepository = networkRepository,
        super(SearchDetailsState(id: id)) {
@@ -28,19 +27,19 @@ class SearchDetailsCubit extends Cubit<SearchDetailsState> {
 
       final searchItem = await _networkRepository.getMovie(id: id);
 
-      debugPrint(searchItem.toString());
-
       final seasonsList = switch (searchItem.isSeries) {
         true => await _networkRepository.getSeasons(id: id),
         _ => List<SeasonsEntity>.empty(),
       };
 
-      final alreadyInCollection = await _storageRepository.searchViewedById(entity: searchItem);
+      final item = _normalizeSeriesInfo(searchItem).copyWith(seasonsInfo: seasonsList);
+
+      final alreadyInCollection = await _storageRepository.searchViewedById(entity: item);
 
       emit(
         state.copyWith(
           isLoading: false,
-          searchItemDetails: searchItem.copyWith(seasonsInfo: seasonsList),
+          searchItemDetails: item,
           alreadyInCollection: alreadyInCollection,
         ),
       );
@@ -89,5 +88,23 @@ class SearchDetailsCubit extends Cubit<SearchDetailsState> {
     } catch (e) {
       emit(state.copyWith(isLocalLoading: false, error: e));
     }
+  }
+
+  SearchItemDetailsEntity _normalizeSeriesInfo(SearchItemDetailsEntity entity) {
+    final item = entity;
+
+    if (item.isSeries!) {
+      if (item.seriesLength == null && item.totalSeriesLength != null) {
+        return item.copyWith(seriesLength: item.totalSeriesLength, totalSeriesLength: null);
+      } else {
+        if (item.seriesLength != null && item.totalSeriesLength != null) {
+          if (item.totalSeriesLength! < 120) {
+            return item.copyWith(totalSeriesLength: null);
+          }
+        }
+      }
+    }
+
+    return item;
   }
 }

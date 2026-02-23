@@ -9,16 +9,16 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:viewed/app/app_state/auth_cubit.dart';
 import 'package:viewed/app/navigation/app_router.dart';
-import 'package:viewed/data/impl/network_data_source_impl.dart';
-import 'package:viewed/data/impl/storage_data_source_impl.dart';
+import 'package:viewed/data/impl/search_data_source_impl.dart';
+import 'package:viewed/data/impl/viewed_data_source_impl.dart';
 import 'package:viewed/data/mappers/auth_mapper.dart';
-import 'package:viewed/data/mappers/network_mapper.dart';
+import 'package:viewed/data/mappers/search_mapper.dart';
 import 'package:viewed/data/mappers/viewed_mapper.dart';
-import 'package:viewed/data/network_data_source.dart';
-import 'package:viewed/data/storage_data_source.dart';
+import 'package:viewed/data/search_data_source.dart';
+import 'package:viewed/data/viewed_data_source.dart';
 import 'package:viewed/domain/auth_repository.dart';
-import 'package:viewed/domain/network_repository.dart';
-import 'package:viewed/domain/storage_repository.dart';
+import 'package:viewed/domain/search_repository.dart';
+import 'package:viewed/domain/viewed_repository.dart';
 import 'package:viewed/generated/l10n.dart';
 
 class Viewed extends StatelessWidget {
@@ -62,19 +62,19 @@ class Viewed extends StatelessWidget {
             return ViewedMapperImpl();
           },
         ),
-        Provider<NetworkMapper>(
+        Provider<SearchMapper>(
           create: (context) {
-            return NetworkMapperImpl();
+            return SearchMapperImpl();
           },
         ),
-        Provider<StorageDataSource>(
+        Provider<ViewedDataSource>(
           create: (context) {
-            return StorageDataSourceImpl(firebaseFirestore: context.read<FirebaseFirestore>());
+            return ViewedDataSourceImpl(firebaseFirestore: context.read<FirebaseFirestore>());
           },
         ),
-        Provider<NetworkDataSource>(
+        Provider<SearchDataSource>(
           create: (context) {
-            return NetworkDataSourceImpl(dio: context.read<Dio>());
+            return SearchDataSourceImpl(dio: context.read<Dio>());
           },
         ),
         RepositoryProvider<AuthRepository>(
@@ -85,20 +85,20 @@ class Viewed extends StatelessWidget {
             );
           },
         ),
-        RepositoryProvider<StorageRepository>(
+        RepositoryProvider<ViewedRepository>(
           create: (context) {
-            return StorageRepositoryImpl(
+            return ViewedRepositoryImpl(
               firebaseAuth: context.read<FirebaseAuth>(),
-              storageDataSource: context.read<StorageDataSource>(),
+              storageDataSource: context.read<ViewedDataSource>(),
               viewedMapper: context.read<ViewedMapper>(),
             );
           },
         ),
-        RepositoryProvider<NetworkRepository>(
+        RepositoryProvider<SearchRepository>(
           create: (context) {
-            return NetworkRepositoryImpl(
-              networkDataSource: context.read<NetworkDataSource>(),
-              networkMapper: context.read<NetworkMapper>(),
+            return SearchRepositoryImpl(
+              networkDataSource: context.read<SearchDataSource>(),
+              networkMapper: context.read<SearchMapper>(),
             );
           },
         ),

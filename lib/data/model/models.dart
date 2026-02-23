@@ -61,3 +61,13 @@ part 'search/search_list_model.dart';
 part 'search/search_item_details_model.dart';
 
 part 'search/search_seasons_model.dart';
+
+part 'stats_model.dart';
+
+part 'person_details/person_details_model.dart';
+
+part 'person_details/person_movie_model.dart';
+
+part 'person_details/spouse_model.dart';
+
+part 'person_details/value_item_model.dart';

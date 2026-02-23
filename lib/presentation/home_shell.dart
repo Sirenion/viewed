@@ -13,7 +13,6 @@ class HomeShell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final titleList = [
-      S.of(context).home,
       S.of(context).movies,
       S.of(context).tvSeries,
       S.of(context).anime,
@@ -23,10 +22,7 @@ class HomeShell extends StatelessWidget {
     final currentIndex = navigationShell.currentIndex;
 
     return Scaffold(
-      appBar: switch (currentIndex != 0) {
-        true => AppBar(title: Text(titleList[currentIndex]), centerTitle: true),
-        false => null,
-      },
+      appBar: AppBar(title: Text(titleList[currentIndex]), centerTitle: true),
       body: navigationShell,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
@@ -35,14 +31,13 @@ class HomeShell extends StatelessWidget {
         unselectedItemColor: Colors.grey,
         onTap: (index) => _onTap(index),
         items: [
-          BottomNavigationBarItem(label: titleList[0], icon: const Icon(Icons.home)),
-          BottomNavigationBarItem(label: titleList[1], icon: const Icon(Icons.movie_outlined)),
-          BottomNavigationBarItem(label: titleList[2], icon: const Icon(Icons.local_movies)),
-          BottomNavigationBarItem(label: titleList[3], icon: const Icon(Icons.animation)),
-          BottomNavigationBarItem(label: titleList[4], icon: const Icon(Icons.person)),
+          BottomNavigationBarItem(label: titleList[0], icon: const Icon(Icons.movie_outlined)),
+          BottomNavigationBarItem(label: titleList[1], icon: const Icon(Icons.local_movies)),
+          BottomNavigationBarItem(label: titleList[2], icon: const Icon(Icons.animation)),
+          BottomNavigationBarItem(label: titleList[3], icon: const Icon(Icons.person)),
         ],
       ),
-      floatingActionButton: switch (currentIndex != 4) {
+      floatingActionButton: switch (currentIndex != 3) {
         true => FloatingActionButton(
           onPressed: () {
             context.push(route.search.routePath);

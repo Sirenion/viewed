@@ -2,15 +2,15 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:viewed/domain/entity/entities.dart';
-import 'package:viewed/domain/storage_repository.dart';
+import 'package:viewed/domain/viewed_repository.dart';
 import 'package:viewed/presentation/lists/controller/state/state.dart';
 
 class MoviesCubit extends Cubit<MoviesState> {
-  final StorageRepository _storageRepository;
+  final ViewedRepository _storageRepository;
 
   late final StreamSubscription<List<ViewedEntity>> _moviesListStreamSubscription;
 
-  MoviesCubit({required StorageRepository storageRepository})
+  MoviesCubit({required ViewedRepository storageRepository})
     : _storageRepository = storageRepository,
       super(const MoviesState()) {
     _moviesListStreamSubscription = _storageRepository

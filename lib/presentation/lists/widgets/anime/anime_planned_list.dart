@@ -34,7 +34,7 @@ class _AnimePlannedList extends StatelessWidget {
                 body: PlannedTileBody(
                   name: item.name ?? '',
                   amountOfSeasons: item.seasonsInfo?.length ?? 0,
-                  isSeries: true,
+                  isSeries: item.isSeries,
                   dateAdded: item.dateAdded!,
                   onProcess: () => switch (state.isLocalLoading) {
                     false => context.read<AnimeCubit>().setInProcess(item),

@@ -1,11 +1,11 @@
 import 'package:viewed/data/model/models.dart';
-import 'package:viewed/data/network_data_source.dart';
+import 'package:viewed/data/search_data_source.dart';
 import 'package:dio/dio.dart';
 
-final class NetworkDataSourceImpl implements NetworkDataSource {
+final class SearchDataSourceImpl implements SearchDataSource {
   final Dio _dio;
 
-  NetworkDataSourceImpl({required Dio dio}) : _dio = dio;
+  SearchDataSourceImpl({required Dio dio}) : _dio = dio;
 
   @override
   Future<SearchListModel> searchMovies({required String search, required int page}) async {
@@ -35,8 +35,9 @@ final class NetworkDataSourceImpl implements NetworkDataSource {
   }
 
   @override
-  Future<dynamic> getActor({required String actorId}) {
-    // TODO: implement getActor
-    throw UnimplementedError();
+  Future<PersonDetailsModel> getPerson({required String personId}) async {
+    final response = await _dio.get('/v1.4/person/$personId');
+
+    return PersonDetailsModel.fromJson(response.data as Map<String, dynamic>);
   }
 }

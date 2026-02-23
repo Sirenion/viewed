@@ -1,22 +1,24 @@
-import 'package:viewed/data/mappers/network_mapper.dart';
-import 'package:viewed/data/network_data_source.dart';
+import 'package:viewed/data/mappers/search_mapper.dart';
+import 'package:viewed/data/search_data_source.dart';
 import 'package:viewed/domain/entity/entities.dart';
 
-abstract interface class NetworkRepository {
+abstract interface class SearchRepository {
   Future<SearchListEntity> searchMovies({required String search, int page});
 
   Future<SearchItemDetailsEntity> getMovie({required String id});
 
   Future<List<SeasonsEntity>> getSeasons({required String id});
+
+  Future<PersonDetailsEntity> getPerson({required String personId});
 }
 
-final class NetworkRepositoryImpl implements NetworkRepository {
-  final NetworkDataSource _networkDataSource;
-  final NetworkMapper _networkMapper;
+final class SearchRepositoryImpl implements SearchRepository {
+  final SearchDataSource _networkDataSource;
+  final SearchMapper _networkMapper;
 
-  NetworkRepositoryImpl({
-    required NetworkDataSource networkDataSource,
-    required NetworkMapper networkMapper,
+  SearchRepositoryImpl({
+    required SearchDataSource networkDataSource,
+    required SearchMapper networkMapper,
   }) : _networkDataSource = networkDataSource,
        _networkMapper = networkMapper;
 
@@ -36,5 +38,11 @@ final class NetworkRepositoryImpl implements NetworkRepository {
   Future<List<SeasonsEntity>> getSeasons({required String id}) async {
     final seasonsInfo = await _networkDataSource.getSeasons(movieId: id);
     return List<SeasonsEntity>.from(seasonsInfo.map((elem) => _networkMapper.toSeasonEntity(elem)));
+  }
+
+  @override
+  Future<PersonDetailsEntity> getPerson({required String personId}) async {
+    final personDetailsModel = await _networkDataSource.getPerson(personId: personId);
+    return _networkMapper.toPersonDetailsEntity(personDetailsModel);
   }
 }
