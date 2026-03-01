@@ -68,7 +68,7 @@ final class SearchMapperImpl implements SearchMapper {
       movieLength: model.movieLength,
       ratingMpaa: model.ratingMpaa,
       ageRating: model.ageRating,
-      logo: ImageObjectEntity(url: model.logo?.url),
+      logo: ImageObjectEntity(url: model.logo?.url, previewUrl: model.logo?.previewUrl),
       poster: ImageObjectEntity(url: model.poster?.url, previewUrl: model.poster?.previewUrl),
       backdrop: ImageObjectEntity(url: model.backdrop?.url, previewUrl: model.backdrop?.previewUrl),
       videos: switch (model.videos != null) {
@@ -152,9 +152,9 @@ final class SearchMapperImpl implements SearchMapper {
         ),
         false => List.empty(),
       },
-      sequelsAndPrequels: switch (model.similarMovies != null) {
+      sequelsAndPrequels: switch (model.sequelsAndPrequels != null) {
         true => List<SimilarMovieEntity>.from(
-          model.similarMovies!.map(
+          model.sequelsAndPrequels!.map(
             (elem) => SimilarMovieEntity(
               id: elem.id,
               name: elem.name,

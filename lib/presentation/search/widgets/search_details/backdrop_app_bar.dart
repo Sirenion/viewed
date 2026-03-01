@@ -40,7 +40,13 @@ class _BackdropAppBar extends StatelessWidget {
       ],
       flexibleSpace: FlexibleSpaceBar(
         background: backdrop?.url != null
-            ? Image.network(backdrop!.url!, fit: BoxFit.cover)
+            ? Image.network(
+                backdrop!.url!,
+                fit: BoxFit.cover,
+                errorBuilder: (_, _, _) {
+                  return Container(color: Colors.black12);
+                },
+              )
             : Container(color: Colors.black12),
       ),
     );

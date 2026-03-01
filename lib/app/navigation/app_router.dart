@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:viewed/app/app_state/auth_cubit.dart';
 import 'package:viewed/app/navigation/go_router_refresh_stream.dart';
 import 'package:viewed/app/navigation/routes/app_routes.dart';
+import 'package:viewed/core/presentation/sorter.dart';
 import 'package:viewed/domain/search_repository.dart';
 import 'package:viewed/domain/viewed_repository.dart';
 import 'package:viewed/presentation/auth/controller/login_cubit.dart';
@@ -87,9 +88,12 @@ GoRouter createRouter(AuthCubit authCubit) {
                 name: appRoutes.movies.routeName,
                 path: appRoutes.movies.relativePath,
                 builder: (context, state) {
+                  final sortOptions = Sorter.getSortOptions(context);
                   return BlocProvider(
-                    create: (context) =>
-                        MoviesCubit(storageRepository: context.read<ViewedRepository>()),
+                    create: (context) => MoviesCubit(
+                      storageRepository: context.read<ViewedRepository>(),
+                      sortOptions: sortOptions,
+                    ),
                     child: MoviesPage(route: appRoutes),
                   );
                 },
@@ -102,9 +106,12 @@ GoRouter createRouter(AuthCubit authCubit) {
                 name: appRoutes.tv.routeName,
                 path: appRoutes.tv.relativePath,
                 builder: (context, state) {
+                  final sortOptions = Sorter.getSortOptions(context);
                   return BlocProvider(
-                    create: (context) =>
-                        TvCubit(storageRepository: context.read<ViewedRepository>()),
+                    create: (context) => TvCubit(
+                      storageRepository: context.read<ViewedRepository>(),
+                      sortOptions: sortOptions,
+                    ),
                     child: TvPage(route: appRoutes),
                   );
                 },
@@ -117,9 +124,12 @@ GoRouter createRouter(AuthCubit authCubit) {
                 name: appRoutes.anime.routeName,
                 path: appRoutes.anime.relativePath,
                 builder: (context, state) {
+                  final sortOptions = Sorter.getSortOptions(context);
                   return BlocProvider(
-                    create: (context) =>
-                        AnimeCubit(storageRepository: context.read<ViewedRepository>()),
+                    create: (context) => AnimeCubit(
+                      storageRepository: context.read<ViewedRepository>(),
+                      sortOptions: sortOptions,
+                    ),
                     child: AnimePage(route: appRoutes),
                   );
                 },

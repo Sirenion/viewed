@@ -12,6 +12,7 @@ import 'package:viewed/presentation/lists/widgets/header_in_process_widget.dart'
 import 'package:viewed/presentation/lists/widgets/header_info_widget.dart';
 import 'package:viewed/presentation/lists/widgets/planned_tile_body.dart';
 import 'package:viewed/presentation/lists/widgets/process_tile_body.dart';
+import 'package:viewed/presentation/lists/widgets/sort_filter_widget.dart';
 import 'package:viewed/presentation/lists/widgets/viewed_tile_body.dart';
 
 part 'widgets/anime/anime_planned_list.dart';

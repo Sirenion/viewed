@@ -37,7 +37,14 @@ class _PersonsWidget extends StatelessWidget {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(12.0),
                         child: person.photo != null
-                            ? Image.network(person.photo!, height: 110.0, fit: BoxFit.cover)
+                            ? Image.network(
+                                person.photo!,
+                                height: 110.0,
+                                fit: BoxFit.cover,
+                                errorBuilder: (_, _, _) {
+                                  return Container(height: 110.0, color: Colors.grey.shade300);
+                                },
+                              )
                             : Container(height: 110.0, color: Colors.grey.shade300),
                       ),
                       const SizedBox(height: 8.0),

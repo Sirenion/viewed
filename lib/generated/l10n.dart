@@ -754,6 +754,41 @@ class S {
   String fact(Object value) {
     return Intl.message('• $value', name: 'fact', desc: '', args: [value]);
   }
+
+  /// `Сортировать по:`
+  String get sortBy {
+    return Intl.message('Сортировать по:', name: 'sortBy', desc: '', args: []);
+  }
+
+  /// `Дата добавления`
+  String get sortDateAdded {
+    return Intl.message(
+      'Дата добавления',
+      name: 'sortDateAdded',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Название`
+  String get sortName {
+    return Intl.message('Название', name: 'sortName', desc: '', args: []);
+  }
+
+  /// `Новые`
+  String get sortNew {
+    return Intl.message('Новые', name: 'sortNew', desc: '', args: []);
+  }
+
+  /// `Старые`
+  String get sortOld {
+    return Intl.message('Старые', name: 'sortOld', desc: '', args: []);
+  }
+
+  /// `Рейтинг`
+  String get sortRating {
+    return Intl.message('Рейтинг', name: 'sortRating', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

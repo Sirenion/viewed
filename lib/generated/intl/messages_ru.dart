@@ -190,6 +190,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "somethingWentWrong": MessageLookupByLibrary.simpleMessage(
       "Что-то пошло не так",
     ),
+    "sortBy": MessageLookupByLibrary.simpleMessage("Сортировать по:"),
+    "sortDateAdded": MessageLookupByLibrary.simpleMessage("Дата добавления"),
+    "sortName": MessageLookupByLibrary.simpleMessage("Название"),
+    "sortNew": MessageLookupByLibrary.simpleMessage("Новые"),
+    "sortOld": MessageLookupByLibrary.simpleMessage("Старые"),
+    "sortRating": MessageLookupByLibrary.simpleMessage("Рейтинг"),
     "spouses": MessageLookupByLibrary.simpleMessage("Супруги"),
     "stats": MessageLookupByLibrary.simpleMessage("Статистика"),
     "timeSpentOnAnime": m29,

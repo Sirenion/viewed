@@ -27,7 +27,20 @@ class _TitleSection extends StatelessWidget {
         if (poster?.url != null)
           ClipRRect(
             borderRadius: BorderRadius.circular(12.0),
-            child: Image.network(poster!.url!, width: 120.0, height: 180.0, fit: BoxFit.cover),
+            child: Image.network(
+              poster!.url!,
+              width: 120.0,
+              height: 180.0,
+              fit: BoxFit.cover,
+              errorBuilder: (_, _, _) {
+                return Image.asset(
+                  'assets/images/unknown_poster.png',
+                  width: 120.0,
+                  height: 180.0,
+                  fit: BoxFit.cover,
+                );
+              },
+            ),
           ),
         const SizedBox(width: 16.0),
         Expanded(
@@ -41,7 +54,7 @@ class _TitleSection extends StatelessWidget {
                 false => '$year • ${movieLength ?? '-'} ${S.of(context).min}',
               }),
               const SizedBox(height: 8.0),
-              if (rating != null)
+              if (rating != null && rating != 0)
                 Row(
                   children: [
                     const Icon(Icons.star, color: Colors.amber),

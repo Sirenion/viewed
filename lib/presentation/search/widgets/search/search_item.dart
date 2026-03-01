@@ -31,7 +31,12 @@ class _SearchItem extends StatelessWidget {
           leading: ClipRRect(
             borderRadius: BorderRadius.circular(6.0),
             child: switch (posterUrl != null) {
-              true => Image.network(posterUrl!),
+              true => Image.network(
+                posterUrl!,
+                errorBuilder: (_, _, _) {
+                  return Image.asset('assets/images/unknown_poster.png');
+                },
+              ),
               false => Image.asset('assets/images/unknown_poster.png'),
             },
           ),
@@ -40,11 +45,14 @@ class _SearchItem extends StatelessWidget {
             text: TextSpan(
               children: [
                 TextSpan(
-                  text: switch (rating != null) {
+                  text: switch (rating != null && rating != 0) {
                     true => rating!.toStringAsFixed(1),
-                    false => '—',
+                    false => '— ',
                   },
-                  style: TextStyle(color: TextColor.getRatingColor(rating)),
+                  style: switch (rating != null && rating != 0) {
+                    true => TextStyle(color: TextColor.getRatingColor(rating)),
+                    false => const TextStyle(color: Colors.grey),
+                  },
                 ),
                 TextSpan(
                   text: ', $alternativeName',

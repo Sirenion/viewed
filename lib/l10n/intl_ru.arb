@@ -86,5 +86,11 @@
   "relation": "Положение: {name}",
   "children": "Дети: {number}",
   "divorced": "Развод",
-  "fact": "• {value}"
+  "fact": "• {value}",
+  "sortBy": "Сортировать по:",
+  "sortDateAdded": "Дата добавления",
+  "sortName": "Название",
+  "sortNew": "Новые",
+  "sortOld": "Старые",
+  "sortRating": "Рейтинг"
 }

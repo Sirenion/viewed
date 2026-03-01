@@ -22,19 +22,24 @@ class HeaderInfoWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: .spaceBetween,
         children: [
-          Row(
-            mainAxisAlignment: .start,
-            children: [
-              Text(
-                '#${(index + 1).toString()}',
-                style: const TextStyle(color: Colors.grey, fontSize: 16.0),
-              ),
-              const SizedBox(width: 10.0),
-              Text(
-                '$name (${year.toString()})',
-                style: const TextStyle(fontWeight: FontWeight.bold),
-              ),
-            ],
+          Expanded(
+            child: Row(
+              mainAxisAlignment: .start,
+              children: [
+                Text(
+                  '#${(index + 1).toString()}',
+                  style: const TextStyle(color: Colors.grey, fontSize: 16.0),
+                ),
+                const SizedBox(width: 10.0),
+                Expanded(
+                  child: Text(
+                    '$name (${year.toString()})',
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+              ],
+            ),
           ),
           if (rating != null)
             Text(

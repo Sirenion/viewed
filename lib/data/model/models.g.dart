@@ -15,134 +15,6 @@ _AudienceModel _$AudienceModelFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$AudienceModelToJson(_AudienceModel instance) =>
     <String, dynamic>{'count': instance.count, 'country': instance.country};
 
-_GenreModel _$GenreModelFromJson(Map<String, dynamic> json) =>
-    _GenreModel(name: json['name'] as String);
-
-Map<String, dynamic> _$GenreModelToJson(_GenreModel instance) =>
-    <String, dynamic>{'name': instance.name};
-
-_CountryModel _$CountryModelFromJson(Map<String, dynamic> json) =>
-    _CountryModel(name: json['name'] as String);
-
-Map<String, dynamic> _$CountryModelToJson(_CountryModel instance) =>
-    <String, dynamic>{'name': instance.name};
-
-_SeasonsModel _$SeasonsModelFromJson(Map<String, dynamic> json) =>
-    _SeasonsModel(
-      number: (json['number'] as num?)?.toInt(),
-      episodesCount: (json['episodesCount'] as num?)?.toInt(),
-      id: json['id'] as String?,
-    );
-
-Map<String, dynamic> _$SeasonsModelToJson(_SeasonsModel instance) =>
-    <String, dynamic>{
-      'number': instance.number,
-      'episodesCount': instance.episodesCount,
-      'id': instance.id,
-    };
-
-_CurrentWatching _$CurrentWatchingFromJson(Map<String, dynamic> json) =>
-    _CurrentWatching(
-      seasonNumber: (json['seasonNumber'] as num).toInt(),
-      viewedEpisodes: (json['viewedEpisodes'] as num).toInt(),
-      episodesCount: (json['episodesCount'] as num).toInt(),
-      dateLastEpisodeViewed: json['dateLastEpisodeViewed'] as String,
-    );
-
-Map<String, dynamic> _$CurrentWatchingToJson(_CurrentWatching instance) =>
-    <String, dynamic>{
-      'seasonNumber': instance.seasonNumber,
-      'viewedEpisodes': instance.viewedEpisodes,
-      'episodesCount': instance.episodesCount,
-      'dateLastEpisodeViewed': instance.dateLastEpisodeViewed,
-    };
-
-_RatingModel _$RatingModelFromJson(Map<String, dynamic> json) => _RatingModel(
-  kp: (json['kp'] as num?)?.toDouble(),
-  imdb: (json['imdb'] as num?)?.toDouble(),
-  tmdb: (json['tmdb'] as num?)?.toDouble(),
-  filmCritics: (json['filmCritics'] as num?)?.toDouble(),
-  russianFilmCritics: (json['russianFilmCritics'] as num?)?.toDouble(),
-  awaitCritics: (json['await'] as num?)?.toDouble(),
-);
-
-Map<String, dynamic> _$RatingModelToJson(_RatingModel instance) =>
-    <String, dynamic>{
-      'kp': instance.kp,
-      'imdb': instance.imdb,
-      'tmdb': instance.tmdb,
-      'filmCritics': instance.filmCritics,
-      'russianFilmCritics': instance.russianFilmCritics,
-      'await': instance.awaitCritics,
-    };
-
-_ViewedModel _$ViewedModelFromJson(Map<String, dynamic> json) => _ViewedModel(
-  id: json['id'] as String,
-  dateAdded: json['dateAdded'] as String?,
-  dateViewed: json['dateViewed'] as String?,
-  dateLastReviewed: json['dateLastReviewed'] as String?,
-  amountOfReviews: (json['amountOfReviews'] as num).toInt(),
-  currentStatus: json['currentStatus'] as String?,
-  currentWatching: json['currentWatching'] == null
-      ? null
-      : CurrentWatchingModel.fromJson(
-          json['currentWatching'] as Map<String, dynamic>,
-        ),
-  status: json['status'] as String?,
-  rating: json['rating'] == null
-      ? null
-      : RatingModel.fromJson(json['rating'] as Map<String, dynamic>),
-  movieLength: (json['movieLength'] as num?)?.toInt(),
-  poster: json['poster'] == null
-      ? null
-      : ImageObjectModel.fromJson(json['poster'] as Map<String, dynamic>),
-  type: json['type'] as String?,
-  name: json['name'] as String?,
-  year: (json['year'] as num?)?.toInt(),
-  description: json['description'] as String?,
-  genres: (json['genres'] as List<dynamic>?)
-      ?.map((e) => GenreModel.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  countries: (json['countries'] as List<dynamic>?)
-      ?.map((e) => CountryModel.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  seasonsInfo: (json['seasonsInfo'] as List<dynamic>?)
-      ?.map((e) => SeasonsModel.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  alternativeName: json['alternativeName'] as String?,
-  enName: json['enName'] as String?,
-  isSeries: json['isSeries'] as bool,
-  seriesLength: (json['seriesLength'] as num?)?.toInt(),
-  totalSeriesLength: (json['totalSeriesLength'] as num?)?.toInt(),
-);
-
-Map<String, dynamic> _$ViewedModelToJson(_ViewedModel instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'dateAdded': instance.dateAdded,
-      'dateViewed': instance.dateViewed,
-      'dateLastReviewed': instance.dateLastReviewed,
-      'amountOfReviews': instance.amountOfReviews,
-      'currentStatus': instance.currentStatus,
-      'currentWatching': instance.currentWatching?.toJson(),
-      'status': instance.status,
-      'rating': instance.rating?.toJson(),
-      'movieLength': instance.movieLength,
-      'poster': instance.poster?.toJson(),
-      'type': instance.type,
-      'name': instance.name,
-      'year': instance.year,
-      'description': instance.description,
-      'genres': instance.genres?.map((e) => e.toJson()).toList(),
-      'countries': instance.countries?.map((e) => e.toJson()).toList(),
-      'seasonsInfo': instance.seasonsInfo?.map((e) => e.toJson()).toList(),
-      'alternativeName': instance.alternativeName,
-      'enName': instance.enName,
-      'isSeries': instance.isSeries,
-      'seriesLength': instance.seriesLength,
-      'totalSeriesLength': instance.totalSeriesLength,
-    };
-
 _BudgetModel _$BudgetModelFromJson(Map<String, dynamic> json) => _BudgetModel(
   value: (json['value'] as num?)?.toInt(),
   currency: json['currency'] as String?,
@@ -150,6 +22,12 @@ _BudgetModel _$BudgetModelFromJson(Map<String, dynamic> json) => _BudgetModel(
 
 Map<String, dynamic> _$BudgetModelToJson(_BudgetModel instance) =>
     <String, dynamic>{'value': instance.value, 'currency': instance.currency};
+
+_CountryModel _$CountryModelFromJson(Map<String, dynamic> json) =>
+    _CountryModel(name: json['name'] as String);
+
+Map<String, dynamic> _$CountryModelToJson(_CountryModel instance) =>
+    <String, dynamic>{'name': instance.name};
 
 _ExternalIdModel _$ExternalIdModelFromJson(Map<String, dynamic> json) =>
     _ExternalIdModel(
@@ -197,6 +75,12 @@ Map<String, dynamic> _$FeesModelToJson(_FeesModel instance) =>
       'usa': instance.usa?.toJson(),
     };
 
+_GenreModel _$GenreModelFromJson(Map<String, dynamic> json) =>
+    _GenreModel(name: json['name'] as String);
+
+Map<String, dynamic> _$GenreModelToJson(_GenreModel instance) =>
+    <String, dynamic>{'name': instance.name};
+
 _ImageObjectModel _$ImageObjectModelFromJson(Map<String, dynamic> json) =>
     _ImageObjectModel(
       url: json['url'] as String?,
@@ -242,29 +126,6 @@ _NetworksModel _$NetworksModelFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$NetworksModelToJson(_NetworksModel instance) =>
     <String, dynamic>{'items': instance.items?.map((e) => e.toJson()).toList()};
-
-_ReleaseYearModel _$ReleaseYearModelFromJson(Map<String, dynamic> json) =>
-    _ReleaseYearModel(
-      start: (json['start'] as num?)?.toInt(),
-      end: (json['end'] as num?)?.toInt(),
-    );
-
-Map<String, dynamic> _$ReleaseYearModelToJson(_ReleaseYearModel instance) =>
-    <String, dynamic>{'start': instance.start, 'end': instance.end};
-
-_ReviewInfoModel _$ReviewInfoModelFromJson(Map<String, dynamic> json) =>
-    _ReviewInfoModel(
-      count: (json['count'] as num?)?.toInt(),
-      positiveCount: (json['positiveCount'] as num?)?.toInt(),
-      percentage: (json['percentage'] as num?)?.toDouble(),
-    );
-
-Map<String, dynamic> _$ReviewInfoModelToJson(_ReviewInfoModel instance) =>
-    <String, dynamic>{
-      'count': instance.count,
-      'positiveCount': instance.positiveCount,
-      'percentage': instance.percentage,
-    };
 
 _PersonModel _$PersonModelFromJson(Map<String, dynamic> json) => _PersonModel(
   id: (json['id'] as num).toInt(),
@@ -317,6 +178,62 @@ Map<String, dynamic> _$PremiereModelToJson(_PremiereModel instance) =>
       'cinema': instance.cinema?.toIso8601String(),
       'bluray': instance.bluray?.toIso8601String(),
       'dvd': instance.dvd?.toIso8601String(),
+    };
+
+_RatingModel _$RatingModelFromJson(Map<String, dynamic> json) => _RatingModel(
+  kp: (json['kp'] as num?)?.toDouble(),
+  imdb: (json['imdb'] as num?)?.toDouble(),
+  tmdb: (json['tmdb'] as num?)?.toDouble(),
+  filmCritics: (json['filmCritics'] as num?)?.toDouble(),
+  russianFilmCritics: (json['russianFilmCritics'] as num?)?.toDouble(),
+  awaitCritics: (json['await'] as num?)?.toDouble(),
+);
+
+Map<String, dynamic> _$RatingModelToJson(_RatingModel instance) =>
+    <String, dynamic>{
+      'kp': instance.kp,
+      'imdb': instance.imdb,
+      'tmdb': instance.tmdb,
+      'filmCritics': instance.filmCritics,
+      'russianFilmCritics': instance.russianFilmCritics,
+      'await': instance.awaitCritics,
+    };
+
+_ReleaseYearModel _$ReleaseYearModelFromJson(Map<String, dynamic> json) =>
+    _ReleaseYearModel(
+      start: (json['start'] as num?)?.toInt(),
+      end: (json['end'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic> _$ReleaseYearModelToJson(_ReleaseYearModel instance) =>
+    <String, dynamic>{'start': instance.start, 'end': instance.end};
+
+_ReviewInfoModel _$ReviewInfoModelFromJson(Map<String, dynamic> json) =>
+    _ReviewInfoModel(
+      count: (json['count'] as num?)?.toInt(),
+      positiveCount: (json['positiveCount'] as num?)?.toInt(),
+      percentage: (json['percentage'] as num?)?.toDouble(),
+    );
+
+Map<String, dynamic> _$ReviewInfoModelToJson(_ReviewInfoModel instance) =>
+    <String, dynamic>{
+      'count': instance.count,
+      'positiveCount': instance.positiveCount,
+      'percentage': instance.percentage,
+    };
+
+_SeasonsModel _$SeasonsModelFromJson(Map<String, dynamic> json) =>
+    _SeasonsModel(
+      number: (json['number'] as num?)?.toInt(),
+      episodesCount: (json['episodesCount'] as num?)?.toInt(),
+      id: json['id'] as String?,
+    );
+
+Map<String, dynamic> _$SeasonsModelToJson(_SeasonsModel instance) =>
+    <String, dynamic>{
+      'number': instance.number,
+      'episodesCount': instance.episodesCount,
+      'id': instance.id,
     };
 
 _SimilarMovieModel _$SimilarMovieModelFromJson(Map<String, dynamic> json) =>
@@ -425,121 +342,114 @@ _WatchabilityModel _$WatchabilityModelFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$WatchabilityModelToJson(_WatchabilityModel instance) =>
     <String, dynamic>{'items': instance.items.map((e) => e.toJson()).toList()};
 
-_SearchItemModel _$SearchItemModelFromJson(Map<String, dynamic> json) =>
-    _SearchItemModel(
-      id: (json['id'] as num).toInt(),
+_PersonDetailsModel _$PersonDetailsModelFromJson(Map<String, dynamic> json) =>
+    _PersonDetailsModel(
+      id: (json['id'] as num?)?.toInt(),
       name: json['name'] as String?,
-      alternativeName: json['alternativeName'] as String?,
       enName: json['enName'] as String?,
-      type: json['type'] as String?,
-      year: (json['year'] as num?)?.toInt(),
-      description: json['description'] as String?,
-      shortDescription: json['shortDescription'] as String?,
-      movieLength: (json['movieLength'] as num?)?.toInt(),
-      names:
-          (json['names'] as List<dynamic>?)
-              ?.map((e) => NameItemModel.fromJson(e as Map<String, dynamic>))
-              .toList() ??
-          const [],
-      externalId: json['externalId'] == null
+      photo: json['photo'] as String?,
+      sex: json['sex'] as String?,
+      growth: (json['growth'] as num?)?.toInt(),
+      birthday: json['birthday'] as String?,
+      death: json['death'] as String?,
+      age: (json['age'] as num?)?.toInt(),
+      birthPlace: (json['birthPlace'] as List<dynamic>?)
+          ?.map((e) => ValueItemModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      deathPlace: (json['deathPlace'] as List<dynamic>?)
+          ?.map((e) => ValueItemModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      spouses: (json['spouses'] as List<dynamic>?)
+          ?.map((e) => SpouseModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      countAwards: (json['countAwards'] as num?)?.toInt(),
+      profession: (json['profession'] as List<dynamic>?)
+          ?.map((e) => ValueItemModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      facts: (json['facts'] as List<dynamic>?)
+          ?.map((e) => ValueItemModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      movies: (json['movies'] as List<dynamic>?)
+          ?.map((e) => PersonMovieModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      updatedAt: json['updatedAt'] == null
           ? null
-          : ExternalIdModel.fromJson(
-              json['externalId'] as Map<String, dynamic>,
-            ),
-      logo: json['logo'] == null
+          : DateTime.parse(json['updatedAt'] as String),
+      createdAt: json['createdAt'] == null
           ? null
-          : ImageObjectModel.fromJson(json['logo'] as Map<String, dynamic>),
-      poster: json['poster'] == null
-          ? null
-          : ImageObjectModel.fromJson(json['poster'] as Map<String, dynamic>),
-      backdrop: json['backdrop'] == null
-          ? null
-          : ImageObjectModel.fromJson(json['backdrop'] as Map<String, dynamic>),
-      rating: json['rating'] == null
-          ? null
-          : RatingModel.fromJson(json['rating'] as Map<String, dynamic>),
-      votes: json['votes'] == null
-          ? null
-          : VotesModel.fromJson(json['votes'] as Map<String, dynamic>),
-      genres:
-          (json['genres'] as List<dynamic>?)
-              ?.map((e) => GenreModel.fromJson(e as Map<String, dynamic>))
-              .toList() ??
-          const [],
-      countries:
-          (json['countries'] as List<dynamic>?)
-              ?.map((e) => CountryModel.fromJson(e as Map<String, dynamic>))
-              .toList() ??
-          const [],
-      releaseYears:
-          (json['releaseYears'] as List<dynamic>?)
-              ?.map((e) => ReleaseYearModel.fromJson(e as Map<String, dynamic>))
-              .toList() ??
-          const [],
-      isSeries: json['isSeries'] as bool?,
-      ticketsOnSale: json['ticketsOnSale'] as bool?,
-      totalSeriesLength: (json['totalSeriesLength'] as num?)?.toInt(),
-      seriesLength: (json['seriesLength'] as num?)?.toInt(),
-      ratingMpaa: json['ratingMpaa'] as String?,
-      ageRating: (json['ageRating'] as num?)?.toInt(),
-      top10: (json['top10'] as num?)?.toInt(),
-      top250: (json['top250'] as num?)?.toInt(),
-      typeNumber: (json['typeNumber'] as num?)?.toInt(),
-      status: json['status'] as String?,
+          : DateTime.parse(json['createdAt'] as String),
     );
 
-Map<String, dynamic> _$SearchItemModelToJson(_SearchItemModel instance) =>
+Map<String, dynamic> _$PersonDetailsModelToJson(_PersonDetailsModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'enName': instance.enName,
+      'photo': instance.photo,
+      'sex': instance.sex,
+      'growth': instance.growth,
+      'birthday': instance.birthday,
+      'death': instance.death,
+      'age': instance.age,
+      'birthPlace': instance.birthPlace?.map((e) => e.toJson()).toList(),
+      'deathPlace': instance.deathPlace?.map((e) => e.toJson()).toList(),
+      'spouses': instance.spouses?.map((e) => e.toJson()).toList(),
+      'countAwards': instance.countAwards,
+      'profession': instance.profession?.map((e) => e.toJson()).toList(),
+      'facts': instance.facts?.map((e) => e.toJson()).toList(),
+      'movies': instance.movies?.map((e) => e.toJson()).toList(),
+      'updatedAt': instance.updatedAt?.toIso8601String(),
+      'createdAt': instance.createdAt?.toIso8601String(),
+    };
+
+_PersonMovieModel _$PersonMovieModelFromJson(Map<String, dynamic> json) =>
+    _PersonMovieModel(
+      id: (json['id'] as num?)?.toInt(),
+      name: json['name'] as String?,
+      alternativeName: json['alternativeName'] as String?,
+      rating: (json['rating'] as num?)?.toDouble(),
+      general: json['general'] as bool?,
+      description: json['description'] as String?,
+      enProfession: json['enProfession'] as String?,
+    );
+
+Map<String, dynamic> _$PersonMovieModelToJson(_PersonMovieModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'alternativeName': instance.alternativeName,
-      'enName': instance.enName,
-      'type': instance.type,
-      'year': instance.year,
+      'rating': instance.rating,
+      'general': instance.general,
       'description': instance.description,
-      'shortDescription': instance.shortDescription,
-      'movieLength': instance.movieLength,
-      'names': instance.names.map((e) => e.toJson()).toList(),
-      'externalId': instance.externalId?.toJson(),
-      'logo': instance.logo?.toJson(),
-      'poster': instance.poster?.toJson(),
-      'backdrop': instance.backdrop?.toJson(),
-      'rating': instance.rating?.toJson(),
-      'votes': instance.votes?.toJson(),
-      'genres': instance.genres.map((e) => e.toJson()).toList(),
-      'countries': instance.countries.map((e) => e.toJson()).toList(),
-      'releaseYears': instance.releaseYears.map((e) => e.toJson()).toList(),
-      'isSeries': instance.isSeries,
-      'ticketsOnSale': instance.ticketsOnSale,
-      'totalSeriesLength': instance.totalSeriesLength,
-      'seriesLength': instance.seriesLength,
-      'ratingMpaa': instance.ratingMpaa,
-      'ageRating': instance.ageRating,
-      'top10': instance.top10,
-      'top250': instance.top250,
-      'typeNumber': instance.typeNumber,
-      'status': instance.status,
+      'enProfession': instance.enProfession,
     };
 
-_SearchListModel _$SearchListModelFromJson(Map<String, dynamic> json) =>
-    _SearchListModel(
-      docs: (json['docs'] as List<dynamic>)
-          .map((e) => SearchItemModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      total: (json['total'] as num).toInt(),
-      limit: (json['limit'] as num).toInt(),
-      page: (json['page'] as num).toInt(),
-      pages: (json['pages'] as num).toInt(),
-    );
+_SpouseModel _$SpouseModelFromJson(Map<String, dynamic> json) => _SpouseModel(
+  id: (json['id'] as num?)?.toInt(),
+  name: json['name'] as String?,
+  divorced: json['divorced'] as bool?,
+  divorcedReason: json['divorcedReason'] as String?,
+  sex: json['sex'] as String?,
+  children: (json['children'] as num?)?.toInt(),
+  relation: json['relation'] as String?,
+);
 
-Map<String, dynamic> _$SearchListModelToJson(_SearchListModel instance) =>
+Map<String, dynamic> _$SpouseModelToJson(_SpouseModel instance) =>
     <String, dynamic>{
-      'docs': instance.docs.map((e) => e.toJson()).toList(),
-      'total': instance.total,
-      'limit': instance.limit,
-      'page': instance.page,
-      'pages': instance.pages,
+      'id': instance.id,
+      'name': instance.name,
+      'divorced': instance.divorced,
+      'divorcedReason': instance.divorcedReason,
+      'sex': instance.sex,
+      'children': instance.children,
+      'relation': instance.relation,
     };
+
+_ValueItemModel _$ValueItemModelFromJson(Map<String, dynamic> json) =>
+    _ValueItemModel(value: json['value'] as String?);
+
+Map<String, dynamic> _$ValueItemModelToJson(_ValueItemModel instance) =>
+    <String, dynamic>{'value': instance.value};
 
 _SearchItemDetailsModel _$SearchItemDetailsModelFromJson(
   Map<String, dynamic> json,
@@ -719,6 +629,122 @@ Map<String, dynamic> _$SearchItemDetailsModelToJson(
   'createdAt': instance.createdAt?.toIso8601String(),
 };
 
+_SearchListModel _$SearchListModelFromJson(Map<String, dynamic> json) =>
+    _SearchListModel(
+      docs: (json['docs'] as List<dynamic>)
+          .map((e) => SearchItemModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      total: (json['total'] as num).toInt(),
+      limit: (json['limit'] as num).toInt(),
+      page: (json['page'] as num).toInt(),
+      pages: (json['pages'] as num).toInt(),
+    );
+
+Map<String, dynamic> _$SearchListModelToJson(_SearchListModel instance) =>
+    <String, dynamic>{
+      'docs': instance.docs.map((e) => e.toJson()).toList(),
+      'total': instance.total,
+      'limit': instance.limit,
+      'page': instance.page,
+      'pages': instance.pages,
+    };
+
+_SearchItemModel _$SearchItemModelFromJson(Map<String, dynamic> json) =>
+    _SearchItemModel(
+      id: (json['id'] as num).toInt(),
+      name: json['name'] as String?,
+      alternativeName: json['alternativeName'] as String?,
+      enName: json['enName'] as String?,
+      type: json['type'] as String?,
+      year: (json['year'] as num?)?.toInt(),
+      description: json['description'] as String?,
+      shortDescription: json['shortDescription'] as String?,
+      movieLength: (json['movieLength'] as num?)?.toInt(),
+      names:
+          (json['names'] as List<dynamic>?)
+              ?.map((e) => NameItemModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+      externalId: json['externalId'] == null
+          ? null
+          : ExternalIdModel.fromJson(
+              json['externalId'] as Map<String, dynamic>,
+            ),
+      logo: json['logo'] == null
+          ? null
+          : ImageObjectModel.fromJson(json['logo'] as Map<String, dynamic>),
+      poster: json['poster'] == null
+          ? null
+          : ImageObjectModel.fromJson(json['poster'] as Map<String, dynamic>),
+      backdrop: json['backdrop'] == null
+          ? null
+          : ImageObjectModel.fromJson(json['backdrop'] as Map<String, dynamic>),
+      rating: json['rating'] == null
+          ? null
+          : RatingModel.fromJson(json['rating'] as Map<String, dynamic>),
+      votes: json['votes'] == null
+          ? null
+          : VotesModel.fromJson(json['votes'] as Map<String, dynamic>),
+      genres:
+          (json['genres'] as List<dynamic>?)
+              ?.map((e) => GenreModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+      countries:
+          (json['countries'] as List<dynamic>?)
+              ?.map((e) => CountryModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+      releaseYears:
+          (json['releaseYears'] as List<dynamic>?)
+              ?.map((e) => ReleaseYearModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+      isSeries: json['isSeries'] as bool?,
+      ticketsOnSale: json['ticketsOnSale'] as bool?,
+      totalSeriesLength: (json['totalSeriesLength'] as num?)?.toInt(),
+      seriesLength: (json['seriesLength'] as num?)?.toInt(),
+      ratingMpaa: json['ratingMpaa'] as String?,
+      ageRating: (json['ageRating'] as num?)?.toInt(),
+      top10: (json['top10'] as num?)?.toInt(),
+      top250: (json['top250'] as num?)?.toInt(),
+      typeNumber: (json['typeNumber'] as num?)?.toInt(),
+      status: json['status'] as String?,
+    );
+
+Map<String, dynamic> _$SearchItemModelToJson(_SearchItemModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'alternativeName': instance.alternativeName,
+      'enName': instance.enName,
+      'type': instance.type,
+      'year': instance.year,
+      'description': instance.description,
+      'shortDescription': instance.shortDescription,
+      'movieLength': instance.movieLength,
+      'names': instance.names.map((e) => e.toJson()).toList(),
+      'externalId': instance.externalId?.toJson(),
+      'logo': instance.logo?.toJson(),
+      'poster': instance.poster?.toJson(),
+      'backdrop': instance.backdrop?.toJson(),
+      'rating': instance.rating?.toJson(),
+      'votes': instance.votes?.toJson(),
+      'genres': instance.genres.map((e) => e.toJson()).toList(),
+      'countries': instance.countries.map((e) => e.toJson()).toList(),
+      'releaseYears': instance.releaseYears.map((e) => e.toJson()).toList(),
+      'isSeries': instance.isSeries,
+      'ticketsOnSale': instance.ticketsOnSale,
+      'totalSeriesLength': instance.totalSeriesLength,
+      'seriesLength': instance.seriesLength,
+      'ratingMpaa': instance.ratingMpaa,
+      'ageRating': instance.ageRating,
+      'top10': instance.top10,
+      'top250': instance.top250,
+      'typeNumber': instance.typeNumber,
+      'status': instance.status,
+    };
+
 _SeasonsResponseModel _$SeasonsResponseModelFromJson(
   Map<String, dynamic> json,
 ) => _SeasonsResponseModel(
@@ -726,8 +752,8 @@ _SeasonsResponseModel _$SeasonsResponseModelFromJson(
       .map((e) => SeasonsModel.fromJson(e as Map<String, dynamic>))
       .toList(),
   limit: (json['limit'] as num).toInt(),
-  next: json['next'],
-  prev: json['prev'],
+  next: json['next'] as String?,
+  prev: json['prev'] as String?,
   hasNext: json['hasNext'] as bool,
   hasPrev: json['hasPrev'] as bool,
 );
@@ -742,6 +768,89 @@ Map<String, dynamic> _$SeasonsResponseModelToJson(
   'hasNext': instance.hasNext,
   'hasPrev': instance.hasPrev,
 };
+
+_CurrentWatching _$CurrentWatchingFromJson(Map<String, dynamic> json) =>
+    _CurrentWatching(
+      seasonNumber: (json['seasonNumber'] as num).toInt(),
+      viewedEpisodes: (json['viewedEpisodes'] as num).toInt(),
+      episodesCount: (json['episodesCount'] as num).toInt(),
+      dateLastEpisodeViewed: json['dateLastEpisodeViewed'] as String,
+    );
+
+Map<String, dynamic> _$CurrentWatchingToJson(_CurrentWatching instance) =>
+    <String, dynamic>{
+      'seasonNumber': instance.seasonNumber,
+      'viewedEpisodes': instance.viewedEpisodes,
+      'episodesCount': instance.episodesCount,
+      'dateLastEpisodeViewed': instance.dateLastEpisodeViewed,
+    };
+
+_ViewedModel _$ViewedModelFromJson(Map<String, dynamic> json) => _ViewedModel(
+  id: json['id'] as String,
+  dateAdded: json['dateAdded'] as String?,
+  dateViewed: json['dateViewed'] as String?,
+  dateLastReviewed: json['dateLastReviewed'] as String?,
+  amountOfReviews: (json['amountOfReviews'] as num).toInt(),
+  currentStatus: json['currentStatus'] as String?,
+  currentWatching: json['currentWatching'] == null
+      ? null
+      : CurrentWatchingModel.fromJson(
+          json['currentWatching'] as Map<String, dynamic>,
+        ),
+  status: json['status'] as String?,
+  rating: json['rating'] == null
+      ? null
+      : RatingModel.fromJson(json['rating'] as Map<String, dynamic>),
+  movieLength: (json['movieLength'] as num?)?.toInt(),
+  poster: json['poster'] == null
+      ? null
+      : ImageObjectModel.fromJson(json['poster'] as Map<String, dynamic>),
+  type: json['type'] as String?,
+  name: json['name'] as String?,
+  year: (json['year'] as num?)?.toInt(),
+  description: json['description'] as String?,
+  genres: (json['genres'] as List<dynamic>?)
+      ?.map((e) => GenreModel.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  countries: (json['countries'] as List<dynamic>?)
+      ?.map((e) => CountryModel.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  seasonsInfo: (json['seasonsInfo'] as List<dynamic>?)
+      ?.map((e) => SeasonsModel.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  alternativeName: json['alternativeName'] as String?,
+  enName: json['enName'] as String?,
+  isSeries: json['isSeries'] as bool,
+  seriesLength: (json['seriesLength'] as num?)?.toInt(),
+  totalSeriesLength: (json['totalSeriesLength'] as num?)?.toInt(),
+);
+
+Map<String, dynamic> _$ViewedModelToJson(_ViewedModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'dateAdded': instance.dateAdded,
+      'dateViewed': instance.dateViewed,
+      'dateLastReviewed': instance.dateLastReviewed,
+      'amountOfReviews': instance.amountOfReviews,
+      'currentStatus': instance.currentStatus,
+      'currentWatching': instance.currentWatching?.toJson(),
+      'status': instance.status,
+      'rating': instance.rating?.toJson(),
+      'movieLength': instance.movieLength,
+      'poster': instance.poster?.toJson(),
+      'type': instance.type,
+      'name': instance.name,
+      'year': instance.year,
+      'description': instance.description,
+      'genres': instance.genres?.map((e) => e.toJson()).toList(),
+      'countries': instance.countries?.map((e) => e.toJson()).toList(),
+      'seasonsInfo': instance.seasonsInfo?.map((e) => e.toJson()).toList(),
+      'alternativeName': instance.alternativeName,
+      'enName': instance.enName,
+      'isSeries': instance.isSeries,
+      'seriesLength': instance.seriesLength,
+      'totalSeriesLength': instance.totalSeriesLength,
+    };
 
 _StatsModel _$StatsModelFromJson(Map<String, dynamic> json) => _StatsModel(
   moviesViewed: (json['moviesViewed'] as num).toInt(),
@@ -765,112 +874,3 @@ Map<String, dynamic> _$StatsModelToJson(_StatsModel instance) =>
       'animeEpisodesViewed': instance.animeEpisodesViewed,
       'timeSpentOnAnime': instance.timeSpentOnAnime,
     };
-
-_PersonDetailsModel _$PersonDetailsModelFromJson(Map<String, dynamic> json) =>
-    _PersonDetailsModel(
-      id: (json['id'] as num?)?.toInt(),
-      name: json['name'] as String?,
-      enName: json['enName'] as String?,
-      photo: json['photo'] as String?,
-      sex: json['sex'] as String?,
-      growth: (json['growth'] as num?)?.toInt(),
-      birthday: json['birthday'] as String?,
-      death: json['death'] as String?,
-      age: (json['age'] as num?)?.toInt(),
-      birthPlace: (json['birthPlace'] as List<dynamic>?)
-          ?.map((e) => ValueItemModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      deathPlace: (json['deathPlace'] as List<dynamic>?)
-          ?.map((e) => ValueItemModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      spouses: (json['spouses'] as List<dynamic>?)
-          ?.map((e) => SpouseModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      countAwards: (json['countAwards'] as num?)?.toInt(),
-      profession: (json['profession'] as List<dynamic>?)
-          ?.map((e) => ValueItemModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      facts: (json['facts'] as List<dynamic>?)
-          ?.map((e) => ValueItemModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      movies: (json['movies'] as List<dynamic>?)
-          ?.map((e) => PersonMovieModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      updatedAt: json['updatedAt'] == null
-          ? null
-          : DateTime.parse(json['updatedAt'] as String),
-      createdAt: json['createdAt'] == null
-          ? null
-          : DateTime.parse(json['createdAt'] as String),
-    );
-
-Map<String, dynamic> _$PersonDetailsModelToJson(_PersonDetailsModel instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-      'enName': instance.enName,
-      'photo': instance.photo,
-      'sex': instance.sex,
-      'growth': instance.growth,
-      'birthday': instance.birthday,
-      'death': instance.death,
-      'age': instance.age,
-      'birthPlace': instance.birthPlace?.map((e) => e.toJson()).toList(),
-      'deathPlace': instance.deathPlace?.map((e) => e.toJson()).toList(),
-      'spouses': instance.spouses?.map((e) => e.toJson()).toList(),
-      'countAwards': instance.countAwards,
-      'profession': instance.profession?.map((e) => e.toJson()).toList(),
-      'facts': instance.facts?.map((e) => e.toJson()).toList(),
-      'movies': instance.movies?.map((e) => e.toJson()).toList(),
-      'updatedAt': instance.updatedAt?.toIso8601String(),
-      'createdAt': instance.createdAt?.toIso8601String(),
-    };
-
-_PersonMovieModel _$PersonMovieModelFromJson(Map<String, dynamic> json) =>
-    _PersonMovieModel(
-      id: (json['id'] as num?)?.toInt(),
-      name: json['name'] as String?,
-      alternativeName: json['alternativeName'] as String?,
-      rating: (json['rating'] as num?)?.toDouble(),
-      general: json['general'] as bool?,
-      description: json['description'] as String?,
-      enProfession: json['enProfession'] as String?,
-    );
-
-Map<String, dynamic> _$PersonMovieModelToJson(_PersonMovieModel instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-      'alternativeName': instance.alternativeName,
-      'rating': instance.rating,
-      'general': instance.general,
-      'description': instance.description,
-      'enProfession': instance.enProfession,
-    };
-
-_SpouseModel _$SpouseModelFromJson(Map<String, dynamic> json) => _SpouseModel(
-  id: (json['id'] as num?)?.toInt(),
-  name: json['name'] as String?,
-  divorced: json['divorced'] as bool?,
-  divorcedReason: json['divorcedReason'] as String?,
-  sex: json['sex'] as String?,
-  children: (json['children'] as num?)?.toInt(),
-  relation: json['relation'] as String?,
-);
-
-Map<String, dynamic> _$SpouseModelToJson(_SpouseModel instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-      'divorced': instance.divorced,
-      'divorcedReason': instance.divorcedReason,
-      'sex': instance.sex,
-      'children': instance.children,
-      'relation': instance.relation,
-    };
-
-_ValueItemModel _$ValueItemModelFromJson(Map<String, dynamic> json) =>
-    _ValueItemModel(value: json['value'] as String?);
-
-Map<String, dynamic> _$ValueItemModelToJson(_ValueItemModel instance) =>
-    <String, dynamic>{'value': instance.value};

@@ -13,36 +13,37 @@ abstract interface class SearchRepository {
 }
 
 final class SearchRepositoryImpl implements SearchRepository {
-  final SearchDataSource _networkDataSource;
-  final SearchMapper _networkMapper;
+  final SearchDataSource _searchDataSource;
+  final SearchMapper _searchMapper;
 
   SearchRepositoryImpl({
     required SearchDataSource networkDataSource,
     required SearchMapper networkMapper,
-  }) : _networkDataSource = networkDataSource,
-       _networkMapper = networkMapper;
+  }) : _searchDataSource = networkDataSource,
+       _searchMapper = networkMapper;
 
   @override
   Future<SearchListEntity> searchMovies({required String search, int page = 1}) async {
-    final searchResultsModel = await _networkDataSource.searchMovies(search: search, page: page);
-    return _networkMapper.toSearchListEntity(searchResultsModel);
+    final searchResultsModel = await _searchDataSource.searchMovies(search: search, page: page);
+    return _searchMapper.toSearchListEntity(searchResultsModel);
   }
 
   @override
   Future<SearchItemDetailsEntity> getMovie({required String id}) async {
-    final searchItemDetailsModel = await _networkDataSource.getMovie(movieId: id);
-    return _networkMapper.toSearchItemDetailsEntity(searchItemDetailsModel);
+    final searchItemDetailsModel = await _searchDataSource.getMovie(movieId: id);
+
+    return _searchMapper.toSearchItemDetailsEntity(searchItemDetailsModel);
   }
 
   @override
   Future<List<SeasonsEntity>> getSeasons({required String id}) async {
-    final seasonsInfo = await _networkDataSource.getSeasons(movieId: id);
-    return List<SeasonsEntity>.from(seasonsInfo.map((elem) => _networkMapper.toSeasonEntity(elem)));
+    final seasonsInfo = await _searchDataSource.getSeasons(movieId: id);
+    return List<SeasonsEntity>.from(seasonsInfo.map((elem) => _searchMapper.toSeasonEntity(elem)));
   }
 
   @override
   Future<PersonDetailsEntity> getPerson({required String personId}) async {
-    final personDetailsModel = await _networkDataSource.getPerson(personId: personId);
-    return _networkMapper.toPersonDetailsEntity(personDetailsModel);
+    final personDetailsModel = await _searchDataSource.getPerson(personId: personId);
+    return _searchMapper.toPersonDetailsEntity(personDetailsModel);
   }
 }

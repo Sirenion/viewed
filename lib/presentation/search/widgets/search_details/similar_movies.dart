@@ -19,7 +19,7 @@ class _SimilarMovies extends StatelessWidget {
         ),
         const SizedBox(height: 12.0),
         SizedBox(
-          height: 200.0,
+          height: 210.0,
           child: ListView.separated(
             scrollDirection: .horizontal,
             itemCount: similarMovies!.length,
@@ -40,10 +40,19 @@ class _SimilarMovies extends StatelessWidget {
                             item.poster!.previewUrl!,
                             height: 160.0,
                             fit: BoxFit.cover,
+                            errorBuilder: (_, _, _) {
+                              return Container(height: 160.0, color: Colors.grey.shade300);
+                            },
                           ),
                         ),
                       const SizedBox(height: 8.0),
-                      Text(item.name ?? '', maxLines: 2, overflow: TextOverflow.ellipsis),
+                      Text(
+                        item.name ?? '',
+                        maxLines: 2,
+                        softWrap: true,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.center,
+                      ),
                     ],
                   ),
                 ),

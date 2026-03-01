@@ -10,6 +10,7 @@ import 'package:viewed/core/presentation/widgets/list_error_widget.dart';
 import 'package:collection/collection.dart';
 import 'package:viewed/presentation/lists/widgets/header_info_widget.dart';
 import 'package:viewed/presentation/lists/widgets/planned_tile_body.dart';
+import 'package:viewed/presentation/lists/widgets/sort_filter_widget.dart';
 import 'package:viewed/presentation/lists/widgets/viewed_tile_body.dart';
 
 part 'widgets/movies/movies_planned_list.dart';

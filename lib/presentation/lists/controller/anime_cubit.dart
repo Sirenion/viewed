@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:viewed/domain/entity/entities.dart';
 import 'package:viewed/domain/viewed_repository.dart';
 import 'package:viewed/presentation/lists/controller/state/state.dart';
@@ -8,14 +9,77 @@ import 'package:viewed/presentation/lists/controller/state/state.dart';
 class AnimeCubit extends Cubit<AnimeState> {
   final ViewedRepository _storageRepository;
 
+  final List<String> _sortOptions;
+
   late final StreamSubscription<List<ViewedEntity>> _animeListStreamSubscription;
 
-  AnimeCubit({required ViewedRepository storageRepository})
+  AnimeCubit({required ViewedRepository storageRepository, required List<String> sortOptions})
     : _storageRepository = storageRepository,
-      super(const AnimeState()) {
+      _sortOptions = sortOptions,
+      super(AnimeState(sortOptions: sortOptions)) {
     _animeListStreamSubscription = _storageRepository
         .watchViewed('anime')
         .listen(_onAnimeData, onError: _onAnimeError);
+  }
+
+  void sort(String? sortType, String listType) {
+    if (sortType == null) return;
+    final sortTypeIndex = _sortOptions.indexWhere((item) => item == sortType);
+
+    switch (listType) {
+      case 'planned':
+        emit(
+          state.copyWith(
+            planned: _sortByIndex(sortTypeIndex, state.planned),
+            plannedSort: _sortOptions[sortTypeIndex],
+          ),
+        );
+      case 'inProcess':
+        emit(
+          state.copyWith(
+            inProcess: _sortByIndex(sortTypeIndex, state.inProcess),
+            inProcessSort: _sortOptions[sortTypeIndex],
+          ),
+        );
+      case 'viewed':
+        emit(
+          state.copyWith(
+            viewed: _sortByIndex(sortTypeIndex, state.viewed),
+            viewedSort: _sortOptions[sortTypeIndex],
+          ),
+        );
+    }
+  }
+
+  List<ViewedEntity> _sortByIndex(int sortTypeIndex, List<ViewedEntity> list) {
+    final sortedList = list.toList();
+    switch (sortTypeIndex) {
+      case 0:
+        sortedList.sort((a, b) {
+          final aDate = DateFormat('dd.MM.yyyy').parse(a.dateAdded!);
+          final bDate = DateFormat('dd.MM.yyyy').parse(b.dateAdded!);
+          return bDate.compareTo(aDate);
+        });
+        break;
+      case 1:
+        sortedList.sort((a, b) {
+          final aDate = DateFormat('dd.MM.yyyy').parse(a.dateAdded!);
+          final bDate = DateFormat('dd.MM.yyyy').parse(b.dateAdded!);
+          return aDate.compareTo(bDate);
+        });
+        break;
+      case 2:
+        sortedList.sort((a, b) {
+          return a.name!.toLowerCase().compareTo(b.name!.toLowerCase());
+        });
+        break;
+      case 3:
+        sortedList.sort((a, b) {
+          return b.rating!.kp!.compareTo(a.rating!.kp!);
+        });
+        break;
+    }
+    return sortedList;
   }
 
   void setAsViewed(ViewedEntity entity) {
